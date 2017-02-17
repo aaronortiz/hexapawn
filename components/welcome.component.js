@@ -1,6 +1,6 @@
 var welcome = angular.module('welcome');
 
-welcome.controller('welcomeCrlr', ['$scope', function ($scope) {
+welcome.controller('welcomeCtlr', ['$scope', function ($scope) {
 
   }
 ]);
