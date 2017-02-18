@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{i18n.APP_TITLE}}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <h1>{{i18n.APP_TITLE}}</h1>
+
+    <ul class="welcome_menu">
+      <li>
+        <button ng-click="startGame('HUMAN_VS_HUMAN')">
+          {{i18n.HUMAN_VS_HUMAN}}
+        </button>
+      </li>
+      <li>
+        <button ng-click="startGame('HUMAN_VS_AI')">
+          {{i18n.HUMAN_VS_AI}}
+        </button>
+      </li>
+      <li>
+        <button ng-click="startGame('AI_VS_AI')">
+          {{i18n.AI_VS_AI}}
+        </button>
+      </li>
+    </ul>
+
+  </body>
+</html>

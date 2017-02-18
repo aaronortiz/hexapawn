@@ -1,0 +1,6 @@
+{ 
+  "APP_TITLE":      "Hexapeón",
+  "HUMAN_VS_HUMAN": "Humano vs. Humano",
+  "HUMAN_VS_AI":    "Humano vs. IA",
+  "AI_VS_AI":       "IA vs. IA"
+}

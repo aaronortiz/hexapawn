@@ -1,22 +1,36 @@
 var hexapawn = angular.module('hexapawnApp', [
   'ngRoute',
+  'i18n',
   'welcome',
-  'board'
+  'humanVsHuman',
+  'humanVsAi',
+  'aiVsAi'
 ]);
-
 hexapawn.config(function ($routeProvider) {
 
   $routeProvider
     // Route for welcome screen
     .when('/', {
-      templateUrl: 'components/welcome.template.html',
+      templateUrl: 'components/welcome/welcome.template.html',
       controller: 'welcomeCtlr'
     })
 
-    // Route for game board
-    .when('/board', {
-      templateUrl: 'components/board.template.html',
-      controller: 'boardCtlr'
+    // Route for human vs. human
+    .when('/huvshu', {
+      templateUrl: 'components/huvshu/huvshu.template.html',
+      controller: 'humanVsHumanCtlr'
+    })
+
+    // Route for human vs. ai
+    .when('/huvsai', {
+      templateUrl: 'components/huvsai/huvsai.template.html',
+      controller: 'humanVsAiCtlr'
+    })
+
+    // Route for ai vs. ai
+    .when('/aivsai', {
+      templateUrl: 'components/aivsai/aivsai.template.html',
+      controller: 'aiVsAiCtlr'
     });
 });
 

@@ -9,17 +9,27 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">    
 
     <!-- jQuery -->
-    <script src="vendor/jquery/v2.2.4/jquery-2.2.4.min.js"      type="text/javascript"></script>
+    <script src="vendor/jquery/v2.2.4/jquery-2.2.4.min.js"         type="text/javascript"></script>
 
     <!-- ANGULAR -->    
-    <script src="vendor/angular/angular-1.4.9/angular.js"       type="text/javascript"></script>
-    <script src="vendor/angular/angular-1.4.9/angular-route.js" type="text/javascript"></script>
+    <script src="vendor/angular/angular-1.4.9/angular.js"          type="text/javascript"></script>
+    <script src="vendor/angular/angular-1.4.9/angular-route.js"    type="text/javascript"></script>
+    <script src="vendor/angular/angular-1.4.9/angular-resource.js" type="text/javascript"></script>
 
-    <script src="components/board.module.js"                    type="text/javascript"></script>    
-    <script src="components/board.component.js"                 type="text/javascript"></script>
+    <!-- CORE SERVICES -->
+    <script src="core/services/i18n/i18n.js"                       type="text/javascript"></script>
 
-    <script src="components/welcome.module.js"                  type="text/javascript"></script>
-    <script src="components/welcome.component.js"               type="text/javascript"></script>
+    <script src="components/welcome/welcome.module.js"             type="text/javascript"></script>
+    <script src="components/welcome/welcome.component.js"          type="text/javascript"></script>
+
+    <script src="components/huvshu/huvshu.module.js"               type="text/javascript"></script>
+    <script src="components/huvshu/huvshu.component.js"            type="text/javascript"></script>
+
+    <script src="components/huvsai/huvsai.module.js"               type="text/javascript"></script>
+    <script src="components/huvsai/huvsai.component.js"            type="text/javascript"></script>
+
+    <script src="components/aivsai/aivsai.module.js"               type="text/javascript"></script>
+    <script src="components/aivsai/aivsai.component.js"            type="text/javascript"></script>
 
     <script src="hexapawn.js"></script>
 
@@ -28,8 +38,6 @@
   </head>
 
   <body ng-app="hexapawnApp">
-
-    <h1>Hexapawn</h1>
 
     <div ng-view></div>
 
