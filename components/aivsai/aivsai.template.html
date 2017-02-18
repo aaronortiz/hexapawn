@@ -51,21 +51,20 @@
     <tr ng-show="showBoxes" ng-repeat="row in range(6) track by $index">
 
       <td colspan="2" class="box">
-
         {{boxes[0 + (4 * $index)].turn}}
-        <span ng-repeat="move in boxes[0 + (4 * $index)].moves" class="{{move}}"><i class="material-icons">forward</i></span>
+        <span ng-repeat="move in boxes[0 + (4 * $index)].moves" class="{{move}}"><i class="material-icons">attach_file</i></span>
       </td>
       <td colspan="2" class="box">
         {{boxes[1 + (4 * $index)].turn}}
-        <span ng-repeat="move in boxes[1 + (4 * $index)].moves" class="{{move}}"><i class="material-icons">forward</i></span>
+        <span ng-repeat="move in boxes[1 + (4 * $index)].moves" class="{{move}}"><i class="material-icons">attach_file</i></span>
       </td>
       <td colspan="2" class="box">
         {{boxes[2 + (4 * $index)].turn}}
-        <span ng-repeat="move in boxes[2 + (4 * $index)].moves" class="{{move}}"><i class="material-icons">forward</i></span>
+        <span ng-repeat="move in boxes[2 + (4 * $index)].moves" class="{{move}}"><i class="material-icons">attach_file</i></span>
       </td>
       <td colspan="2" class="box">
         {{boxes[3 + (4 * $index)].turn}}
-        <span ng-repeat="move in boxes[3 + (4 * $index)].moves" class="{{move}}"><i class="material-icons">forward</i></span>
+        <span ng-repeat="move in boxes[3 + (4 * $index)].moves" class="{{move}}"><i class="material-icons">attach_file</i></span>
       </td>
 
     </tr>
