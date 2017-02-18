@@ -1,6 +1,6 @@
-var huvshu = angular.module('humanVsAi');
+var huvsai = angular.module('humanVsAi');
 
-huvshu.controller('humanVsAiCtlr', ['$scope', function ($scope) {
+huvsai.controller('humanVsAiCtlr', ['$scope', function ($scope) {
 
     $scope.showBoxes = true;
 
