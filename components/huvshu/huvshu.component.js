@@ -1,8 +1,17 @@
 var huvshu = angular.module('humanVsHuman');
 
-huvshu.controller('humanVsHumanCtlr', ['$scope', function ($scope) {
+huvshu.controller('humanVsHumanCtlr', [
+  '$scope',
+  'i18n',
+  function ($scope, i18n) {
+
+    i18n.getI18nStrings('EN', function (data) {
+      $scope.i18n = data;
+    });
 
     $scope.showBoxes = true;
+    $scope.boardState = 'WWW   BBB';
+    $scope.moves = ['a3a2', 'b3b2', 'c3c2'];
 
     $scope.boxes = [];
 

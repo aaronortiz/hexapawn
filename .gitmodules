@@ -1,0 +1,3 @@
+[submodule "vendor/willsoto"]
+	path = vendor/willsoto
+	url = https://github.com/willsoto/angular-chartist.js.git

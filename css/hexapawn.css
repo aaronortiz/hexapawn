@@ -17,6 +17,7 @@ body {
 h1, h2, h3, h4 {
   text-align: center;
   font-family: Megrim, 'Sans Serif';
+
 }
 
 #app_screen {
@@ -45,7 +46,6 @@ h1, h2, h3, h4 {
 #welcome_screen ul {
   list-style-type: none;
   padding: none;
-
 }
 
 ul.welcome_menu {
@@ -56,7 +56,6 @@ ul.welcome_menu {
 
 
 #welcome_screen button {
-  /*  background: url(../assets/bg1.jpg) bottom center no-repeat; */
   color: white;
   border-radius: 0.3em;
   border: none;
@@ -69,6 +68,23 @@ ul.welcome_menu {
 
 #welcome_screen button:hover {
   border: 2px solid yellow;
+}
+
+#game_screen {
+
+  width: 50%;
+  min-width: 13em;
+  margin: 0 auto;
+  background-color: #004c00;
+  padding: 0.5em 2em 2em;
+  border: 2px solid #397f43;
+  border-radius: 1em;
+  background: url(../assets/bg2.jpg) bottom center no-repeat;  
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
 }
 
 .green {
@@ -87,9 +103,137 @@ ul.welcome_menu {
   color: #ffff3a;
 }
 
+.white {
+  color: white;
+}
+
+.black {
+  color: black;
+}
+
 .box {
   border: 1px solid #d4c900;
   padding: 0.5em;
-  width: 7em;
+  max-width: 6em;
   background: url(../assets/bg2.jpg) bottom center no-repeat;  
+}
+
+#board-container {
+  background-color: green;
+  width: 12em;
+  margin: auto;
+  padding: .3em;
+  background: url(../assets/textures/seamless-wood-background-2.jpg) center center repeat;  
+  background: url(../assets/textures/seamless-wood1.jpg) bottom right repeat;  
+
+}
+
+table {
+  border-collapse: collapse;
+}
+
+.tile {
+  height: 4em;
+  width: 4em;
+  background: url(../assets/textures/seamless-wood1.jpg) top left repeat;  
+  background: url(../assets/textures/Free-Seamless-Wood-Textures-Patterns-For-3D-Mapping.jpg) top left repeat;  
+  background: url(../assets/textures/seamless-wood-background-2.jpg) center center repeat;  
+  background: #ded;
+  text-align: center;
+  overflow: visible;
+  position: relative;
+}
+
+.dark {
+  background: url(../assets/textures/seamless-wood3.jpg) bottom right repeat;  
+  background: url(../assets/textures/seamless-wood1.jpg) top left repeat;  
+  background: lightgreen
+}
+
+.top-left {
+  background-position: top left;
+}
+
+.top-center {
+  background-position: top center;
+}
+
+.top-right {
+  background-position: top right;
+}
+
+.middle-left {
+  background-position: center left;
+}
+
+.middle-center {
+  background-position: center center;
+}
+
+.middle-right {
+  background-position: center right;
+}
+
+
+.bottom-left {
+  background-position: bottom left;
+}
+
+.bottom-center {
+  background-position: bottom center;
+}
+
+.bottom-right {
+  background-position: bottom right;
+}
+
+.pawn {
+  font-size: 200%;
+}
+
+.cell-label {
+  font-family: Quattrocento;
+  font-size: .7em;
+  color: black;
+  opacity: .15;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 0em;
+  left: 0em;
+}
+
+
+#moves {
+  width: 12.8em;
+  margin: auto;  
+}
+
+#moves button {
+  color: white;
+  border-radius: 0.3em;
+  border: none;
+  margin: .2em 0em 0em;
+  background-color: #d4c900;
+  font-family: Quattrocento;
+  font-size: 200%;
+  float: left;
+  width: 6.4em;
+  height: 1.5em;
+}
+
+#moves button.move-0 {
+  background-color: #ff3a3a;  
+}
+
+#moves button.move-1 {
+  background-color: #3a3aff;  
+}
+
+#moves button.move-2 {
+  background-color: #3aff3a;  
+}
+
+#moves button.move-3 {
+  background-color: #ffff3a;  
 }

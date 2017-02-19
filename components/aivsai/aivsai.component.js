@@ -1,6 +1,13 @@
 var aivsai = angular.module('aiVsAi');
 
-aivsai.controller('aiVsAiCtlr', ['$scope', function ($scope) {
+aivsai.controller('aiVsAiCtlr', [
+  '$scope',
+  'i18n',
+  function ($scope, i18n) {
+
+    i18n.getI18nStrings('EN', function (data) {
+      $scope.i18n = data;
+    });
 
     $scope.showBoxes = true;
 

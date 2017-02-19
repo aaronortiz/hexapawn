@@ -8,6 +8,7 @@ welcome.controller('welcomeCtlr', [
     i18n.getI18nStrings('EN', function (data) {
       $scope.i18n = data;
     });
+
     $scope.startGame = function (gameType) {
 
       switch (gameType) {

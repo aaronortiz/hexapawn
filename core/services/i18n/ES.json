@@ -1,6 +1,8 @@
-{ 
-  "APP_TITLE":      "Hexapeón",
+{
+  "AI_VS_AI": "IA vs. IA",
+  "APP_TITLE": "Hexapeón",
+  "HUMAN_VS_AI": "Humano vs. IA",
   "HUMAN_VS_HUMAN": "Humano vs. Humano",
-  "HUMAN_VS_AI":    "Humano vs. IA",
-  "AI_VS_AI":       "IA vs. IA"
+  "RETURN_TO_MAIN_MENU": "Return to main menu",
+  "SETUP_GAME": "Parámetros de Juego"
 }

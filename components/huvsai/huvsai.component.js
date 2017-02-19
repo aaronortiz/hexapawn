@@ -1,6 +1,13 @@
 var huvsai = angular.module('humanVsAi');
 
-huvsai.controller('humanVsAiCtlr', ['$scope', function ($scope) {
+huvsai.controller('humanVsAiCtlr', [
+  '$scope',
+  'i18n',
+  function ($scope, i18n) {
+
+    i18n.getI18nStrings('EN', function (data) {
+      $scope.i18n = data;
+    });
 
     $scope.showBoxes = true;
 

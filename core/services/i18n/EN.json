@@ -1,6 +1,8 @@
 {
-  "APP_TITLE":      "Hexapawn",
+  "AI_VS_AI": "AI vs. AI",
+  "APP_TITLE": "Hexapawn",
+  "HUMAN_VS_AI": "Human vs. AI",
   "HUMAN_VS_HUMAN": "Human vs. Human",
-  "HUMAN_VS_AI":    "Human vs. AI",
-  "AI_VS_AI":       "AI vs. AI"
+  "RETURN_TO_MAIN_MENU": "Return to main menu",
+  "SETUP_GAME": "Setup Game"
 }

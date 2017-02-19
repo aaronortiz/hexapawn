@@ -1,0 +1,68 @@
+<div id="board-container">
+  <table id="board">
+
+    <tr> <!--(Row 3)-->
+      <td class="dark tile top-left">
+        <div class="white pawn" ng-if="boardState.substring(0, 1) === 'W'">&#9823;</div>
+        <div class="black pawn" ng-if="boardState.substring(0, 1) === 'B'">&#9823;</div>       
+        <div class="cell-label">a3</div>
+      </td> <!-- cell a3 -->
+      <td class="tile top-center">
+        <div class="white pawn" ng-if="boardState.substring(1, 2) === 'W'">&#9823;</div>
+        <div class="black pawn" ng-if="boardState.substring(1, 2) === 'B'">&#9823;</div>       
+        <div class="cell-label">b3</div>
+      </td> <!-- cell b3 -->
+      <td class="dark tile top-right">
+        <div class="white pawn" ng-if="boardState.substring(2, 3) === 'W'">&#9823;</div>
+        <div class="black pawn" ng-if="boardState.substring(2, 3) === 'B'">&#9823;</div>       
+        <div class="cell-label">c3</div>
+      </td> <!-- cell c3 -->
+
+    </tr>
+
+    <tr> <!--(Row 2)-->
+      <td class="tile middle-left">
+        <div class="white pawn" ng-if="boardState.substring(3, 4) === 'W'">&#9823;</div>
+        <div class="black pawn" ng-if="boardState.substring(3, 4) === 'B'">&#9823;</div>       
+        <div class="cell-label">a2</div>
+      </td> <!-- cell a2 -->
+      <td class="dark tile middle-center">
+        <div class="white pawn" ng-if="boardState.substring(4, 5) === 'W'">&#9823;</div>
+        <div class="black pawn" ng-if="boardState.substring(4, 5) === 'B'">&#9823;</div>       
+        <div class="cell-label">b2</div>
+      </td> <!-- cell b2 -->
+      <td class="tile middle-right">
+        <div class="white pawn" ng-if="boardState.substring(5, 6) === 'W'">&#9823;</div>
+        <div class="black pawn" ng-if="boardState.substring(5, 6) === 'B'">&#9823;</div>       
+        <div class="cell-label">c2</div>
+      </td> <!-- cell c2 -->
+
+    </tr>
+
+    <tr> <!--(Row 1)-->
+      <td class="dark tile bottom-left">
+        <div class="white pawn" ng-if="boardState.substring(6, 7) === 'W'">&#9823;</div>
+        <div class="black pawn" ng-if="boardState.substring(6, 7) === 'B'">&#9823;</div>       
+        <div class="cell-label">a1</div>
+      </td> <!-- cell a1 -->
+      <td class="tile bottom-center">
+        <div class="white pawn" ng-if="boardState.substring(7, 8) === 'W'">&#9823;</div>
+        <div class="black pawn" ng-if="boardState.substring(7, 8) === 'B'">&#9823;</div>       
+        <div class="cell-label">b1</div>
+      </td> <!-- cell b1 -->
+      <td class="dark tile bottom-right">
+        <div class="white pawn" ng-if="boardState.substring(8, 9) === 'W'">&#9823;</div>
+        <div class="black pawn" ng-if="boardState.substring(8, 9) === 'B'">&#9823;</div>       
+        <div class="cell-label">c1</div>
+      </td> <!-- cell c1 -->
+    </tr>
+
+  </table>
+
+</div>
+
+<div id="moves">  
+  <span ng-repeat="(id, m) in moves">
+    <button class="{{'move-' + id}}">{{m}}</button>      
+  </span>
+</div>
