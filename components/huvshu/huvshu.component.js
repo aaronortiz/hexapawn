@@ -9,7 +9,7 @@ huvshu.controller('humanVsHumanCtlr', [
       $scope.i18n = data;
     });
 
-    $scope.showBoxes = true;
+    $scope.playerNames = ['Aaron Ernesto Ortiz López', 'HAL 9000']
     $scope.boardState = 'WWW   BBB';
     $scope.moves = ['a3a2', 'b3b2', 'c3c2'];
 

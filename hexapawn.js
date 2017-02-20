@@ -39,6 +39,7 @@ hexapawn.directive('hxpBoard', function () {
   return {
     scope: {
       gameType: '=gametype',
+      playerNames: '=playernames',
       boardState: '=boardstate',
       moves: '=moves'
     },

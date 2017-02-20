@@ -1,0 +1,33 @@
+#moves {
+  width: 12.8em;
+  margin: auto;  
+}
+
+#moves button {
+  color: white;
+  border-radius: 0.3em;
+  border: none;
+  margin: .2em 0em 0em;
+  background-color: #d4c900;
+  font-family: Quattrocento;
+  font-size: 200%;
+  float: left;
+  width: 6.4em;
+  height: 1.5em;
+}
+
+#moves button.move-0 {
+  background-color: #ff3a3a;  
+}
+
+#moves button.move-1 {
+  background-color: #3a3aff;  
+}
+
+#moves button.move-2 {
+  background-color: #3aff3a;  
+}
+
+#moves button.move-3 {
+  background-color: #ffff3a;  
+}

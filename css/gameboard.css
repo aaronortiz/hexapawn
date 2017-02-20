@@ -1,0 +1,137 @@
+#game-screen {
+
+  width: 50%;
+  min-width: 13em;
+  margin: 0 auto;
+  background-color: #004c00;
+  padding: 0.5em 2em 2em;
+  border: 2px solid #397f43;
+  border-radius: 1em;
+  background: url(../assets/bg2.jpg) bottom center no-repeat;  
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+}
+
+#game-screen h1, #game-screen h2, #game-screen h3, #game-screen h4 {
+  margin: 0em 0em .2em;
+  padding: 0em;
+}
+
+.green {
+  color: #3ab93a;
+}
+
+.red {
+  color: #ff3a3a;
+}
+
+.blue {
+  color: #3a3aff;
+}
+
+.yellow {
+  color: #ffff3a;
+}
+
+.white {
+  color: white;
+}
+
+.black {
+  color: black;
+}
+
+.box {
+  border: 1px solid #d4c900;
+  padding: 0.5em;
+  max-width: 6em;
+  background: url(../assets/bg2.jpg) bottom center no-repeat;  
+}
+
+#board-container {
+  background-color: green;
+  width: 12em;
+  margin: auto;
+  padding: .3em;
+  background: url(../assets/textures/seamless-wood-background-2.jpg) center center repeat;  
+  background: url(../assets/textures/seamless-wood1.jpg) bottom right repeat;  
+
+}
+
+table {
+  border-collapse: collapse;
+}
+
+.tile {
+  height: 4em;
+  width: 4em;
+  background: url(../assets/textures/seamless-wood1.jpg) top left repeat;  
+  background: url(../assets/textures/Free-Seamless-Wood-Textures-Patterns-For-3D-Mapping.jpg) top left repeat;  
+  background: url(../assets/textures/seamless-wood-background-2.jpg) center center repeat;  
+  background: #ded;
+  text-align: center;
+  overflow: visible;
+  position: relative;
+}
+
+.dark {
+  background: url(../assets/textures/seamless-wood3.jpg) bottom right repeat;  
+  background: url(../assets/textures/seamless-wood1.jpg) top left repeat;  
+  background: lightgreen
+}
+
+.top-left {
+  background-position: top left;
+}
+
+.top-center {
+  background-position: top center;
+}
+
+.top-right {
+  background-position: top right;
+}
+
+.middle-left {
+  background-position: center left;
+}
+
+.middle-center {
+  background-position: center center;
+}
+
+.middle-right {
+  background-position: center right;
+}
+
+
+.bottom-left {
+  background-position: bottom left;
+}
+
+.bottom-center {
+  background-position: bottom center;
+}
+
+.bottom-right {
+  background-position: bottom right;
+}
+
+.pawn {
+  font-size: 200%;
+}
+
+.cell-label {
+  font-family: Quattrocento;
+  font-size: .7em;
+  color: black;
+  opacity: .15;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 0em;
+  left: 0em;
+}
