@@ -36,6 +36,7 @@ h1, h2, h3, h4 {
   margin: 0em;
   left: 0em;
   top: 0em;
+  text-align: center;
 }
 
 a i {
@@ -43,3 +44,12 @@ a i {
   position: relative;
 }
 
+a {
+  font-family: Megrim;
+  text-decoration: underline;
+  color: white;
+}
+
+a:hover {
+  color: yellow;
+}

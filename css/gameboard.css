@@ -204,13 +204,20 @@ table {
 @media (min-width: 75em) and (max-height:80em) {
 
   #game-screen {
-    font-size: 200%
+    font-size: 200%;
+    width: 60%
   }
 
   #board-container {
-    float:left
+    float:left;
+    width: 12em;
   }
   #moves {
     float:right
+  }
+
+  .tile {
+    height: 4em;
+    width: 4em;
   }
 }
