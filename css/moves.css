@@ -1,18 +1,18 @@
 #moves {
-  width: 12.8em;
+  width: 9em;
   margin: auto;  
 }
 
 #moves button {
   color: white;
   border-radius: 0.3em;
-  border: none;
+  border: .1em solid #135a3c;
   margin: .2em 0em 0em;
   background-color: #d4c900;
   font-family: Quattrocento;
   font-size: 200%;
-  float: left;
-  width: 6.4em;
+  /*float: left;*/
+  width: 100%;
   height: 1.5em;
 }
 
@@ -20,12 +20,16 @@
   background-color: #ff3a3a;  
 }
 
+#moves button:hover {
+  border-color: yellow;
+}
+
 #moves button.move-1 {
   background-color: #3a3aff;  
 }
 
 #moves button.move-2 {
-  background-color: #3aff3a;  
+  background-color: #00ad00;  
 }
 
 #moves button.move-3 {

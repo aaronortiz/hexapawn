@@ -1,13 +1,9 @@
 #welcome_screen {
-  border: 2px solid #397f43;
+  border: .15em solid #397f43;
   border-radius: 1em;
 
   background-color: #004c00;
   background: url(../assets/bg2.jpg) bottom center no-repeat;
-
-  font-size: 200%;
-
-  margin: 0 auto;
 
   padding: 0em 2em 2em;
   position: absolute;
@@ -37,10 +33,30 @@ ul.welcome_menu {
   width: 15em;
   background-color: #d4c900;
   font-family: Quattrocento;
-  border: 2px solid #aaa100;
+  border: 0.15em solid #aaa100;
   font-size: 0.65em;
 }
 
 #welcome_screen button:hover {
-  border: 2px solid yellow;
+  border: 0.15em solid yellow;
+}
+
+/* Responsive media breaks */
+@media (min-width: 21em) and (min-height:10em) {
+  #welcome_screen {
+    font-size: 150%;
+  }
+}
+
+@media (min-width: 34em) and (min-height:24em) {
+  #welcome_screen {
+    font-size: 200%;
+  }
+}
+
+
+@media (min-width: 49em) and (min-height:26em) {
+  #welcome_screen {
+    font-size: 400%;
+  }
 }

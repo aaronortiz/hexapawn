@@ -1,22 +1,20 @@
 #game-screen {
-
   width: 50%;
   min-width: 13em;
   margin: 0 auto;
   background-color: #004c00;
-  padding: 0.5em 2em 2em;
-  border: 2px solid #397f43;
+  padding: 1.5em 2em 2em;
+  border: .2em solid #397f43;
   border-radius: 1em;
-  background: url(../assets/bg2.jpg) bottom center no-repeat;  
-
+  background: url(../assets/bg2.jpg) bottom center no-repeat;
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translateY(-50%) translateX(-50%);
+  transform: translateY(-50%) translateX(-50%);  
 }
 
 #game-screen h1, #game-screen h2, #game-screen h3, #game-screen h4 {
-  margin: 0em 0em .2em;
+  margin: 0em 0em .4em;
   padding: 0em;
 }
 
@@ -53,12 +51,11 @@
 
 #board-container {
   background-color: green;
-  width: 12em;
-  margin: auto;
+  width: 9em;
+  margin: 1em auto;
   padding: .3em;
-  background: url(../assets/textures/seamless-wood-background-2.jpg) center center repeat;  
-  background: url(../assets/textures/seamless-wood1.jpg) bottom right repeat;  
-
+  background: url(../assets/textures/seamless-wood-background-2.jpg) center center repeat;
+  background: url(../assets/textures/seamless-wood1.jpg) bottom right repeat;
 }
 
 table {
@@ -66,11 +63,11 @@ table {
 }
 
 .tile {
-  height: 4em;
-  width: 4em;
-  background: url(../assets/textures/seamless-wood1.jpg) top left repeat;  
-  background: url(../assets/textures/Free-Seamless-Wood-Textures-Patterns-For-3D-Mapping.jpg) top left repeat;  
-  background: url(../assets/textures/seamless-wood-background-2.jpg) center center repeat;  
+  height: 3em;
+  width: 3em;
+  background: url(../assets/textures/seamless-wood1.jpg) top left repeat;
+  background: url(../assets/textures/Free-Seamless-Wood-Textures-Patterns-For-3D-Mapping.jpg) top left repeat;
+  background: url(../assets/textures/seamless-wood-background-2.jpg) center center repeat;
   background: #ded;
   text-align: center;
   overflow: visible;
@@ -121,7 +118,8 @@ table {
 }
 
 .pawn {
-  font-size: 200%;
+  font-size: 180%;
+  margin-top: -.15em;
 }
 
 .cell-label {
@@ -129,9 +127,90 @@ table {
   font-size: .7em;
   color: black;
   opacity: .15;
-  padding: 0;
+  padding: .4em;
   margin: 0;
   position: absolute;
   top: 0em;
   left: 0em;
+}
+
+/* Responsive media breaks */
+
+@media (max-width: 20em) and (max-height: 36em) {
+  #game-screen {
+    font-size: 80%
+  }
+}
+
+@media (min-width: 26em) and (min-height:30em) {
+  #game-screen {
+    font-size: 150%
+  }
+}
+
+
+@media (min-width: 50em) and (min-height:65em) {
+  #game-screen {
+    font-size: 200%
+  }
+
+}
+
+
+@media (min-width: 35em) and (max-height:26em) {
+
+  #game-screen {
+    font-size: 80%;
+  }
+
+  #board-container {
+    float:left
+  }
+  #moves {
+    float:right
+  }
+}
+
+@media (min-width: 46em) and (max-height:26em) {
+
+  #game-screen {
+    font-size: 100%;
+
+  }
+
+  #board-container {
+    float:left
+  }
+  #moves {
+    float:right
+  }
+}
+
+
+@media (min-width: 60em) and (max-height:48em) {
+
+  #game-screen {
+    font-size: 150%
+  }
+
+  #board-container {
+    float:left
+  }
+  #moves {
+    float:right
+  }
+}
+
+@media (min-width: 75em) and (max-height:80em) {
+
+  #game-screen {
+    font-size: 200%
+  }
+
+  #board-container {
+    float:left
+  }
+  #moves {
+    float:right
+  }
 }

@@ -11,7 +11,7 @@ huvshu.controller('humanVsHumanCtlr', [
 
     $scope.playerNames = ['Aaron Ernesto Ortiz López', 'HAL 9000']
     $scope.boardState = 'WWW   BBB';
-    $scope.moves = ['a3a2', 'b3b2', 'c3c2'];
+    $scope.moves = ['a3a2', 'b3b2', 'c3c2', 'xyxz'];
 
     $scope.boxes = [];
 
