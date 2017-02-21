@@ -3,7 +3,14 @@
 
   <h1>{{i18n.APP_TITLE}}</h1>
 
-  <hxp-board gametype="huvshu" gamedata="game"></hxp-board>
+  <hxp-board gametype="huvshu" 
+             gamedata="game" 
+             i18n="i18n" 
+             on-move="doMove(move)" 
+             on-repeat="initializeData()"
+             on-return-to-main-menu="returnToMainMenu()">
+
+  </hxp-board>
 
 </div>
 

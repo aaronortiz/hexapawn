@@ -44,6 +44,7 @@ setup.controller('setupCtlr', [
 
       $window.sessionStorage.player1Name = $scope.player1Name;
       $window.sessionStorage.player2Name = $scope.player2Name;
+      delete $window.sessionStorage.game;
 
       switch ($window.sessionStorage.gameType) {
         case 'HUMAN_VS_HUMAN':

@@ -12,7 +12,10 @@
   "PLAYER_1_NAME": "Player 1 name",
   "PLAYER_2": "Player 2",
   "PLAYER_2_NAME": "Player 2 name",
-  "RETURN_TO_MAIN_MENU": "Return to main menu",
+  "REPEAT_GAME": "Repeat game",
+  "RETURN_TO_MAIN_MENU": "Back to main menu",
   "SETUP_GAME": "Setup Game",
-  "START_GAME": "Start Game"
+  "START_GAME": "Start Game",
+  "TIE": "Tie",
+  "VICTORY": "Victory!"
 }

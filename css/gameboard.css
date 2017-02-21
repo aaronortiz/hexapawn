@@ -54,7 +54,6 @@
   width: 9em;
   margin: 1em auto;
   padding: .3em;
-  background: url(../assets/textures/seamless-wood-background-2.jpg) center center repeat;
   background: url(../assets/textures/seamless-wood1.jpg) bottom right repeat;
 }
 
@@ -65,60 +64,23 @@ table {
 .tile {
   height: 3em;
   width: 3em;
-  background: url(../assets/textures/seamless-wood1.jpg) top left repeat;
-  background: url(../assets/textures/Free-Seamless-Wood-Textures-Patterns-For-3D-Mapping.jpg) top left repeat;
-  background: url(../assets/textures/seamless-wood-background-2.jpg) center center repeat;
-  background: #ded;
   text-align: center;
+  vertical-align: middle;
+  padding: 0em;
   overflow: visible;
   position: relative;
+  background: #afd172;
+  background: url(../assets/bg2.jpg) top center no-repeat;  
+
 }
 
 .dark {
-  background: url(../assets/textures/seamless-wood3.jpg) bottom right repeat;  
-  background: url(../assets/textures/seamless-wood1.jpg) top left repeat;  
-  background: lightgreen
-}
-
-.top-left {
-  background-position: top left;
-}
-
-.top-center {
-  background-position: top center;
-}
-
-.top-right {
-  background-position: top right;
-}
-
-.middle-left {
-  background-position: center left;
-}
-
-.middle-center {
-  background-position: center center;
-}
-
-.middle-right {
-  background-position: center right;
-}
-
-
-.bottom-left {
-  background-position: bottom left;
-}
-
-.bottom-center {
-  background-position: bottom center;
-}
-
-.bottom-right {
-  background-position: bottom right;
+  background: #68a45e;
+  background: url(../assets/bg2.jpg) center center no-repeat;
 }
 
 .pawn {
-  font-size: 180%;
+  font-size: 200%;
   margin-top: -.15em;
 }
 
@@ -126,12 +88,31 @@ table {
   font-family: Quattrocento;
   font-size: .7em;
   color: black;
-  opacity: .15;
-  padding: .4em;
+  opacity: .5;
+  padding: 0em;
   margin: 0;
   position: absolute;
-  top: 0em;
+  bottom: 0em;
   left: 0em;
+  width: 100%;
+    text-align: center;
+}
+
+#game-screen button {
+  color: white;
+  border-radius: 0.3em;
+  border: none;
+  margin: .2em 0em;
+  width: 9em;
+  background-color: #d4c900;
+  font-family: Quattrocento;
+  border: 0.15em solid #aaa100;
+  font-size: 1em;
+}
+
+#game-over {
+  width: 9em;
+  margin: auto;  
 }
 
 /* Responsive media breaks */
@@ -166,7 +147,7 @@ table {
   #board-container {
     float:left
   }
-  #moves {
+  #moves, #game-over {
     float:right
   }
 }
@@ -181,7 +162,7 @@ table {
   #board-container {
     float:left
   }
-  #moves {
+  #moves, #game-over {
     float:right
   }
 }
@@ -196,7 +177,7 @@ table {
   #board-container {
     float:left
   }
-  #moves {
+  #moves, #game-over {
     float:right
   }
 }
@@ -212,7 +193,7 @@ table {
     float:left;
     width: 12em;
   }
-  #moves {
+  #moves, #game-over {
     float:right
   }
 

@@ -1,4 +1,15 @@
-<h3>move {{game.moveCount + 1}}:<br>{{game.players[game.currentPlayer]}}</h3>
+<h3 ng-if="game.victory == ' ' && game.moves.length > 0">
+  move {{game.moveCount + 1}}:<br>{{game.players[game.currentPlayer]}}
+</h3>
+
+<h3 ng-if="game.victory != ' '">
+  {{i18n.VICTORY}}<br>{{game.players[game.currentPlayer]}}
+</h3>
+
+<h3 ng-if="game.victory == ' ' && game.moves.length == 0">
+  {{i18n.TIE}}
+</h3>
+
 
 <div id="board-container">
   <table id="board">
@@ -65,6 +76,11 @@
 
 <div id="moves">
   <span ng-repeat="(id, m) in game.moves">
-    <button class="{{'move-' + id}}">{{m}}</button>
+    <button class="{{'move-' + id}}" ng-click="doMove({move: m})">{{m}}</button>
   </span>
+</div>
+
+<div id="game-over" ng-if="game.moves.length == 0">
+  <button ng-click="repeatGame()">{{i18n.REPEAT_GAME}}</button>
+  <button ng-click ="returnToMainMenu()">{{i18n.RETURN_TO_MAIN_MENU}}</button>
 </div>

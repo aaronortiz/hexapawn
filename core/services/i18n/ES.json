@@ -1,6 +1,8 @@
 {
   "AI_NAME": "Nombre de IA",
+  "AI_1": "IA 1",
   "AI_1_NAME": "Nombre de IA 1",
+  "AI_2": "IA 2",
   "AI_2_NAME": "Nombre de IA 2",
   "AI_VS_AI": "IA vs. IA",
   "APP_TITLE": "Hexapeón",
@@ -10,7 +12,10 @@
   "PLAYER_1_NAME": "Nombre de Jugador 1",
   "PLAYER_2": "Jugador 2",
   "PLAYER_2_NAME": "Nombre de Jugador 2",
+  "REPEAT_GAME": "Repetir juego",  
   "RETURN_TO_MAIN_MENU": "Return to main menu",
   "SETUP_GAME": "Parámetros de Juego",
-  "START_GAME": "Iniciar Juego"
+  "START_GAME": "Iniciar Juego",
+  "TIE": "Empate",
+  "VICTORY": "¡Victoria!"
 }

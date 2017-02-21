@@ -34,7 +34,7 @@ ul.welcome_menu {
   background-color: #d4c900;
   font-family: Quattrocento;
   border: 0.15em solid #aaa100;
-  font-size: 0.65em;
+  font-size: 1em;
 }
 
 #welcome_screen button:hover {

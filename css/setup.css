@@ -21,3 +21,15 @@
 #setup-screen input[type=text] {
   width: 80%;
 }
+
+#setup-screen button {
+  color: white;
+  border-radius: 0.3em;
+  border: none;
+  margin: .2em 0em;
+  width: 80%;
+  background-color: #d4c900;
+  font-family: Quattrocento;
+  border: 0.15em solid #aaa100;
+  font-size: 1.8em;
+}

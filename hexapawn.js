@@ -48,9 +48,14 @@ hexapawn.directive('hxpBoard', function () {
 
   return {
     scope: {
-      gameType: '=gametype',
-      game: '=gamedata'
+      'i18n': '=i18n',
+      'gameType': '=gametype',
+      'game': '=gamedata',
+      'doMove': '&onMove',
+      'repeatGame': '&onRepeat',
+      'returnToMainMenu': '&onReturnToMainMenu'
     },
+    transclude: true,
     templateUrl: 'core/directives/hxpBoard/hxpBoard.template.html'
   };
 

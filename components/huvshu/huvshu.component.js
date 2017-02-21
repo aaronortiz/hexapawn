@@ -2,29 +2,85 @@ var huvshu = angular.module('humanVsHuman');
 
 huvshu.controller('humanVsHumanCtlr', [
   '$scope',
+  '$location',
   '$window',
   'i18n',
   'GameLogic',
-  function ($scope, $window, i18n, GameLogic) {
+  function ($scope, $location, $window, i18n, GameLogic) {
 
     /*------------------------------------------------------------------------*/
     $scope.initializeData = function () {
 
       // initialize game
-      $scope.game = {};
-      $scope.game.boardState = $scope.logic.newGame;
-      $scope.game.moves = GameLogic.boardMoves($scope.game.boardState, 'W',
+      var game = {};
+      game.victory = ' ';
+      game.boardState = $scope.logic.newGame;
+      game.moves = GameLogic.boardMoves(game.boardState, 'W',
         $scope.logic);
 
-      $scope.game.moveCount = 0;
-      $scope.game.currentPlayer = 'W';
-      $scope.game.players = {
+      game.moveCount = 0;
+      game.currentPlayer = 'W';
+      game.players = {
         W: $window.sessionStorage.player1Name,
         B: $window.sessionStorage.player2Name
       };
 
-      $window.sessionStorage.game = JSON.stringify($scope.game);
+      $window.sessionStorage.game = JSON.stringify(game);
+      $scope.game = game;
 
+    };
+
+    /*------------------------------------------------------------------------*/
+    $scope.checkPersistence = function () {
+
+      if (!$scope.logic) {
+        if (!$window.sessionStorage.logic) {
+          GameLogic.readLogic(function (data) {
+
+            $scope.logic = data;
+            $window.sessionStorage.logic = JSON.stringify(data);
+            $scope.initializeData();
+
+          });
+        } else {
+          $scope.logic = JSON.parse($window.sessionStorage.logic);
+        }
+      }
+
+      if (!$scope.game) {
+        if (!$window.sessionStorage.game) {
+          $scope.initializeData();
+        } else {
+          $scope.game = JSON.parse($window.sessionStorage.game);
+        }
+      }
+    };
+
+    /*------------------------------------------------------------------------*/
+    $scope.doMove = function (move) {
+
+      var game = $scope.game;
+
+      $scope.checkPersistence();
+
+      game.moveCount++;
+      game.boardState = GameLogic.doMove(game.boardState, move, $scope.logic);
+
+      game.victory = GameLogic.checkVictory(game.boardState);
+      if (game.victory !== ' ') {
+        game.moves = [];
+      } else {
+        game.currentPlayer = (game.currentPlayer === 'W') ? 'B' : 'W'; // Toggle player
+        game.moves = GameLogic.boardMoves(game.boardState, game.currentPlayer, $scope.logic);
+      }
+
+      $window.sessionStorage.game = JSON.stringify(game);
+      $scope.game = game;
+
+    };
+
+    $scope.returnToMainMenu = function () {
+      $location.path('/');
     }
 
     /*------------------------------------------------------------------------*/
@@ -33,18 +89,7 @@ huvshu.controller('humanVsHumanCtlr', [
     });
 
     /*------------------------------------------------------------------------*/
-    GameLogic.readLogic(function (data) {
-
-      $scope.logic = data;
-      $window.sessionStorage.logic = JSON.stringify(data);
-      $scope.initializeData();
-
-    });
-
-    /*------------------------------------------------------------------------*/
-    $scope.doMove = function (move) {
-
-    };
+    $scope.checkPersistence();
 
   }
 ]);
