@@ -1,6 +1,7 @@
 var hexapawn = angular.module('hexapawnApp', [
   'ngRoute',
   'i18n',
+  'GameLogic',
   'ReadJSON',
   'welcome',
   'setup',
