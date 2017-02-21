@@ -1,11 +1,14 @@
 var hexapawn = angular.module('hexapawnApp', [
   'ngRoute',
   'i18n',
+  'ReadJSON',
   'welcome',
+  'setup',
   'humanVsHuman',
   'humanVsAi',
   'aiVsAi'
 ]);
+
 hexapawn.config(function ($routeProvider) {
 
   $routeProvider
@@ -13,6 +16,12 @@ hexapawn.config(function ($routeProvider) {
           .when('/', {
             templateUrl: 'components/welcome/welcome.template.html',
             controller: 'welcomeCtlr'
+          })
+
+          // Route for setup screen
+          .when('/setup', {
+            templateUrl: 'components/setup/setup.template.html',
+            controller: 'setupCtlr'
           })
 
           // Route for human vs. human

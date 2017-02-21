@@ -1,0 +1,107 @@
+{
+  "squares": [
+    {
+      "chessNotation": "a1",
+      "whiteLegalMoves": [
+      ],
+      "blackLegalMoves": [
+        "a1a2",
+        "a1b2"
+      ]
+    },
+    {
+      "chessNotation": "b1",
+      "whiteLegalMoves": [
+      ],
+      "blackLegalMoves": [
+        "b1a2",
+        "b1b2",
+        "b1c2"
+      ]
+    },
+    {
+      "chessNotation": "c1",
+      "whiteLegalMoves": [
+      ],
+      "blackLegalMoves": [
+        "c1b2",
+        "c1c2"
+      ]
+    },
+    {
+      "chessNotation": "a2",
+      "whiteLegalMoves": [
+        "a2a1",
+        "a2b1"
+      ],
+      "blackLegalMoves": [
+        "a2a3",
+        "a2b3"
+      ]
+    },
+    {
+      "chessNotation": "b2",
+      "whiteLegalMoves": [
+        "b2a1",
+        "b2b1",
+        "b2c1"
+      ],
+      "blackLegalMoves": [
+        "b2a3",
+        "b2b3",
+        "b2c3"
+      ]
+    },
+    {
+      "chessNotation": "c2",
+      "whiteLegalMoves": [
+        "c2b1",
+        "c2c1"
+      ],
+      "blackLegalMoves": [
+        "c2b3",
+        "c2c3"
+      ]
+    },
+    {
+      "chessNotation": "a3",
+      "whiteLegalMoves": [
+        "a3a2",
+        "a3b2"
+      ],
+      "blackLegalMoves": [
+      ]
+    },
+    {
+      "chessNotation": "b3",
+      "whiteLegalMoves": [
+        "b3a2",
+        "b3b2",
+        "b3c2"
+      ],
+      "blackLegalMoves": [
+      ]
+    },
+    {
+      "chessNotation": "c3",
+      "whiteLegalMoves": [
+        "c3b2",
+        "c3c2"
+      ],
+      "blackLegalMoves": [
+      ]
+    }
+  ],
+  "offsets": {
+    "a1": 0,
+    "b1": 1,
+    "c1": 2,
+    "a2": 3,
+    "b2": 4,
+    "c2": 5,
+    "a3": 6,
+    "b3": 7,
+    "c3": 8
+  }
+
+}

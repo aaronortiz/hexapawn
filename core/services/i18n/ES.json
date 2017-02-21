@@ -1,8 +1,16 @@
 {
+  "AI_NAME": "Nombre de IA",
+  "AI_1_NAME": "Nombre de IA 1",
+  "AI_2_NAME": "Nombre de IA 2",
   "AI_VS_AI": "IA vs. IA",
   "APP_TITLE": "Hexapeón",
   "HUMAN_VS_AI": "Humano vs. IA",
   "HUMAN_VS_HUMAN": "Humano vs. Humano",
+  "PLAYER_1": "Jugador 1",
+  "PLAYER_1_NAME": "Nombre de Jugador 1",
+  "PLAYER_2": "Jugador 2",
+  "PLAYER_2_NAME": "Nombre de Jugador 2",
   "RETURN_TO_MAIN_MENU": "Return to main menu",
-  "SETUP_GAME": "Parámetros de Juego"
+  "SETUP_GAME": "Parámetros de Juego",
+  "START_GAME": "Iniciar Juego"
 }

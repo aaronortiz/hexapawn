@@ -1,4 +1,5 @@
 @import "welcome.css";
+@import "setup.css";
 @import "moves.css";
 @import "gameboard.css";
 
@@ -29,17 +30,16 @@ h1, h2, h3, h4 {
   background: url(../assets/bg2.jpg) center center no-repeat;
 
   min-height: 100%;
-  /* width: 100%; */
   min-width: 100%;
   position: fixed;
-  /* padding: 1em; */
+
   margin: 0em;
   left: 0em;
   top: 0em;
   text-align: center;
 }
 
-a i {
+i {
   top: 0.25em;
   position: relative;
 }
@@ -52,4 +52,29 @@ a {
 
 a:hover {
   color: yellow;
+}
+
+input[type=text] {
+  border: .1em solid #669966;
+  background: #336633;
+  opacity: .75;
+  color: white;
+}
+
+input.ng-invalid {
+  background-color: #a30020
+}
+
+label {
+  text-align: left;
+  display: block;
+  margin: 1em;
+}
+
+fieldset {
+  background: url(../assets/bg2.jpg) bottom center no-repeat; 
+  border: .1em solid #336633;
+  border-radius: .5em;
+  margin: 1em auto;
+  width: 75%;
 }

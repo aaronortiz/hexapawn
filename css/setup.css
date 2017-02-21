@@ -1,0 +1,23 @@
+#setup-screen {
+  width: 50%;
+  min-width: 13em;
+  margin: 0 auto;
+  background-color: #004c00;
+  padding: 1.5em 2em 2em;
+  border: .2em solid #397f43;
+  border-radius: 1em;
+  background: url(../assets/bg2.jpg) bottom center no-repeat;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);  
+}
+
+#setup-screen h1, #setup-screen h2, #setup-screen h3, #setup-screen h4 {
+  margin: 0em 0em .4em;
+  padding: 0em;
+}
+
+#setup-screen input[type=text] {
+  width: 80%;
+}

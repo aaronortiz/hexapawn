@@ -1,10 +1,55 @@
-<div>
-  
+<form name= "setupScreen" id='setup-screen'>
+
   <h1>{{i18n.APP_TITLE}}</h1>
-  <h2>{{i18n.SETUP_GAME}}</h2> 
-  
-  
-  
-  
-  
-</div>
+  <h2>{{i18n.SETUP_GAME}}</h2>
+
+  <fieldset ng-if="gameType === 'HUMAN_VS_HUMAN'">
+    <p><label>
+        {{i18n.PLAYER_1_NAME}}<br>
+        <i class="material-icons">face</i>
+        <input type="text" maxlength="32" ng-model="player1Name" required>
+      </label></p>
+
+    <p><label>
+        {{i18n.PLAYER_2_NAME}}<br>
+        <i class="material-icons">face</i>
+        <input type="text" maxlength="32" ng-model="player2Name" required>
+      </label></p>
+
+  </fieldset>
+
+  <fieldset ng-if="gameType === 'HUMAN_VS_AI'">
+    <p><label>
+        {{i18n.PLAYER_1_NAME}}<br>
+        <i class="material-icons">face</i>
+        <input type="text" maxlength="32" ng-model="player1Name" required="required">
+      </label></p>
+
+    <p><label>
+        {{i18n.AI_NAME}}<br>
+        <i class="material-icons">memory</i>
+        <select ng-model="player2Name" ng-options="y for (x, y) in aIs"></select>
+      </label></p>
+
+  </fieldset>
+
+  <fieldset ng-if="gameType === 'AI_VS_AI'">
+    <p><label>
+        {{i18n.AI_1_NAME}}<br>
+        <i class="material-icons">memory</i>
+        <select ng-model="player1Name" ng-options="y for (x, y) in aIs"></select>
+      </label></p>
+
+    <p><label>
+        {{i18n.AI_2_NAME}}<br>
+        <i class="material-icons">memory</i>
+        <select ng-model="player2Name" ng-options="y for (x, y) in aIs"></select>
+      </label></p>
+
+  </fieldset>
+
+  <button ng-disabled="setupScreen.$invalid" ng-click="startGame()">{{i18n.START_GAME}}</button>
+
+</form>
+
+<a href="/hexapawn/hexapawn/#/"><i class="material-icons">arrow_back</i>{{i18n.RETURN_TO_MAIN_MENU}}</a>
