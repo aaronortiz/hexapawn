@@ -16,17 +16,36 @@ huvshu.controller('humanVsHumanCtlr', [
       game.victory = ' ';
       game.boardState = $scope.logic.newGame;
       game.moves = GameLogic.boardMoves(game.boardState, 'W',
-        $scope.logic);
-
+              $scope.logic);
       game.moveCount = 0;
+
       game.currentPlayer = 'W';
       game.players = {
-        W: $window.sessionStorage.player1Name,
-        B: $window.sessionStorage.player2Name
+        W: {
+          name: $window.sessionStorage.player1Name,
+          type: 'human'
+        },
+        B: {
+          name: $window.sessionStorage.player2Name,
+          type: 'human'
+        }
       };
 
       $window.sessionStorage.game = JSON.stringify(game);
       $scope.game = game;
+
+    };
+
+    /*------------------------------------------------------------------------*/
+    $scope.checkGamePersistence = function () {
+
+      if (!$scope.game) {
+        if (!$window.sessionStorage.game) {
+          $scope.initializeData();
+        } else {
+          $scope.game = JSON.parse($window.sessionStorage.game);
+        }
+      }
 
     };
 
@@ -44,16 +63,12 @@ huvshu.controller('humanVsHumanCtlr', [
           });
         } else {
           $scope.logic = JSON.parse($window.sessionStorage.logic);
+          $scope.checkGamePersistence();
         }
+      } else {
+        $scope.checkGamePersistence();
       }
 
-      if (!$scope.game) {
-        if (!$window.sessionStorage.game) {
-          $scope.initializeData();
-        } else {
-          $scope.game = JSON.parse($window.sessionStorage.game);
-        }
-      }
     };
 
     /*------------------------------------------------------------------------*/
@@ -71,7 +86,8 @@ huvshu.controller('humanVsHumanCtlr', [
         game.moves = [];
       } else {
         game.currentPlayer = (game.currentPlayer === 'W') ? 'B' : 'W'; // Toggle player
-        game.moves = GameLogic.boardMoves(game.boardState, game.currentPlayer, $scope.logic);
+        game.moves = GameLogic.boardMoves(game.boardState, game.currentPlayer,
+                $scope.logic);
       }
 
       $window.sessionStorage.game = JSON.stringify(game);
@@ -81,7 +97,7 @@ huvshu.controller('humanVsHumanCtlr', [
 
     $scope.returnToMainMenu = function () {
       $location.path('/');
-    }
+    };
 
     /*------------------------------------------------------------------------*/
     i18n.getI18nStrings('EN', function (data) {

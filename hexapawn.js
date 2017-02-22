@@ -13,35 +13,35 @@ var hexapawn = angular.module('hexapawnApp', [
 hexapawn.config(function ($routeProvider) {
 
   $routeProvider
-    // Route for welcome screen
-    .when('/', {
-      templateUrl: 'components/welcome/welcome.template.html',
-      controller: 'welcomeCtlr'
-    })
+          // Route for welcome screen
+          .when('/', {
+            templateUrl: 'components/welcome/welcome.template.html',
+            controller: 'welcomeCtlr'
+          })
 
-    // Route for setup screen
-    .when('/setup', {
-      templateUrl: 'components/setup/setup.template.html',
-      controller: 'setupCtlr'
-    })
+          // Route for setup screen
+          .when('/setup', {
+            templateUrl: 'components/setup/setup.template.html',
+            controller: 'setupCtlr'
+          })
 
-    // Route for human vs. human
-    .when('/huvshu', {
-      templateUrl: 'components/huvshu/huvshu.template.html',
-      controller: 'humanVsHumanCtlr'
-    })
+          // Route for human vs. human
+          .when('/huvshu', {
+            templateUrl: 'components/huvshu/huvshu.template.html',
+            controller: 'humanVsHumanCtlr'
+          })
 
-    // Route for human vs. ai
-    .when('/huvsai', {
-      templateUrl: 'components/huvsai/huvsai.template.html',
-      controller: 'humanVsAiCtlr'
-    })
+          // Route for human vs. ai
+          .when('/huvsai', {
+            templateUrl: 'components/huvsai/huvsai.template.html',
+            controller: 'humanVsAiCtlr'
+          })
 
-    // Route for ai vs. ai
-    .when('/aivsai', {
-      templateUrl: 'components/aivsai/aivsai.template.html',
-      controller: 'aiVsAiCtlr'
-    });
+          // Route for ai vs. ai
+          .when('/aivsai', {
+            templateUrl: 'components/aivsai/aivsai.template.html',
+            controller: 'aiVsAiCtlr'
+          });
 });
 
 hexapawn.directive('hxpBoard', function () {
@@ -52,6 +52,7 @@ hexapawn.directive('hxpBoard', function () {
       'gameType': '=gametype',
       'game': '=gamedata',
       'doMove': '&onMove',
+      'aiMove': '&onAiMove',
       'repeatGame': '&onRepeat',
       'returnToMainMenu': '&onReturnToMainMenu'
     },

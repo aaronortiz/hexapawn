@@ -1,9 +1,9 @@
 <h3 ng-if="game.victory == ' ' && game.moves.length > 0">
-  move {{game.moveCount + 1}}:<br>{{game.players[game.currentPlayer]}}
+  move {{game.moveCount + 1}}:<br>{{game.players[game.currentPlayer].name}}
 </h3>
 
 <h3 ng-if="game.victory != ' '">
-  {{i18n.VICTORY}}<br>{{game.players[game.currentPlayer]}}
+  {{i18n.VICTORY}}<br>{{game.players[game.currentPlayer].name}}
 </h3>
 
 <h3 ng-if="game.victory == ' ' && game.moves.length == 0">
@@ -75,12 +75,15 @@
 </div>
 
 <div id="moves">
-  <span ng-repeat="(id, m) in game.moves">
+  <span  ng-if="game.players[game.currentPlayer].type === 'human'" ng-repeat="(id, m) in game.moves">
     <button class="{{'move-' + id}}" ng-click="doMove({move: m})">{{m}}</button>
+  </span>
+  <span  ng-if="game.players[game.currentPlayer].type === 'ai'">
+    <button class="{{'move-' + id}}" ng-click="aiMove()">{{i18n.RANDOM_MOVE}}</button>
   </span>
 </div>
 
-<div id="game-over" ng-if="game.moves.length == 0">
+<div id="game-over" ng-if="game.moves.length === 0">
   <button ng-click="repeatGame()">{{i18n.REPEAT_GAME}}</button>
   <button ng-click ="returnToMainMenu()">{{i18n.RETURN_TO_MAIN_MENU}}</button>
 </div>

@@ -2,18 +2,18 @@
   "squares": [
     {
       "chessNotation": "a1",
-      "whiteLegalMoves": [
+      "blackMoves": [
       ],
-      "blackLegalMoves": [
+      "whiteMoves": [
         "a1a2",
         "a1b2"
       ]
     },
     {
       "chessNotation": "b1",
-      "whiteLegalMoves": [
+      "blackMoves": [
       ],
-      "blackLegalMoves": [
+      "whiteMoves": [
         "b1a2",
         "b1b2",
         "b1c2"
@@ -21,32 +21,32 @@
     },
     {
       "chessNotation": "c1",
-      "whiteLegalMoves": [
+      "blackMoves": [
       ],
-      "blackLegalMoves": [
+      "whiteMoves": [
         "c1b2",
         "c1c2"
       ]
     },
     {
       "chessNotation": "a2",
-      "whiteLegalMoves": [
+      "blackMoves": [
         "a2a1",
         "a2b1"
       ],
-      "blackLegalMoves": [
+      "whiteMoves": [
         "a2a3",
         "a2b3"
       ]
     },
     {
       "chessNotation": "b2",
-      "whiteLegalMoves": [
+      "blackMoves": [
         "b2a1",
         "b2b1",
         "b2c1"
       ],
-      "blackLegalMoves": [
+      "whiteMoves": [
         "b2a3",
         "b2b3",
         "b2c3"
@@ -54,41 +54,41 @@
     },
     {
       "chessNotation": "c2",
-      "whiteLegalMoves": [
+      "blackMoves": [
         "c2b1",
         "c2c1"
       ],
-      "blackLegalMoves": [
+      "whiteMoves": [
         "c2b3",
         "c2c3"
       ]
     },
     {
       "chessNotation": "a3",
-      "whiteLegalMoves": [
+      "blackMoves": [
         "a3a2",
         "a3b2"
       ],
-      "blackLegalMoves": [
+      "whiteMoves": [
       ]
     },
     {
       "chessNotation": "b3",
-      "whiteLegalMoves": [
+      "blackMoves": [
         "b3a2",
         "b3b2",
         "b3c2"
       ],
-      "blackLegalMoves": [
+      "whiteMoves": [
       ]
     },
     {
       "chessNotation": "c3",
-      "whiteLegalMoves": [
+      "blackMoves": [
         "c3b2",
         "c3c2"
       ],
-      "blackLegalMoves": [
+      "whiteMoves": [
       ]
     }
   ],
@@ -103,5 +103,112 @@
     "b3": 7,
     "c3": 8
   },
-  "newGame": "BBB   WWW"
+  "boards": {
+    "black": {
+      " WWW  BBB": {
+        "moves": [
+          "b3a2",
+          "b3b2",
+          "c3c2"
+        ]
+      },
+      "W W W BBB": {
+        "moves": [
+        ]
+      },
+      "  WBW B B": {
+        "moves": [
+        ]
+      },
+      "  WWB  BB": {
+        "moves": [
+        ]
+      },
+      " W WW B B": {
+        "moves": [
+        ]
+      },
+      "  WW WBB ": {
+        "moves": [
+        ]
+      },
+      "W   BW BB": {
+        "moves": [
+        ]
+      },
+      "W  BWW BB": {
+        "moves": [
+        ]
+      },
+      "W W W BBB": {
+        "moves": [
+        ]
+      },
+      " W B WB B": {
+        "moves": [
+        ]
+      },
+      "  WWWBBB ": {
+        "moves": [
+        ]
+      },
+      "  W W  BB": {
+        "moves": [
+        ]
+      },
+      "W   W  BB": {
+        "moves": [
+        ]
+      },
+      "  WW  B B": {
+        "moves": [
+        ]
+      },
+      "   BBW  B": {
+        "moves": [
+        ]
+      },
+      "   WWWB  ": {
+        "moves": [
+        ]
+      },
+      "   BWW B ": {
+        "moves": [
+        ]
+      },
+      "   WWB B ": {
+        "moves": [
+        ]
+      },
+      "   BBWB  ": {
+        "moves": [
+        ]
+      },
+      "   WBB  B": {
+        "moves": [
+        ]
+      },
+      "   BW   B": {
+        "moves": [
+        ]
+      },
+      "   WB  B ": {
+        "moves": [
+        ]
+      },
+      "    BW B ": {
+        "moves": [
+        ]
+      },
+      "   BW B  ": {
+        "moves": [
+        ]
+      },
+      "    WB  B": {
+        "moves": [
+        ]
+      }
+    }
+  },
+  "newGame": "WWW   BBB"
 }
