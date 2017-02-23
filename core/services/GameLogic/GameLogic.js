@@ -57,20 +57,20 @@ GameLogic.service('GameLogic', function ($resource) {
       if (boardState.substr(offset, 1) === currentPlayer) {
 
         var tileMoves = this.cellMoves(offset, currentPlayer, gameLogic);
-        for (boardKey = 0; boardKey < tileMoves.length; boardKey++) {
+        for (board = 0; board < tileMoves.length; board++) {
 
-          var destinationTile = tileMoves[boardKey].substr(2, 2);
+          var destinationTile = tileMoves[board].substr(2, 2);
           var destinationOffset = gameLogic.offsets[destinationTile];
           var destinationContents = boardState.substr(destinationOffset, 1);
-          var advance = tileMoves[boardKey].substr(0,
-                  1) === tileMoves[boardKey].substr(2,
+          var advance = tileMoves[board].substr(0,
+                  1) === tileMoves[board].substr(2,
                   1);
 
           if (destinationContents !== currentPlayer) {
             if (destinationContents === ' ' && advance) {
-              moves.push(tileMoves[boardKey]);
+              moves.push(tileMoves[board]);
             } else if (!(destinationContents === ' ' || advance)) {
-              moves.push(tileMoves[boardKey]);
+              moves.push(tileMoves[board]);
             }
           }
 
@@ -149,15 +149,55 @@ GameLogic.service('GameLogic', function ($resource) {
   };
 
   /*--------------------------------------------------------------------------*/
-  this.flipPlayer = function (board) {
+  this.invertTile = function (tile) {
 
-    var newBoard = board;
+    var file = tile.substr(0, 1);
+    var rank = tile.substr(1, 1);
+    var newTile = '';
 
-    newBoard.replace('W', 'T');
-    newBoard.replace('B', 'W');
-    newBoard.replace('T', 'B');
+    if (rank === '2') {
+      newTile = file + rank;
+    } else if (rank === '1') {
+      newTile = file + '3';
+    } else {
+      newTile = file + '1';
+    }
+
+    return this.flipTile(newTile);
+
+  };
+
+  /*--------------------------------------------------------------------------*/
+  this.invertMove = function (move) {
+
+    var newMove = this.invertTile(move.substr(0, 2))
+            + this.invertTile(move.substr(2, 2));
+
+    return newMove;
+
+  };
+
+  /*--------------------------------------------------------------------------*/
+  this.invertBoardPlayers = function (board) {
+
+    var newBoard = '';
+
+    newBoard = board.substr(8, 1)
+            + board.substr(7, 1)
+            + board.substr(6, 1)
+            + board.substr(5, 1)
+            + board.substr(4, 1)
+            + board.substr(3, 1)
+            + board.substr(2, 1)
+            + board.substr(1, 1)
+            + board.substr(0, 1);
+
+    newBoard = newBoard.replace(/W/g, 'T');
+    newBoard = newBoard.replace(/B/g, 'W');
+    newBoard = newBoard.replace(/T/g, 'B');
 
     return newBoard;
+
   };
 
   /*--------------------------------------------------------------------------*/
@@ -184,45 +224,89 @@ GameLogic.service('GameLogic', function ($resource) {
 
     return (board === this.flipBoard(board));
 
-  }
+  };
+
+  /*--------------------------------------------------------------------------*/
+  this.createBoard = function (board, currentPlayer, gameLogic) {
+
+    var boardMoves = {};
+    var boardMovesArray = [];
+    var isSymmetric = this.isSymmetric(board);
+
+    var allMovesArray = this.boardMoves(board, currentPlayer, gameLogic);
+    var allMoves = {};
+
+    for (arrayKey in allMovesArray) {
+      allMoves[allMovesArray[arrayKey]] = allMovesArray[arrayKey];
+    }
+
+    for (objKey in allMoves) {
+      var flippedMove = this.flipMove(allMoves[objKey]);
+      if (!(isSymmetric && boardMoves[flippedMove])) {
+        boardMoves[objKey] = objKey;
+      }
+    }
+
+    for (boardMove in boardMoves) {
+      boardMovesArray.push(boardMove);
+    }
+
+    return boardMovesArray;
+
+  };
+
+  /*--------------------------------------------------------------------------*/
+  this.createInvertedBoard = function (board, currentPlayer, gameLogic) {
+
+    var invertedBoard = this.invertBoardPlayers(board);
+    var invertedPlayer = (currentPlayer === 'W') ? 'B' : 'W';
+
+    var boardMoves = {};
+    var boardMovesArray = [];
+    var isSymmetric = this.isSymmetric(board);
+
+    var allMovesArray = this.boardMoves(invertedBoard, currentPlayer,
+            gameLogic);
+    var allMoves = {};
+
+    for (arrayKey in allMovesArray) {
+      allMoves[allMovesArray[arrayKey]] = allMovesArray[arrayKey];
+    }
+
+    for (objKey in allMoves) {
+      var flippedMove = this.flipMove(allMoves[objKey]);
+      if (!(isSymmetric && boardMoves[flippedMove])) {
+        boardMoves[objKey] = objKey;
+      }
+    }
+
+    for (boardMove in boardMoves) {
+      boardMovesArray.push(this.invertMove(boardMove));
+    }
+
+    return boardMovesArray;
+
+  };
 
   /*--------------------------------------------------------------------------*/
   this.createBoardsJSON = function (gameLogic) {
 
     var boardKey = '';
-    var computedBoards = {};
+    var computedBoards = {white: {}, black: {}};
 
     for (boardKey in gameLogic.boards.black) {
 
-      var boardMoves = {};
-      var isSymmetric = this.isSymmetric(boardKey);
-
-      computedBoards[boardKey] = {
-        moves: []
+      computedBoards.black[boardKey] = {
+        moves: this.createBoard(boardKey, 'B', gameLogic)
       };
 
-      var allMovesArray = this.boardMoves(boardKey, 'B', gameLogic);
-      var allMoves = {};
-
-      for (arrayKey in allMovesArray) {
-        allMoves[allMovesArray[arrayKey]] = allMovesArray[arrayKey];
-      }
-
-      for (objKey in allMoves) {
-        var flippedMove = this.flipMove(allMoves[objKey]);
-        if (!(isSymmetric && boardMoves[flippedMove])) {
-          boardMoves[objKey] = objKey;
-        }
-      }
-
-      for (boardMove in boardMoves) {
-        computedBoards[boardKey].moves.push(boardMove);
-      }
+      computedBoards.white[boardKey] = {
+        moves: this.createInvertedBoard(boardKey, 'W', gameLogic)
+      };
 
     }
 
     return computedBoards;
 
   };
-
 });
