@@ -1,282 +1,2266 @@
 {
   "white": {
-    "BBB  WWW ": {
+    "WWW   BBB": {
+      "board": "WWW   BBB",
       "moves": [
+        "a1a2",
+        "b1b2",
+        "c1c2"
+      ]
+    },
+    "W W W BBB": {
+      "board": "W W W BBB",
+      "moves": [
+        "a1a2",
+        "c1c2",
+        "b2a3",
+        "b2c3"
+      ]
+    },
+    " WWB  B B": {
+      "board": " WWB  B B",
+      "moves": [
+        "b1a2",
+        "b1b2",
+        "c1c2"
+      ]
+    },
+    " WWW BBB ": {
+      "board": " WWW BBB ",
+      "moves": [
+        "b1b2",
+        "b1c2",
+        "a2b3"
+      ]
+    },
+    "W   WWBBB": {
+      "board": "W   WWBBB",
+      "moves": [
+        "a1a2",
+        "b2a3",
+        "b2c3",
+        "c2b3"
+      ]
+    },
+    "W W   BBW": {
+      "board": "W W   BBW",
+      "moves": [
+        "a1a2",
+        "c1c2"
+      ]
+    },
+    "WW  BWB B": {
+      "board": "WW  BWB B",
+      "moves": [
+        "a1a2",
+        "a1b2"
+      ]
+    },
+    "  WW  B B": {
+      "board": "  WW  B B",
+      "moves": [
+        "c1c2"
+      ]
+    },
+    " W B WB B": {
+      "board": " W B WB B",
+      "moves": [
+        "b1a2",
+        "b1b2"
+      ]
+    },
+    " WWWBBB  ": {
+      "board": " WWWBBB  ",
+      "moves": [
+        "b1c2",
+        "c1b2"
+      ]
+    },
+    "  WW WBB ": {
+      "board": "  WW WBB ",
+      "moves": [
+        "a2b3",
+        "c2b3",
         "c2c3"
       ]
     },
-    "BBB W W W": {
+    "  WWB  BB": {
+      "board": "  WWB  BB",
       "moves": [
+        "c1b2",
+        "c1c2",
+        "a2a3",
+        "a2b3"
+      ]
+    },
+    "  WWB BB ": {
+      "board": "  WWB BB ",
+      "moves": [
+        "c1b2",
+        "c1c2",
+        "a2b3"
+      ]
+    },
+    "   WWWBBB": {
+      "board": "   WWWBBB",
+      "moves": [
+        "a2b3",
+        "b2a3",
+        "b2c3",
+        "c2b3"
+      ]
+    },
+    "W    WBBW": {
+      "board": "W    WBBW",
+      "moves": [
+        "a1a2",
+        "c2b3"
+      ]
+    },
+    "W W B W B": {
+      "board": "W W B W B",
+      "moves": [
+        "a1a2",
+        "a1b2",
+        "c1b2",
+        "c1c2"
+      ]
+    },
+    "  WW  BBW": {
+      "board": "  WW  BBW",
+      "moves": [
+        "c1c2",
+        "a2b3"
+      ]
+    },
+    "WB   W BB": {
+      "board": "WB   W BB",
+      "moves": [
+        "a1a2",
+        "c2b3"
+      ]
+    },
+    "WW B B  B": {
+      "board": "WW B B  B",
+      "moves": [
+        "b1a2",
+        "b1b2",
+        "b1c2"
+      ]
+    },
+    " W  WWB B": {
+      "board": " W  WWB B",
+      "moves": [
+        "b2a3",
+        "b2b3",
+        "b2c3"
+      ]
+    },
+    "WWB   B B": {
+      "board": "WWB   B B",
+      "moves": [
+        "a1a2",
+        "b1b2"
+      ]
+    },
+    "   W WB B": {
+      "board": "   W WB B",
+      "moves": [
+      ]
+    },
+    "  WBB   B": {
+      "board": "  WBB   B",
+      "moves": [
+        "c1b2",
+        "c1c2"
+      ]
+    },
+    "  WBWBB  ": {
+      "board": "  WBWBB  ",
+      "moves": [
+        "b2a3",
         "b2b3"
       ]
     },
-    "B B WBW  ": {
+    "   BWWB B": {
+      "board": "   BWWB B",
       "moves": [
-        "b2b3"
+        "b2a3",
+        "b2b3",
+        "b2c3"
       ]
     },
-    "BB  BWW  ": {
+    "  WWBWB  ": {
+      "board": "  WWBWB  ",
+      "moves": [
+        "c1b2",
+        "c2c3"
+      ]
+    },
+    "  WWBB B ": {
+      "board": "  WWBB B ",
+      "moves": [
+        "c1b2",
+        "a2a3",
+        "a2b3"
+      ]
+    },
+    "  W  WBW ": {
+      "board": "  W  WBW ",
       "moves": [
         "c2c3"
       ]
     },
-    "B B WW W ": {
+    " WWB B W ": {
+      "board": " WWB B W ",
       "moves": [
-        "c2c3"
+        "b1a2",
+        "b1b2",
+        "b1c2"
       ]
     },
-    " BBW WW  ": {
-      "moves": [
-        "c2c3"
-      ]
-    },
-    "BB WB   W": {
-      "moves": [
-        "a2a3"
-      ]
-    },
-    "BB WWB  W": {
+    "   WBW BB": {
+      "board": "   WBW BB",
       "moves": [
         "a2a3",
-        "b2b3"
+        "a2b3",
+        "c2b3"
       ]
     },
-    "B BW B W ": {
+    "  W B  WB": {
+      "board": "  W B  WB",
+      "moves": [
+        "c1b2",
+        "c1c2"
+      ]
+    },
+    "    WWBWB": {
+      "board": "    WWBWB",
+      "moves": [
+        "b2a3",
+        "b2c3"
+      ]
+    },
+    "   W WBBW": {
+      "board": "   W WBBW",
+      "moves": [
+        "a2b3",
+        "c2b3"
+      ]
+    },
+    "W   BWW B": {
+      "board": "W   BWW B",
+      "moves": [
+        "a1a2",
+        "a1b2"
+      ]
+    },
+    "W  BW  WB": {
+      "board": "W  BW  WB",
+      "moves": [
+        "b2c3"
+      ]
+    },
+    "  WWB W B": {
+      "board": "  WWB W B",
+      "moves": [
+        "c1b2",
+        "c1c2"
+      ]
+    },
+    "W   W W B": {
+      "board": "W   W W B",
+      "moves": [
+        "a1a2",
+        "b2b3",
+        "b2c3"
+      ]
+    },
+    "W W BBW  ": {
+      "board": "W W BBW  ",
+      "moves": [
+        "a1a2",
+        "a1b2",
+        "c1b2"
+      ]
+    },
+    "  W   BWW": {
+      "board": "  W   BWW",
+      "moves": [
+        "c1c2"
+      ]
+    },
+    " B W W BB": {
+      "board": " B W W BB",
+      "moves": [
+        "a2a3",
+        "a2b3",
+        "c2b3"
+      ]
+    },
+    "WB  BW  B": {
+      "board": "WB  BW  B",
+      "moves": [
+        "a1a2",
+        "a1b2"
+      ]
+    },
+    "W  W B  B": {
+      "board": "W  W B  B",
       "moves": [
         "a2a3"
       ]
     },
-    " BBBWWW  ": {
+    "W  B W  B": {
+      "board": "W  B W  B",
       "moves": [
+      ]
+    },
+    " W   WBWB": {
+      "board": " W   WBWB",
+      "moves": [
+        "b1b2"
+      ]
+    },
+    "WB B    B": {
+      "board": "WB B    B",
+      "moves": [
+      ]
+    },
+    " WBW  B B": {
+      "board": " WBW  B B",
+      "moves": [
+        "b1b2"
+      ]
+    },
+    "WB   B  B": {
+      "board": "WB   B  B",
+      "moves": [
+        "a1a2"
+      ]
+    },
+    "WWBB    B": {
+      "board": "WWBB    B",
+      "moves": [
+        "b1a2",
+        "b1b2"
+      ]
+    },
+    "B W B   B": {
+      "board": "B W B   B",
+      "moves": [
+        "c1b2",
+        "c1c2"
+      ]
+    },
+    "B W WBB  ": {
+      "board": "B W WBB  ",
+      "moves": [
+        "b2a3",
+        "b2b3"
+      ]
+    },
+    "   BBW  B": {
+      "board": "   BBW  B",
+      "moves": [
+      ]
+    },
+    "  WB BW  ": {
+      "board": "  WB BW  ",
+      "moves": [
+      ]
+    },
+    "   B WW B": {
+      "board": "   B WW B",
+      "moves": [
+      ]
+    },
+    "   B WB W": {
+      "board": "   B WB W",
+      "moves": [
+      ]
+    },
+    "   WWWB  ": {
+      "board": "   WWWB  ",
+      "moves": [
+        "b2a3",
         "b2b3",
         "c2c3"
       ]
     },
-    "BB  W W  ": {
+    " B WW B  ": {
+      "board": " B WW B  ",
       "moves": [
+        "b2a3",
         "b2b3"
       ]
     },
-    "BB  W   W": {
+    " W WBB   ": {
+      "board": " W WBB   ",
       "moves": [
-        "b2b3"
+        "b1c2",
+        "a2a3"
       ]
     },
-    "B B  WW  ": {
+    "  W BBWB ": {
+      "board": "  W BBWB ",
       "moves": [
-        "c2c3"
+        "c1b2"
       ]
     },
-    "B  WBB   ": {
+    "  WW B W ": {
+      "board": "  WW B W ",
       "moves": [
         "a2a3"
       ]
     },
-    "  BWWW   ": {
+    "  WB W W ": {
+      "board": "  WB W W ",
       "moves": [
-        "a2a3",
-        "b2b3",
         "c2c3"
       ]
     },
-    " B WWB   ": {
+    "   WB  B ": {
+      "board": "   WB  B ",
       "moves": [
         "a2a3",
+        "a2b3"
+      ]
+    },
+    "    BWWBB": {
+      "board": "    BWWBB",
+      "moves": [
+        "c2b3"
+      ]
+    },
+    "   WB  WB": {
+      "board": "   WB  WB",
+      "moves": [
+        "a2a3"
+      ]
+    },
+    "  B   WBB": {
+      "board": "  B   WBB",
+      "moves": [
+      ]
+    },
+    "    W  WB": {
+      "board": "    W  WB",
+      "moves": [
+        "b2c3"
+      ]
+    },
+    "B WBW   B": {
+      "board": "B WBW   B",
+      "moves": [
+        "c1c2",
+        "b2b3",
+        "b2c3"
+      ]
+    },
+    "B W B B  ": {
+      "board": "B W B B  ",
+      "moves": [
+        "c1b2",
+        "c1c2"
+      ]
+    },
+    "   BW   B": {
+      "board": "   BW   B",
+      "moves": [
+        "b2b3",
+        "b2c3"
+      ]
+    },
+    "  BB  B  ": {
+      "board": "  BB  B  ",
+      "moves": [
+      ]
+    },
+    "  WB BBW ": {
+      "board": "  WB BBW ",
+      "moves": [
+      ]
+    },
+    "   BW B  ": {
+      "board": "   BW B  ",
+      "moves": [
+        "b2a3",
         "b2b3"
       ]
     },
-    " B BWW   ": {
+    "   WB BW ": {
+      "board": "   WB BW ",
+      "moves": [
+      ]
+    },
+    " BW   BW ": {
+      "board": " BW   BW ",
+      "moves": [
+        "c1c2"
+      ]
+    },
+    "  WBB  W ": {
+      "board": "  WBB  W ",
+      "moves": [
+        "c1b2",
+        "c1c2"
+      ]
+    },
+    "     WWWB": {
+      "board": "     WWWB",
+      "moves": [
+      ]
+    },
+    "   WBWW B": {
+      "board": "   WBWW B",
+      "moves": [
+      ]
+    },
+    "W B   W B": {
+      "board": "W B   W B",
+      "moves": [
+        "a1a2"
+      ]
+    },
+    "W  B   WW": {
+      "board": "W  B   WW",
+      "moves": [
+      ]
+    },
+    "W B W BW ": {
+      "board": "W B W BW ",
+      "moves": [
+        "a1a2",
+        "b2a3"
+      ]
+    },
+    "  W WBW  ": {
+      "board": "  W WBW  ",
+      "moves": [
+        "b2b3"
+      ]
+    },
+    "B    WW B": {
+      "board": "B    WW B",
+      "moves": [
+      ]
+    },
+    "  WWBBW  ": {
+      "board": "  WWBBW  ",
+      "moves": [
+        "c1b2"
+      ]
+    },
+    "W   WBW  ": {
+      "board": "W   WBW  ",
+      "moves": [
+        "a1a2",
+        "b2b3"
+      ]
+    },
+    "     WBWW": {
+      "board": "     WBWW",
+      "moves": [
+      ]
+    },
+    "    WWB W": {
+      "board": "    WWB W",
+      "moves": [
+        "b2a3",
+        "b2b3"
+      ]
+    },
+    " B   W WB": {
+      "board": " B   W WB",
+      "moves": [
+      ]
+    },
+    "WB   B W ": {
+      "board": "WB   B W ",
+      "moves": [
+        "a1a2"
+      ]
+    },
+    "W    BW B": {
+      "board": "W    BW B",
+      "moves": [
+        "a1a2"
+      ]
+    },
+    "W  BBB   ": {
+      "board": "W  BBB   ",
+      "moves": [
+        "a1b2"
+      ]
+    },
+    " W B W  W": {
+      "board": " W B W  W",
+      "moves": [
+        "b1a2",
+        "b1b2"
+      ]
+    },
+    "WB B B   ": {
+      "board": "WB B B   ",
+      "moves": [
+      ]
+    },
+    " B W B  B": {
+      "board": " B W B  B",
+      "moves": [
+        "a2a3"
+      ]
+    },
+    "W BW    B": {
+      "board": "W BW    B",
+      "moves": [
+        "a2a3"
+      ]
+    },
+    "B WBB    ": {
+      "board": "B WBB    ",
+      "moves": [
+        "c1b2",
+        "c1c2"
+      ]
+    },
+    "B   W   B": {
+      "board": "B   W   B",
       "moves": [
         "b2b3",
+        "b2c3"
+      ]
+    },
+    "BBW   B  ": {
+      "board": "BBW   B  ",
+      "moves": [
+        "c1c2"
+      ]
+    },
+    "B W  BBW ": {
+      "board": "B W  BBW ",
+      "moves": [
+      ]
+    },
+    "   BB    ": {
+      "board": "   BB    ",
+      "moves": [
+      ]
+    },
+    "B B   B  ": {
+      "board": "B B   B  ",
+      "moves": [
+      ]
+    },
+    "B    WBWB": {
+      "board": "B    WBWB",
+      "moves": [
+      ]
+    },
+    "   W WBW ": {
+      "board": "   W WBW ",
+      "moves": [
         "c2c3"
       ]
     },
-    "  BWBB   ": {
+    " BWW  B W": {
+      "board": " BWW  B W",
+      "moves": [
+        "c1c2"
+      ]
+    },
+    " B W  W  ": {
+      "board": " B W  W  ",
+      "moves": [
+      ]
+    },
+    " WBWB    ": {
+      "board": " WBWB    ",
       "moves": [
         "a2a3"
+      ]
+    },
+    " W  BBW  ": {
+      "board": " W  BBW  ",
+      "moves": [
+        "b1c2"
+      ]
+    },
+    "   BWB   ": {
+      "board": "   BWB   ",
+      "moves": [
+        "b2b3"
+      ]
+    },
+    " BW  B W ": {
+      "board": " BW  B W ",
+      "moves": [
+      ]
+    },
+    "B W  BW  ": {
+      "board": "B W  BW  ",
+      "moves": [
+      ]
+    },
+    "B W BB   ": {
+      "board": "B W BB   ",
+      "moves": [
+        "c1b2"
+      ]
+    },
+    "  BB B   ": {
+      "board": "  BB B   ",
+      "moves": [
+      ]
+    },
+    "BBW    W ": {
+      "board": "BBW    W ",
+      "moves": [
+        "c1c2"
+      ]
+    },
+    "B W WB W ": {
+      "board": "B W WB W ",
+      "moves": [
+      ]
+    },
+    "    B  W ": {
+      "board": "    B  W ",
+      "moves": [
+      ]
+    },
+    " BW B W B": {
+      "board": " BW B W B",
+      "moves": [
+        "c1b2",
+        "c1c2"
+      ]
+    },
+    " BW  BWB ": {
+      "board": " BW  BWB ",
+      "moves": [
+      ]
+    },
+    "       WW": {
+      "board": "       WW",
+      "moves": [
+      ]
+    },
+    "B  BWW  B": {
+      "board": "B  BWW  B",
+      "moves": [
+        "b2b3",
+        "b2c3"
+      ]
+    },
+    "B WB    W": {
+      "board": "B WB    W",
+      "moves": [
+        "c1c2"
+      ]
+    },
+    "B   W B  ": {
+      "board": "B   W B  ",
+      "moves": [
+        "b2a3",
+        "b2b3"
+      ]
+    },
+    "B WBWB   ": {
+      "board": "B WBWB   ",
+      "moves": [
+        "b2b3"
+      ]
+    },
+    "   B   WB": {
+      "board": "   B   WB",
+      "moves": [
+      ]
+    },
+    "B   BW  B": {
+      "board": "B   BW  B",
+      "moves": [
+      ]
+    },
+    " B W   B ": {
+      "board": " B W   B ",
+      "moves": [
+        "a2a3",
+        "a2b3"
+      ]
+    },
+    "   B  W  ": {
+      "board": "   B  W  ",
+      "moves": [
+      ]
+    },
+    " B   WBW ": {
+      "board": " B   WBW ",
+      "moves": [
+        "c2c3"
+      ]
+    },
+    " B W  BBW": {
+      "board": " B W  BBW",
+      "moves": [
+        "a2b3"
+      ]
+    },
+    "   BW  W ": {
+      "board": "   BW  W ",
+      "moves": [
+      ]
+    },
+    "  BWW  B ": {
+      "board": "  BWW  B ",
+      "moves": [
+        "a2a3",
+        "a2b3"
+      ]
+    },
+    "    WBWB ": {
+      "board": "    WBWB ",
+      "moves": [
+      ]
+    },
+    "  B  B W ": {
+      "board": "  B  B W ",
+      "moves": [
+      ]
+    },
+    "   B W WW": {
+      "board": "   B W WW",
+      "moves": [
+      ]
+    },
+    "   WBB W ": {
+      "board": "   WBB W ",
+      "moves": [
+        "a2a3"
+      ]
+    },
+    "  BW  W B": {
+      "board": "  BW  W B",
+      "moves": [
+      ]
+    },
+    "B    B W ": {
+      "board": "B    B W ",
+      "moves": [
+      ]
+    },
+    "W B B  W ": {
+      "board": "W B B  W ",
+      "moves": [
+        "a1a2",
+        "a1b2"
+      ]
+    },
+    "W B   WW ": {
+      "board": "W B   WW ",
+      "moves": [
+        "a1a2"
+      ]
+    },
+    "   WB W  ": {
+      "board": "   WB W  ",
+      "moves": [
+      ]
+    },
+    " BW   W  ": {
+      "board": " BW   W  ",
+      "moves": [
+        "c1c2"
+      ]
+    },
+    "   WWBW  ": {
+      "board": "   WWBW  ",
+      "moves": [
+        "b2b3"
+      ]
+    },
+    "W    BWW ": {
+      "board": "W    BWW ",
+      "moves": [
+        "a1a2"
+      ]
+    },
+    "WB B W  W": {
+      "board": "WB B W  W",
+      "moves": [
+      ]
+    },
+    "     WW W": {
+      "board": "     WW W",
+      "moves": [
+      ]
+    },
+    " B   BW B": {
+      "board": " B   BW B",
+      "moves": [
+      ]
+    },
+    " B W B W ": {
+      "board": " B W B W ",
+      "moves": [
+        "a2a3"
+      ]
+    },
+    "   W W  W": {
+      "board": "   W W  W",
+      "moves": [
+        "a2a3"
+      ]
+    },
+    "WBBB     ": {
+      "board": "WBBB     ",
+      "moves": [
+      ]
+    },
+    "B  BW    ": {
+      "board": "B  BW    ",
+      "moves": [
+        "b2b3"
+      ]
+    },
+    "B      WB": {
+      "board": "B      WB",
+      "moves": [
+      ]
+    },
+    "BB   W  B": {
+      "board": "BB   W  B",
+      "moves": [
+      ]
+    },
+    "B BB     ": {
+      "board": "B BB     ",
+      "moves": [
       ]
     },
     "B  BBW   ": {
+      "board": "B  BBW   ",
       "moves": [
         "c2c3"
       ]
     },
     "B   WB   ": {
+      "board": "B   WB   ",
       "moves": [
         "b2b3"
       ]
     },
-    " B  BW   ": {
+    "B WB B W ": {
+      "board": "B WB B W ",
       "moves": [
-        "c2c3"
       ]
     },
-    " B WB    ": {
+    "   WB   W": {
+      "board": "   WB   W",
       "moves": [
         "a2a3"
       ]
     },
-    "  B WB   ": {
+    " WB B W  ": {
+      "board": " WB B W  ",
+      "moves": [
+      ]
+    },
+    "   B B W ": {
+      "board": "   B B W ",
+      "moves": [
+      ]
+    },
+    " B W WB W": {
+      "board": " B W WB W",
+      "moves": [
+      ]
+    },
+    "BB   W W ": {
+      "board": "BB   W W ",
+      "moves": [
+        "c2c3"
+      ]
+    },
+    "B   B    ": {
+      "board": "B   B    ",
+      "moves": [
+      ]
+    },
+    " B    WWB": {
+      "board": " B    WWB",
+      "moves": [
+      ]
+    },
+    " B  W W B": {
+      "board": " B  W W B",
+      "moves": [
+        "b2b3",
+        "b2c3"
+      ]
+    },
+    " BW BBW  ": {
+      "board": " BW BBW  ",
+      "moves": [
+        "c1b2"
+      ]
+    },
+    "B  B W WB": {
+      "board": "B  B W WB",
+      "moves": [
+      ]
+    },
+    "B     BW ": {
+      "board": "B     BW ",
+      "moves": [
+      ]
+    },
+    "B       W": {
+      "board": "B       W",
+      "moves": [
+      ]
+    },
+    "B     W  ": {
+      "board": "B     W  ",
+      "moves": [
+      ]
+    },
+    "BB   WB  ": {
+      "board": "BB   WB  ",
+      "moves": [
+        "c2c3"
+      ]
+    },
+    " B     W ": {
+      "board": " B     W ",
+      "moves": [
+      ]
+    },
+    " B B     ": {
+      "board": " B B     ",
+      "moves": [
+      ]
+    },
+    "B   B B W": {
+      "board": "B   B B W",
+      "moves": [
+      ]
+    },
+    "B   BW W ": {
+      "board": "B   BW W ",
+      "moves": [
+        "c2c3"
+      ]
+    },
+    "  B W WB ": {
+      "board": "  B W WB ",
+      "moves": [
+      ]
+    },
+    "    BBWW ": {
+      "board": "    BBWW ",
+      "moves": [
+      ]
+    },
+    "B    W WW": {
+      "board": "B    W WW",
+      "moves": [
+      ]
+    },
+    "  B W  W ": {
+      "board": "  B W  W ",
+      "moves": [
+      ]
+    },
+    "  BWW W  ": {
+      "board": "  BWW W  ",
       "moves": [
         "b2b3"
       ]
     },
-    "B  BW    ": {
+    "B  B W  W": {
+      "board": "B  B W  W",
+      "moves": [
+      ]
+    },
+    "WBB  B   ": {
+      "board": "WBB  B   ",
+      "moves": [
+        "a1a2"
+      ]
+    },
+    " BB   W B": {
+      "board": " BB   W B",
+      "moves": [
+      ]
+    },
+    "BB B W   ": {
+      "board": "BB B W   ",
+      "moves": [
+        "c2c3"
+      ]
+    },
+    "B  BB   W": {
+      "board": "B  BB   W",
+      "moves": [
+      ]
+    },
+    "    B W W": {
+      "board": "    B W W",
+      "moves": [
+      ]
+    },
+    "B B W    ": {
+      "board": "B B W    ",
       "moves": [
         "b2b3"
+      ]
+    },
+    "BB     WW": {
+      "board": "BB     WW",
+      "moves": [
+      ]
+    },
+    " B  B W  ": {
+      "board": " B  B W  ",
+      "moves": [
+      ]
+    },
+    " B   BWW ": {
+      "board": " B   BWW ",
+      "moves": [
+      ]
+    },
+    " B  WBW  ": {
+      "board": " B  WBW  ",
+      "moves": [
+        "b2b3"
+      ]
+    },
+    "  B B WW ": {
+      "board": "  B B WW ",
+      "moves": [
+      ]
+    },
+    "BB B    W": {
+      "board": "BB B    W",
+      "moves": [
+      ]
+    },
+    "B B    W ": {
+      "board": "B B    W ",
+      "moves": [
       ]
     }
   },
   "black": {
     " WWW  BBB": {
+      "board": " WWW  BBB",
       "moves": [
         "b3a2",
         "b3b2",
         "c3c2"
       ]
     },
-    "W W W BBB": {
+    " WWWB B B": {
+      "board": " WWWB B B",
+      "moves": [
+        "b2c1",
+        "c3c2"
+      ]
+    },
+    "  WWW BBB": {
+      "board": "  WWW BBB",
+      "moves": [
+        "a3b2",
+        "b3a2",
+        "c3b2",
+        "c3c2"
+      ]
+    },
+    "W W   WBB": {
+      "board": "W W   WBB",
+      "moves": [
+        "b3b2",
+        "c3c2"
+      ]
+    },
+    "WW B W BB": {
+      "board": "WW B W BB",
+      "moves": [
+        "a2b1",
+        "b3b2",
+        "b3c2"
+      ]
+    },
+    "WW   BB B": {
+      "board": "WW   BB B",
+      "moves": [
+        "c2b1",
+        "c2c1",
+        "a3a2"
+      ]
+    },
+    "  WBW B B": {
+      "board": "  WBW B B",
+      "moves": [
+        "a2a1",
+        "a3b2",
+        "c3b2",
+        "c3c2"
+      ]
+    },
+    " WBW  B B": {
+      "board": " WBW  B B",
+      "moves": [
+        "c3c2"
+      ]
+    },
+    "  WWWBBB ": {
+      "board": "  WWWBBB ",
+      "moves": [
+        "a3b2",
+        "b3a2"
+      ]
+    },
+    " WW  BBW ": {
+      "board": " WW  BBW ",
+      "moves": [
+        "c2b1",
+        "a3a2"
+      ]
+    },
+    "W    WWBB": {
+      "board": "W    WWBB",
+      "moves": [
+        "b3b2",
+        "b3c2"
+      ]
+    },
+    "W   W BWB": {
+      "board": "W   W BWB",
+      "moves": [
+        "a3a2",
+        "a3b2",
+        "c3b2",
+        "c3c2"
+      ]
+    },
+    "W W  BWB ": {
+      "board": "W W  BWB ",
+      "moves": [
+        "b3b2"
+      ]
+    },
+    "W    WBBW": {
+      "board": "W    WBBW",
+      "moves": [
+        "a3a2",
+        "b3b2",
+        "b3c2"
+      ]
+    },
+    "WW BBW  B": {
+      "board": "WW BBW  B",
+      "moves": [
+        "a2b1",
+        "b2a1"
+      ]
+    },
+    " W WBWB B": {
+      "board": " W WBWB B",
+      "moves": [
+      ]
+    },
+    "WB    B B": {
+      "board": "WB    B B",
+      "moves": [
+        "a3a2",
+        "c3c2"
+      ]
+    },
+    "WW B B  B": {
+      "board": "WW B B  B",
+      "moves": [
+        "a2b1",
+        "c2b1",
+        "c2c1"
+      ]
+    },
+    "B W W B B": {
+      "board": "B W W B B",
+      "moves": [
+        "a3a2",
+        "a3b2",
+        "c3b2",
+        "c3c2"
+      ]
+    },
+    "  WBB B  ": {
+      "board": "  WBB B  ",
+      "moves": [
+        "a2a1",
+        "b2b1",
+        "b2c1"
+      ]
+    },
+    "   W WB B": {
+      "board": "   W WB B",
+      "moves": [
+      ]
+    },
+    " WBW BB  ": {
+      "board": " WBW BB  ",
+      "moves": [
+        "c2b1"
+      ]
+    },
+    " W WWBB  ": {
+      "board": " W WWBB  ",
+      "moves": [
+        "c2b1",
+        "c2c1",
+        "a3b2"
+      ]
+    },
+    "  WBWBB  ": {
+      "board": "  WBWBB  ",
+      "moves": [
+        "a2a1",
+        "a3b2"
+      ]
+    },
+    "  WW  BW ": {
+      "board": "  WW  BW ",
+      "moves": [
+      ]
+    },
+    " BW   BW ": {
+      "board": " BW   BW ",
+      "moves": [
+        "a3a2"
+      ]
+    },
+    "   WW  BB": {
+      "board": "   WW  BB",
+      "moves": [
+        "b3a2",
+        "c3b2",
+        "c3c2"
+      ]
+    },
+    "  W B WBB": {
+      "board": "  W B WBB",
+      "moves": [
+        "b2b1",
+        "b2c1",
+        "c3c2"
+      ]
+    },
+    "   WW BB ": {
+      "board": "   WW BB ",
+      "moves": [
+        "a3b2",
+        "b3a2"
+      ]
+    },
+    "  W B BW ": {
+      "board": "  W B BW ",
+      "moves": [
+        "b2b1",
+        "b2c1",
+        "a3a2"
+      ]
+    },
+    "   W WWBB": {
+      "board": "   W WWBB",
+      "moves": [
+        "b3a2",
+        "b3b2",
+        "b3c2"
+      ]
+    },
+    "   WW BWB": {
+      "board": "   WW BWB",
+      "moves": [
+        "a3b2",
+        "c3b2",
+        "c3c2"
+      ]
+    },
+    "W    BW B": {
+      "board": "W    BW B",
+      "moves": [
+        "c2c1"
+      ]
+    },
+    "W     BWW": {
+      "board": "W     BWW",
+      "moves": [
+        "a3a2"
+      ]
+    },
+    "W   WBBW ": {
+      "board": "W   WBBW ",
+      "moves": [
+        "c2c1",
+        "a3a2",
+        "a3b2"
+      ]
+    },
+    "  W W W B": {
+      "board": "  W W W B",
+      "moves": [
+        "c3b2",
+        "c3c2"
+      ]
+    },
+    "W   BWW B": {
+      "board": "W   BWW B",
+      "moves": [
+        "b2a1",
+        "b2b1"
+      ]
+    },
+    "W  B W BW": {
+      "board": "W  B W BW",
+      "moves": [
+        "b3b2",
+        "b3c2"
+      ]
+    },
+    "W    BB W": {
+      "board": "W    BB W",
+      "moves": [
+        "c2c1",
+        "a3a2"
+      ]
+    },
+    " W   WW B": {
+      "board": " W   WW B",
+      "moves": [
+      ]
+    },
+    " W   WB W": {
+      "board": " W   WB W",
+      "moves": [
+        "a3a2"
+      ]
+    },
+    "WB   BB  ": {
+      "board": "WB   BB  ",
+      "moves": [
+        "c2c1",
+        "a3a2"
+      ]
+    },
+    "WB B    B": {
+      "board": "WB B    B",
+      "moves": [
+        "c3c2"
+      ]
+    },
+    "B WBW   B": {
+      "board": "B WBW   B",
+      "moves": [
+        "c3b2",
+        "c3c2"
+      ]
+    },
+    "B W B B  ": {
+      "board": "B W B B  ",
+      "moves": [
+        "b2b1",
+        "b2c1",
+        "a3a2"
+      ]
+    },
+    "   BW   B": {
+      "board": "   BW   B",
+      "moves": [
+        "a2a1",
+        "c3b2",
+        "c3c2"
+      ]
+    },
+    "  BB  B  ": {
+      "board": "  BB  B  ",
+      "moves": [
+        "a2a1"
+      ]
+    },
+    "  WB BBW ": {
+      "board": "  WB BBW ",
+      "moves": [
+        "a2a1"
+      ]
+    },
+    "   B WBWB": {
+      "board": "   B WBWB",
+      "moves": [
+        "a2a1"
+      ]
+    },
+    " BBW  B  ": {
+      "board": " BBW  B  ",
+      "moves": [
+      ]
+    },
+    " WBWW B  ": {
+      "board": " WBWW B  ",
+      "moves": [
+        "a3b2"
+      ]
+    },
+    "   WWB B ": {
+      "board": "   WWB B ",
+      "moves": [
+        "c2c1",
+        "b3a2"
+      ]
+    },
+    "  W BB W ": {
+      "board": "  W BB W ",
+      "moves": [
+        "b2b1",
+        "b2c1"
+      ]
+    },
+    "  WBBB   ": {
+      "board": "  WBBB   ",
+      "moves": [
+        "a2a1",
+        "b2b1",
+        "b2c1"
+      ]
+    },
+    " BWB   W ": {
+      "board": " BWB   W ",
+      "moves": [
+        "a2a1"
+      ]
+    },
+    "  WBWB W ": {
+      "board": "  WBWB W ",
+      "moves": [
+        "a2a1"
+      ]
+    },
+    "    BW WB": {
+      "board": "    BW WB",
+      "moves": [
+        "b2b1"
+      ]
+    },
+    " BW   WBB": {
+      "board": " BW   WBB",
+      "moves": [
+        "b3b2",
+        "c3c2"
+      ]
+    },
+    "  W BBWB ": {
+      "board": "  W BBWB ",
+      "moves": [
+        "b2b1",
+        "b2c1"
+      ]
+    },
+    "B W B   B": {
+      "board": "B W B   B",
+      "moves": [
+        "b2b1",
+        "b2c1",
+        "c3c2"
+      ]
+    },
+    "B W WBB  ": {
+      "board": "B W WBB  ",
       "moves": [
         "a3a2",
         "a3b2"
       ]
     },
-    "  WBW B B": {
+    "   BBW  B": {
+      "board": "   BBW  B",
       "moves": [
         "a2a1",
-        "a3b2",
-        "c3b2",
-        "c3c2"
+        "b2b1"
       ]
     },
-    "  WWB  BB": {
+    " BWB  B  ": {
+      "board": " BWB  B  ",
+      "moves": [
+        "a2a1"
+      ]
+    },
+    "  WB BW  ": {
+      "board": "  WB BW  ",
+      "moves": [
+        "a2a1"
+      ]
+    },
+    "   WB  B ": {
+      "board": "   WB  B ",
       "moves": [
         "b2b1",
-        "b2c1",
-        "b3a2",
-        "c3c2"
+        "b3a2"
       ]
     },
-    " W WW B B": {
+    "    BWBW ": {
+      "board": "    BWBW ",
       "moves": [
-        "a3b2",
+        "b2b1",
+        "a3a2"
+      ]
+    },
+    "   WB BBW": {
+      "board": "   WB BBW",
+      "moves": [
+        "b2b1",
+        "b3a2"
+      ]
+    },
+    "  B   BW ": {
+      "board": "  B   BW ",
+      "moves": [
+        "a3a2"
+      ]
+    },
+    "     WBWW": {
+      "board": "     WBWW",
+      "moves": [
+        "a3a2"
+      ]
+    },
+    "   WBWW B": {
+      "board": "   WBWW B",
+      "moves": [
+        "b2b1"
+      ]
+    },
+    "   WWBBW ": {
+      "board": "   WWBBW ",
+      "moves": [
+        "c2c1",
+        "a3b2"
+      ]
+    },
+    "    WWW B": {
+      "board": "    WWW B",
+      "moves": [
+        "c3b2"
+      ]
+    },
+    "W  B   WW": {
+      "board": "W  B   WW",
+      "moves": [
+      ]
+    },
+    "W   BB W ": {
+      "board": "W   BB W ",
+      "moves": [
+        "b2a1",
+        "b2b1",
+        "c2c1"
+      ]
+    },
+    "    W BW ": {
+      "board": "    W BW ",
+      "moves": [
+        "a3a2",
+        "a3b2"
+      ]
+    },
+    "   WW W B": {
+      "board": "   WW W B",
+      "moves": [
         "c3b2",
         "c3c2"
       ]
     },
-    "  WW WBB ": {
+    "  W B W  ": {
+      "board": "  W B W  ",
       "moves": [
-        "b3a2",
+        "b2b1",
+        "b2c1"
+      ]
+    },
+    "W     W W": {
+      "board": "W     W W",
+      "moves": [
+      ]
+    },
+    "WB   WW B": {
+      "board": "WB   WW B",
+      "moves": [
+      ]
+    },
+    "  W WBW  ": {
+      "board": "  W WBW  ",
+      "moves": [
+      ]
+    },
+    "   B WB W": {
+      "board": "   B WB W",
+      "moves": [
+        "a2a1"
+      ]
+    },
+    "   W BB W": {
+      "board": "   W BB W",
+      "moves": [
+        "c2c1"
+      ]
+    },
+    "W  BBW  W": {
+      "board": "W  BBW  W",
+      "moves": [
+        "b2a1",
+        "b2b1"
+      ]
+    },
+    "W B   B W": {
+      "board": "W B   B W",
+      "moves": [
+        "a3a2"
+      ]
+    },
+    " B   WWBB": {
+      "board": " B   WWBB",
+      "moves": [
         "b3b2",
         "b3c2"
       ]
     },
-    "W   BW BB": {
+    " B W   WB": {
+      "board": " B W   WB",
       "moves": [
-        "b2a1",
-        "b2b1",
-        "b3c2"
+        "c3c2"
       ]
     },
-    "W  BWW BB": {
+    " B WBW  B": {
+      "board": " B WBW  B",
       "moves": [
-        "b3c2",
-        "c3b2"
       ]
     },
-    " W B WB B": {
+    "WBB   B  ": {
+      "board": "WBB   B  ",
       "moves": [
-        "a2a1",
-        "a2b1"
+        "a3a2"
       ]
     },
-    "  WWWBBB ": {
+    "  BWW B B": {
+      "board": "  BWW B B",
       "moves": [
         "a3b2",
+        "c3b2",
+        "c3c2"
+      ]
+    },
+    "WB B B   ": {
+      "board": "WB B B   ",
+      "moves": [
+        "c2c1"
+      ]
+    },
+    "B WBWB   ": {
+      "board": "B WBWB   ",
+      "moves": [
+      ]
+    },
+    "B   BW  B": {
+      "board": "B   BW  B",
+      "moves": [
+        "b2b1"
+      ]
+    },
+    "B B   B  ": {
+      "board": "B B   B  ",
+      "moves": [
+        "a3a2"
+      ]
+    },
+    "B W  BW  ": {
+      "board": "B W  BW  ",
+      "moves": [
+      ]
+    },
+    "B   W   B": {
+      "board": "B   W   B",
+      "moves": [
+        "c3b2",
+        "c3c2"
+      ]
+    },
+    "   BWB   ": {
+      "board": "   BWB   ",
+      "moves": [
+        "a2a1",
+        "c2c1"
+      ]
+    },
+    " B B WB  ": {
+      "board": " B B WB  ",
+      "moves": [
+        "a2a1"
+      ]
+    },
+    "B W  BBW ": {
+      "board": "B W  BBW ",
+      "moves": [
+        "a3a2"
+      ]
+    },
+    "   W WW  ": {
+      "board": "   W WW  ",
+      "moves": [
+      ]
+    },
+    "  BW  B W": {
+      "board": "  BW  B W",
+      "moves": [
+      ]
+    },
+    " B W  BW ": {
+      "board": " B W  BW ",
+      "moves": [
+      ]
+    },
+    "   WBW   ": {
+      "board": "   WBW   ",
+      "moves": [
+        "b2b1"
+      ]
+    },
+    "  BWW  B ": {
+      "board": "  BWW  B ",
+      "moves": [
         "b3a2"
       ]
     },
-    "  W W  BB": {
+    "    WBWB ": {
+      "board": "    WBWB ",
       "moves": [
-        "c3b2",
-        "c3c2"
+        "c2c1"
       ]
     },
-    "W   W  BB": {
+    "  B  B W ": {
+      "board": "  B  B W ",
       "moves": [
-        "c3b2",
-        "c3c2"
       ]
     },
-    "  WW  B B": {
+    "  WB   WW": {
+      "board": "  WB   WW",
       "moves": [
-        "c3c2"
+        "a2a1"
       ]
     },
-    "   BBW  B": {
+    "   BB    ": {
+      "board": "   BB    ",
       "moves": [
         "a2a1",
         "b2b1"
       ]
     },
-    "   WWWB  ": {
+    "    B WB ": {
+      "board": "    B WB ",
+      "moves": [
+        "b2b1"
+      ]
+    },
+    "    B WWB": {
+      "board": "    B WWB",
+      "moves": [
+        "b2b1",
+        "c3c2"
+      ]
+    },
+    " BW  BWB ": {
+      "board": " BW  BWB ",
+      "moves": [
+        "b3b2"
+      ]
+    },
+    "  B  BWB ": {
+      "board": "  B  BWB ",
+      "moves": [
+        "b3b2"
+      ]
+    },
+    "B WB   WB": {
+      "board": "B WB   WB",
+      "moves": [
+        "c3c2"
+      ]
+    },
+    "B W BB   ": {
+      "board": "B W BB   ",
+      "moves": [
+        "b2b1",
+        "b2c1"
+      ]
+    },
+    "B   BWB  ": {
+      "board": "B   BWB  ",
+      "moves": [
+        "b2b1",
+        "a3a2"
+      ]
+    },
+    "   B    W": {
+      "board": "   B    W",
+      "moves": [
+        "a2a1"
+      ]
+    },
+    " B B W  B": {
+      "board": " B B W  B",
+      "moves": [
+        "a2a1"
+      ]
+    },
+    "   B  BW ": {
+      "board": "   B  BW ",
+      "moves": [
+        "a2a1"
+      ]
+    },
+    "   BBW W ": {
+      "board": "   BBW W ",
+      "moves": [
+        "a2a1",
+        "b2b1"
+      ]
+    },
+    "   BB B W": {
+      "board": "   BB B W",
+      "moves": [
+        "a2a1",
+        "b2b1"
+      ]
+    },
+    "  BB   W ": {
+      "board": "  BB   W ",
+      "moves": [
+        "a2a1"
+      ]
+    },
+    " BW  B W ": {
+      "board": " BW  B W ",
+      "moves": [
+      ]
+    },
+    "  BB B   ": {
+      "board": "  BB B   ",
+      "moves": [
+        "a2a1"
+      ]
+    },
+    " B W WW B": {
+      "board": " B W WW B",
+      "moves": [
+      ]
+    },
+    "  BWW BW ": {
+      "board": "  BWW BW ",
       "moves": [
         "a3b2"
       ]
     },
-    "   BWW B ": {
+    "    BWW  ": {
+      "board": "    BWW  ",
       "moves": [
-        "a2a1",
-        "b3c2"
-      ]
-    },
-    "   WWB B ": {
-      "moves": [
-        "c2c1",
-        "b3a2"
-      ]
-    },
-    "   BBWB  ": {
-      "moves": [
-        "a2a1",
         "b2b1"
       ]
     },
-    "   WBB  B": {
+    "   B W WW": {
+      "board": "   B W WW",
+      "moves": [
+        "a2a1"
+      ]
+    },
+    "   BW  W ": {
+      "board": "   BW  W ",
+      "moves": [
+        "a2a1"
+      ]
+    },
+    "W BBW  W ": {
+      "board": "W BBW  W ",
+      "moves": [
+      ]
+    },
+    "   WWBW  ": {
+      "board": "   WWBW  ",
+      "moves": [
+        "c2c1"
+      ]
+    },
+    "  B   W  ": {
+      "board": "  B   W  ",
+      "moves": [
+      ]
+    },
+    "   WB W  ": {
+      "board": "   WB W  ",
+      "moves": [
+        "b2b1"
+      ]
+    },
+    "B    WB W": {
+      "board": "B    WB W",
+      "moves": [
+        "a3a2"
+      ]
+    },
+    "B  B W  W": {
+      "board": "B  B W  W",
+      "moves": [
+      ]
+    },
+    " B  BWW B": {
+      "board": " B  BWW B",
+      "moves": [
+      ]
+    },
+    " B W B W ": {
+      "board": " B W B W ",
+      "moves": [
+        "c2c1"
+      ]
+    },
+    "  BWWBB  ": {
+      "board": "  BWWBB  ",
+      "moves": [
+        "a3b2"
+      ]
+    },
+    "WBB     B": {
+      "board": "WBB     B",
+      "moves": [
+        "c3c2"
+      ]
+    },
+    " B   BW B": {
+      "board": " B   BW B",
+      "moves": [
+        "c2c1"
+      ]
+    },
+    "W B   W B": {
+      "board": "W B   W B",
+      "moves": [
+        "c3c2"
+      ]
+    },
+    "B  BBW   ": {
+      "board": "B  BBW   ",
+      "moves": [
+        "b2b1"
+      ]
+    },
+    "BB   WB  ": {
+      "board": "BB   WB  ",
+      "moves": [
+        "a3a2"
+      ]
+    },
+    "B  BW    ": {
+      "board": "B  BW    ",
+      "moves": [
+      ]
+    },
+    "B   B    ": {
+      "board": "B   B    ",
+      "moves": [
+        "b2b1"
+      ]
+    },
+    "B   WB   ": {
+      "board": "B   WB   ",
+      "moves": [
+        "c2c1"
+      ]
+    },
+    "   W  BWW": {
+      "board": "   W  BWW",
+      "moves": [
+      ]
+    },
+    " B W W   ": {
+      "board": " B W W   ",
+      "moves": [
+      ]
+    },
+    "  B W WB ": {
+      "board": "  B W WB ",
+      "moves": [
+      ]
+    },
+    "B W    WW": {
+      "board": "B W    WW",
+      "moves": [
+      ]
+    },
+    " B B     ": {
+      "board": " B B     ",
+      "moves": [
+        "a2a1"
+      ]
+    },
+    " B    WB ": {
+      "board": " B    WB ",
+      "moves": [
+        "b3b2"
+      ]
+    },
+    "   B B W ": {
+      "board": "   B B W ",
+      "moves": [
+        "a2a1",
+        "c2c1"
+      ]
+    },
+    "    BBWW ": {
+      "board": "    BBWW ",
       "moves": [
         "b2b1",
         "c2c1"
       ]
     },
-    "   BW   B": {
+    "  B BBW  ": {
+      "board": "  B BBW  ",
       "moves": [
-        "a2a1",
-        "c3b2",
-        "c3c2"
+        "b2b1"
       ]
     },
-    "   WB  B ": {
+    "BBW  B   ": {
+      "board": "BBW  B   ",
       "moves": [
-        "b2b1",
-        "b3a2"
       ]
     },
-    "    BW B ": {
+    "B     W  ": {
+      "board": "B     W  ",
       "moves": [
-        "b2b1",
-        "b3c2"
       ]
     },
-    "   BW B  ": {
+    "B WB B W ": {
+      "board": "B WB B W ",
       "moves": [
-        "a2a1",
-        "a3b2"
       ]
     },
-    "    WB  B": {
+    "B B  B   ": {
+      "board": "B B  B   ",
       "moves": [
-        "c2c1",
-        "c3b2"
+      ]
+    },
+    "B     BW ": {
+      "board": "B     BW ",
+      "moves": [
+        "a3a2"
+      ]
+    },
+    "B   BW W ": {
+      "board": "B   BW W ",
+      "moves": [
+        "b2b1"
+      ]
+    },
+    " B    BWW": {
+      "board": " B    BWW",
+      "moves": [
+        "a3a2"
+      ]
+    },
+    "B B    W ": {
+      "board": "B B    W ",
+      "moves": [
+      ]
+    },
+    "  B W  W ": {
+      "board": "  B W  W ",
+      "moves": [
+      ]
+    },
+    " B   WW  ": {
+      "board": " B   WW  ",
+      "moves": [
+      ]
+    },
+    "  BW  WW ": {
+      "board": "  BW  WW ",
+      "moves": [
+      ]
+    },
+    " B   BWW ": {
+      "board": " B   BWW ",
+      "moves": [
+        "c2c1"
+      ]
+    },
+    "     WW W": {
+      "board": "     WW W",
+      "moves": [
+      ]
+    },
+    "W B  BW  ": {
+      "board": "W B  BW  ",
+      "moves": [
+      ]
+    },
+    "BB B W   ": {
+      "board": "BB B W   ",
+      "moves": [
+      ]
+    },
+    "BB       ": {
+      "board": "BB       ",
+      "moves": [
+      ]
+    },
+    "B B W    ": {
+      "board": "B B W    ",
+      "moves": [
+      ]
+    },
+    "    B W W": {
+      "board": "    B W W",
+      "moves": [
+        "b2b1"
+      ]
+    },
+    "  B B WW ": {
+      "board": "  B B WW ",
+      "moves": [
+        "b2b1"
+      ]
+    },
+    " B    W W": {
+      "board": " B    W W",
+      "moves": [
+      ]
+    },
+    " BB  BW  ": {
+      "board": " BB  BW  ",
+      "moves": [
+      ]
+    },
+    "BB    B W": {
+      "board": "BB    B W",
+      "moves": [
+        "a3a2"
+      ]
+    },
+    "BB   W W ": {
+      "board": "BB   W W ",
+      "moves": [
+      ]
+    },
+    " BB   WW ": {
+      "board": " BB   WW ",
+      "moves": [
       ]
     }
   }

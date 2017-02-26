@@ -291,18 +291,47 @@ GameLogic.service('GameLogic', function ($resource) {
   /*--------------------------------------------------------------------------*/
   this.createBoardsJSON = function (gameLogic) {
 
-    var boardKey = '';
     var computedBoards = {white: {}, black: {}};
+    var unAnalyzedBoards = [];
+    var currentPlayer = "W";
+    var startingBoard = gameLogic.newGame;
+    unAnalyzedBoards.push(startingBoard);
 
-    for (boardKey in gameLogic.boards.black) {
+    while (unAnalyzedBoards.length > 0) {
 
-      computedBoards.black[boardKey] = {
-        moves: this.createBoard(boardKey, 'B', gameLogic)
-      };
+      var currentBoard = unAnalyzedBoards[0];
+      unAnalyzedBoards.shift();
 
-      computedBoards.white[boardKey] = {
-        moves: this.createInvertedBoard(boardKey, 'W', gameLogic)
-      };
+      var moves = this.boardMoves(currentBoard, currentPlayer,
+              gameLogic);
+
+      if (currentPlayer === 'W') {
+        if (!computedBoards.white[currentBoard]) {
+          if (!computedBoards.white[this.flipBoard(currentBoard)]) {
+            computedBoards.white[currentBoard] = {
+              board: currentBoard,
+              moves: moves
+            };
+          }
+        }
+      } else if (currentPlayer === "B") {
+        if (!computedBoards.black[currentBoard]) {
+          if (!computedBoards.black[this.flipBoard(currentBoard)]) {
+            computedBoards.black[currentBoard] = {
+              board: currentBoard,
+              moves: moves
+            };
+          }
+        }
+      }
+
+      for (var i in moves) {
+        var move = moves[i];
+        var newBoard = this.doMove(currentBoard, move, gameLogic);
+        unAnalyzedBoards.push(newBoard);
+      }
+
+      currentPlayer = (currentPlayer === 'W') ? 'B' : 'W';
 
     }
 

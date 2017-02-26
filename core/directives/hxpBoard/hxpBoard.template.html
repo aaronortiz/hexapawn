@@ -7,7 +7,7 @@
 </h3>
 
 <h3 ng-if="game.victory == ' ' && game.moves.length == 0">
-  {{i18n.TIE}}
+  {{i18n.NO_MOVE_FOR}}<br>{{game.players[game.currentPlayer].name}}
 </h3>
 
 
