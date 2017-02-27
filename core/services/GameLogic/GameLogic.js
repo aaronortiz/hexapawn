@@ -298,7 +298,7 @@ GameLogic.service('GameLogic', function ($resource) {
     console.log(board.board.substr(3, 3));
     console.log(board.board.substr(0, 3));
     console.log(board.moves);
-    console.log(board.moveNumber)
+    console.log(board.moveNumber);
   };
 
   /*--------------------------------------------------------------------------*/
@@ -329,21 +329,15 @@ GameLogic.service('GameLogic', function ($resource) {
           if (!computedBoards.white[currentBoard.board]) {
             if (!computedBoards.white[flippedBoard]) {
               computedBoards.white[currentBoard.board] = currentBoard;
-            } else {
-              this.logBoard(currentBoard, 'Flipped (' + flippedBoard + ') ');
             }
           }
         } else if (currentPlayer === "B") {
           if (!computedBoards.black[currentBoard.board]) {
             if (!computedBoards.black[flippedBoard]) {
               computedBoards.black[currentBoard.board] = currentBoard;
-            } else {
-              this.logBoard(currentBoard, 'Flipped (' + flippedBoard + ') ');
             }
           }
         }
-      } else {
-        this.logBoard(currentBoard, 'No moves');
       }
 
       for (var i in currentBoard.moves) {
@@ -360,4 +354,39 @@ GameLogic.service('GameLogic', function ($resource) {
     return computedBoards;
 
   };
+
+  /*--------------------------------------------------------------------------*/
+  this.returnMoveMatrix = function (boards) {
+
+    var moveString = '';
+    var moveMatrix = [];
+
+    for (board in boards) {
+      switch (board.moves.length) {
+        case 0:
+          moveString += '0000';
+          break;
+        case 1:
+          moveString += '1000';
+          break;
+        case 2:
+          moveString += '1100';
+          break;
+        case 3:
+          moveString += '1110';
+          break;
+        case 4:
+          moveString += '1111';
+          break;
+      }
+    }
+
+    moveMatrix[0] = moveString.substr(0, 14);
+    moveMatrix[1] = moveString.substr(14, 14);
+    moveMatrix[2] = moveString.substr(28);
+
+    return moveMatrix;
+
+  };
+
 });
