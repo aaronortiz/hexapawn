@@ -52,28 +52,31 @@ GameLogic.service('GameLogic', function ($resource) {
 
     var moves = [];
 
-    for (offset = 0; offset < 9; offset++) {
+    if (this.checkVictory(boardState) === ' ') {
 
-      if (boardState.substr(offset, 1) === currentPlayer) {
+      for (offset = 0; offset < 9; offset++) {
 
-        var tileMoves = this.cellMoves(offset, currentPlayer, gameLogic);
-        for (board = 0; board < tileMoves.length; board++) {
+        if (boardState.substr(offset, 1) === currentPlayer) {
 
-          var destinationTile = tileMoves[board].substr(2, 2);
-          var destinationOffset = gameLogic.offsets[destinationTile];
-          var destinationContents = boardState.substr(destinationOffset, 1);
-          var advance = tileMoves[board].substr(0,
-                  1) === tileMoves[board].substr(2,
-                  1);
+          var tileMoves = this.cellMoves(offset, currentPlayer, gameLogic);
+          for (board = 0; board < tileMoves.length; board++) {
 
-          if (destinationContents !== currentPlayer) {
-            if (destinationContents === ' ' && advance) {
-              moves.push(tileMoves[board]);
-            } else if (!(destinationContents === ' ' || advance)) {
-              moves.push(tileMoves[board]);
+            var destinationTile = tileMoves[board].substr(2, 2);
+            var destinationOffset = gameLogic.offsets[destinationTile];
+            var destinationContents = boardState.substr(destinationOffset, 1);
+            var advance = tileMoves[board].substr(0,
+                    1) === tileMoves[board].substr(2,
+                    1);
+
+            if (destinationContents !== currentPlayer) {
+              if (destinationContents === ' ' && advance) {
+                moves.push(tileMoves[board]);
+              } else if (!(destinationContents === ' ' || advance)) {
+                moves.push(tileMoves[board]);
+              }
             }
-          }
 
+          }
         }
       }
     }
@@ -289,50 +292,69 @@ GameLogic.service('GameLogic', function ($resource) {
   };
 
   /*--------------------------------------------------------------------------*/
+  this.logBoard = function (board, comment) {
+    console.log('--------' + comment + ': ' + board.board);
+    console.log(board.board.substr(6, 3));
+    console.log(board.board.substr(3, 3));
+    console.log(board.board.substr(0, 3));
+    console.log(board.moves);
+    console.log(board.moveNumber)
+  };
+
+  /*--------------------------------------------------------------------------*/
   this.createBoardsJSON = function (gameLogic) {
 
+    var currentPlayer = '';
     var computedBoards = {white: {}, black: {}};
     var unAnalyzedBoards = [];
-    var currentPlayer = "W";
     var startingBoard = gameLogic.newGame;
-    unAnalyzedBoards.push(startingBoard);
+
+    unAnalyzedBoards.push({
+      board: startingBoard,
+      moveNumber: 1
+    });
 
     while (unAnalyzedBoards.length > 0) {
 
       var currentBoard = unAnalyzedBoards[0];
+      var flippedBoard = this.flipBoard(currentBoard.board);
       unAnalyzedBoards.shift();
 
-      var moves = this.boardMoves(currentBoard, currentPlayer,
+      currentPlayer = (currentBoard.moveNumber % 2 === 0) ? 'B' : 'W';
+      currentBoard.moves = this.boardMoves(currentBoard.board, currentPlayer,
               gameLogic);
 
-      if (currentPlayer === 'W') {
-        if (!computedBoards.white[currentBoard]) {
-          if (!computedBoards.white[this.flipBoard(currentBoard)]) {
-            computedBoards.white[currentBoard] = {
-              board: currentBoard,
-              moves: moves
-            };
+      if (currentBoard.moves.length > 0) {
+        if (currentPlayer === 'W') {
+          if (!computedBoards.white[currentBoard.board]) {
+            if (!computedBoards.white[flippedBoard]) {
+              computedBoards.white[currentBoard.board] = currentBoard;
+            } else {
+              this.logBoard(currentBoard, 'Flipped (' + flippedBoard + ') ');
+            }
+          }
+        } else if (currentPlayer === "B") {
+          if (!computedBoards.black[currentBoard.board]) {
+            if (!computedBoards.black[flippedBoard]) {
+              computedBoards.black[currentBoard.board] = currentBoard;
+            } else {
+              this.logBoard(currentBoard, 'Flipped (' + flippedBoard + ') ');
+            }
           }
         }
-      } else if (currentPlayer === "B") {
-        if (!computedBoards.black[currentBoard]) {
-          if (!computedBoards.black[this.flipBoard(currentBoard)]) {
-            computedBoards.black[currentBoard] = {
-              board: currentBoard,
-              moves: moves
-            };
-          }
-        }
+      } else {
+        this.logBoard(currentBoard, 'No moves');
       }
 
-      for (var i in moves) {
-        var move = moves[i];
-        var newBoard = this.doMove(currentBoard, move, gameLogic);
-        unAnalyzedBoards.push(newBoard);
+      for (var i in currentBoard.moves) {
+        var move = currentBoard.moves[i];
+        var newBoard = this.doMove(currentBoard.board, move, gameLogic);
+        unAnalyzedBoards.push(
+                {
+                  board: newBoard,
+                  moveNumber: currentBoard.moveNumber + 1
+                });
       }
-
-      currentPlayer = (currentPlayer === 'W') ? 'B' : 'W';
-
     }
 
     return computedBoards;

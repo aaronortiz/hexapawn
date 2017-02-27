@@ -104,8 +104,159 @@
     "c3": 8
   },
   "boards": {
+    "white": {
+      "WWW   BBB": {
+        "board": "WWW   BBB",
+        "moveNumber": 1,
+        "moves": [
+          "a1a2",
+          "b1b2",
+          "c1c2"
+        ]
+      },
+      " WWB  B B": {
+        "board": " WWB  B B",
+        "moveNumber": 3,
+        "moves": [
+          "b1a2",
+          "b1b2",
+          "c1c2"
+        ]
+      },
+      " WWWB B B": {
+        "board": " WWWB B B",
+        "moveNumber": 3,
+        "moves": [
+          "c1b2",
+          "c1c2"
+        ]
+      },
+      " WWW BBB ": {
+        "board": " WWW BBB ",
+        "moveNumber": 3,
+        "moves": [
+          "b1b2",
+          "b1c2",
+          "a2b3"
+        ]
+      },
+      "W WBW  BB": {
+        "board": "W WBW  BB",
+        "moveNumber": 3,
+        "moves": [
+          "c1c2",
+          "b2c3"
+        ]
+      },
+      "W W B  BB": {
+        "board": "W W B  BB",
+        "moveNumber": 3,
+        "moves": [
+          "a1a2",
+          "a1b2",
+          "c1b2",
+          "c1c2"
+        ]
+      },
+      "  WBB   B": {
+        "board": "  WBB   B",
+        "moveNumber": 5,
+        "moves": [
+          "c1b2",
+          "c1c2"
+        ]
+      },
+      "  WBB B  ": {
+        "board": "  WBB B  ",
+        "moveNumber": 5,
+        "moves": [
+          "c1b2",
+          "c1c2"
+        ]
+      },
+      "  WBWBB  ": {
+        "board": "  WBWBB  ",
+        "moveNumber": 5,
+        "moves": [
+          "b2a3",
+          "b2b3"
+        ]
+      },
+      " W WB   B": {
+        "board": " W WB   B",
+        "moveNumber": 5,
+        "moves": [
+          "a2a3"
+        ]
+      },
+      " W WWBB  ": {
+        "board": " W WWBB  ",
+        "moveNumber": 5,
+        "moves": [
+          "b1c2",
+          "b2a3",
+          "b2b3"
+        ]
+      },
+      "  WWBB B ": {
+        "board": "  WWBB B ",
+        "moveNumber": 5,
+        "moves": [
+          "c1b2",
+          "a2a3",
+          "a2b3"
+        ]
+      },
+      "  WB WB  ": {
+        "board": "  WB WB  ",
+        "moveNumber": 5,
+        "moves": [
+          "c2c3"
+        ]
+      },
+      "  WWBWB  ": {
+        "board": "  WWBWB  ",
+        "moveNumber": 5,
+        "moves": [
+          "c1b2",
+          "c2c3"
+        ]
+      },
+      "  W B  B ": {
+        "board": "  W B  B ",
+        "moveNumber": 5,
+        "moves": [
+          "c1b2",
+          "c1c2"
+        ]
+      },
+      "W   WB B ": {
+        "board": "W   WB B ",
+        "moveNumber": 5,
+        "moves": [
+          "a1a2"
+        ]
+      },
+      "   BWB   ": {
+        "board": "   BWB   ",
+        "moveNumber": 7,
+        "moves": [
+          "b2b3"
+        ]
+      },
+      "   WBW   ": {
+        "board": "   WBW   ",
+        "moveNumber": 7,
+        "moves": [
+          "a2a3",
+          "c2c3"
+        ]
+      }
+    },
     "black": {
       " WWW  BBB": {
+        "board": " WWW  BBB",
+        "moveNumber": 2,
         "moves": [
           "b3a2",
           "b3b2",
@@ -113,12 +264,25 @@
         ]
       },
       "W W W BBB": {
+        "board": "W W W BBB",
+        "moveNumber": 2,
         "moves": [
           "a3a2",
-          "a3b2"
+          "a3b2",
+          "c3b2",
+          "c3c2"
+        ]
+      },
+      "  WW  B B": {
+        "board": "  WW  B B",
+        "moveNumber": 4,
+        "moves": [
+          "c3c2"
         ]
       },
       "  WBW B B": {
+        "board": "  WBW B B",
+        "moveNumber": 4,
         "moves": [
           "a2a1",
           "a3b2",
@@ -126,7 +290,43 @@
           "c3c2"
         ]
       },
+      " W B WB B": {
+        "board": " W B WB B",
+        "moveNumber": 4,
+        "moves": [
+          "a2a1",
+          "a2b1"
+        ]
+      },
+      " W WW B B": {
+        "board": " W WW B B",
+        "moveNumber": 4,
+        "moves": [
+          "a3b2",
+          "c3b2",
+          "c3c2"
+        ]
+      },
+      "  WWWBBB ": {
+        "board": "  WWWBBB ",
+        "moveNumber": 4,
+        "moves": [
+          "a3b2",
+          "b3a2"
+        ]
+      },
+      "  WW WBB ": {
+        "board": "  WW WBB ",
+        "moveNumber": 4,
+        "moves": [
+          "b3a2",
+          "b3b2",
+          "b3c2"
+        ]
+      },
       "  WWB  BB": {
+        "board": "  WWB  BB",
+        "moveNumber": 4,
         "moves": [
           "b2b1",
           "b2c1",
@@ -134,126 +334,85 @@
           "c3c2"
         ]
       },
-      " W WW B B": {
-        "moves": [
-          "a3b2",
-          "c3b2",
-          "c3c2"
-        ]
-      },
-      "  WW WBB ": {
-        "moves": [
-          "b3a2",
-          "b3b2",
-          "b3c2"
-        ]
-      },
-      "W   BW BB": {
-        "moves": [
-          "b2a1",
-          "b2b1",
-          "b3c2"
-        ]
-      },
-      "W  BWW BB": {
-        "moves": [
-          "b3c2",
-          "c3b2"
-        ]
-      },
-      " W B WB B": {
-        "moves": [
-          "a2a1",
-          "a2b1"
-        ]
-      },
-      "  WWWBBB ": {
-        "moves": [
-          "a3b2",
-          "b3a2"
-        ]
-      },
       "  W W  BB": {
+        "board": "  W W  BB",
+        "moveNumber": 4,
         "moves": [
           "c3b2",
           "c3c2"
         ]
       },
       "W   W  BB": {
+        "board": "W   W  BB",
+        "moveNumber": 4,
         "moves": [
           "c3b2",
           "c3c2"
         ]
       },
-      "  WW  B B": {
+      "W   BW BB": {
+        "board": "W   BW BB",
+        "moveNumber": 4,
         "moves": [
+          "b2a1",
+          "b2b1",
+          "b3c2"
+        ]
+      },
+      "   BW   B": {
+        "board": "   BW   B",
+        "moveNumber": 6,
+        "moves": [
+          "a2a1",
+          "c3b2",
           "c3c2"
         ]
       },
       "   BBW  B": {
+        "board": "   BBW  B",
+        "moveNumber": 6,
+        "moves": [
+          "a2a1",
+          "b2b1"
+        ]
+      },
+      "   BW B  ": {
+        "board": "   BW B  ",
+        "moveNumber": 6,
+        "moves": [
+          "a2a1",
+          "a3b2"
+        ]
+      },
+      "   BBWB  ": {
+        "board": "   BBWB  ",
+        "moveNumber": 6,
         "moves": [
           "a2a1",
           "b2b1"
         ]
       },
       "   WWWB  ": {
+        "board": "   WWWB  ",
+        "moveNumber": 6,
         "moves": [
           "a3b2"
         ]
       },
-      "   BWW B ": {
-        "moves": [
-          "a2a1",
-          "b3c2"
-        ]
-      },
       "   WWB B ": {
+        "board": "   WWB B ",
+        "moveNumber": 6,
         "moves": [
           "c2c1",
-          "b3a2"
-        ]
-      },
-      "   BBWB  ": {
-        "moves": [
-          "a2a1",
-          "b2b1"
-        ]
-      },
-      "   WBB  B": {
-        "moves": [
-          "b2b1",
-          "c2c1"
-        ]
-      },
-      "   BW   B": {
-        "moves": [
-          "a2a1",
-          "c3b2",
-          "c3c2"
-        ]
-      },
-      "   WB  B ": {
-        "moves": [
-          "b2b1",
           "b3a2"
         ]
       },
       "    BW B ": {
+        "board": "    BW B ",
+        "moveNumber": 6,
         "moves": [
           "b2b1",
           "b3c2"
-        ]
-      },
-      "   BW B  ": {
-        "moves": [
-          "a2a1",
-          "a3b2"
-        ]
-      },
-      "    WB  B": {
-        "moves": [
-          "c2c1",
-          "c3b2"
         ]
       }
     }
