@@ -13,11 +13,12 @@
 
   </hxp-board>
 
-  <div ng-if="showTools">
+  <div class="brain-display" ng-if="showBrain">
     <hr>
-    <h3>Tools</h3>
-    <label for="boards-json">Boards JSON</label>
-    <textarea id="boards-json" ng-model="boards" columns="80" rows="10"></textarea>
+    <h3>Brain</h3>
+    <hxp-brain i18n="i18n" 
+               player="player"
+               boards="boards">
   </div>
 
 </div>
@@ -27,4 +28,4 @@
     <i class="material-icons">arrow_back</i>
     {{i18n.RETURN_TO_MAIN_MENU}}
   </a>
-  <a ng-click="toggleTools()">*</a>
+  <a ng-click="toggleBrain()">*</a>

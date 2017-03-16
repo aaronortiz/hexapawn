@@ -2,6 +2,7 @@
 @import "setup.css";
 @import "moves.css";
 @import "gameboard.css";
+@import "brain.css";
 
 html {
   min-height: 100%;
