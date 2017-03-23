@@ -33,3 +33,16 @@
   border: 0.15em solid #aaa100;
   font-size: 1.8em;
 }
+
+@media (min-width: 46em) {
+
+  #setup-screen {
+    font-size: 150%;
+  }
+
+  #setup-screen input, #setup-screen select {
+    font-size: 100%;
+    margin: 0.4em 0em 1em;
+  }
+
+}
