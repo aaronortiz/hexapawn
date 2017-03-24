@@ -1,1 +1,1 @@
-angular.module('AIBrain', ['GameLogic']);
+angular.module('AIBrain', []);
