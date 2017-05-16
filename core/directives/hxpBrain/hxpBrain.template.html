@@ -2,17 +2,17 @@
 
   <span class="hxp-brain-board-moves" ng-repeat="b in boards">
 
-    <span class="move-1-on" ng-if="b.moves.length > 0">1</span>
-    <span class="move-1-off" ng-if="b.moves.length < 1">0</span>
+    <span class="move-1-on" ng-if="b.moves.length > 0">&bullet;</span>
+    <span class="move-1-off" ng-if="b.moves.length < 1">&bullet;</span>
 
-    <span class="move-2-on" ng-if="b.moves.length > 1">1</span>
-    <span class="move-2-off" ng-if="b.moves.length < 2">0</span>
+    <span class="move-2-on" ng-if="b.moves.length > 1">&bullet;</span>
+    <span class="move-2-off" ng-if="b.moves.length < 2">&bullet;</span>
 
-    <span class="move-3-on" ng-if="b.moves.length > 2">1</span>
-    <span class="move-3-off" ng-if="b.moves.length < 3">0</span>
+    <span class="move-3-on" ng-if="b.moves.length > 2">&bullet;</span>
+    <span class="move-3-off" ng-if="b.moves.length < 3">&bullet;</span>
 
-    <span class="move-4-on" ng-if="b.moves.length > 3">1</span>
-    <span class="move-4-off" ng-if="b.moves.length < 4">0</span>
+    <span class="move-4-on" ng-if="b.moves.length > 3">&bullet;</span>
+    <span class="move-4-off" ng-if="b.moves.length < 4">&bullet;</span>
 
   </span>
 

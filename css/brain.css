@@ -1,4 +1,40 @@
 .brain-display {
-   float: right;
-   width: 100%;
+  float: right;
+  width: 100%;
+}
+
+.brain-display .hxp-brain-board-moves {
+  font-size: 50%;
+}
+
+.move-1-on {
+  color: red;
+}
+
+.move-1-off {
+  color: #330000;
+}
+
+.move-2-on {
+  color: greenyellow;
+}
+
+.move-2-off {
+  color: green;
+}
+
+.move-3-on {
+  color: cyan;
+}
+
+.move-3-off {
+  color: #000033;
+}
+
+.move-4-on {
+  color: yellow;
+}
+
+.move-4-off {
+  color: #333300;
 }

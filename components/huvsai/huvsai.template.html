@@ -13,10 +13,10 @@
 
   </hxp-board>
 
-  <div class="brain-display" ng-if="showBrain">
+  <div class="brain-display" ng-if="showBrain && game.players[game.currentPlayer].type === 'ai'">
     <hr>
-    <h3>Brain</h3>
-    <hxp-brain i18n="i18n" 
+    <h4>{{game.players[game.currentPlayer].name}}'s Brain:</h4>
+    <hxp-brain i18n="i18n"
                player="player"
                boards="boards">
   </div>

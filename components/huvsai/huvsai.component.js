@@ -31,7 +31,11 @@ huvsai.controller('humanVsAiCtlr', [
         }
       };
 
-      $window.sessionStorage.game = JSON.stringify(game);
+      $scope.showBrain = false;
+      $scope.toggleBrain()
+      :
+
+              $window.sessionStorage.game = JSON.stringify(game);
       $scope.game = game;
 
     };
