@@ -6,18 +6,18 @@ brain.directive('hxpBrain', function () {
     scope: {
       'i18n': '=i18n',
       'player': '=player',
-      'boardsstring': '=boards'
+      'learningstring': '=learningstring'
     },
     link: function (scope, elem, attrs) {
 
-      scope.boards = {};
-      if (scope.boardsstring) {
-        var boardsArray = JSON.parse(scope.boardsstring);
+      scope.learningStates = [];
+      if (scope.learningstring) {
+        var learningTemp = JSON.parse(scope.learningstring);
 
-        for (var i in boardsArray) {
-          var board = boardsArray[i].board;
-          var moves = boardsArray[i].moves;
-          scope.boards[board] = {board: board, moves: moves};
+        for (var i in learningTemp) {
+          var board = learningTemp[i].board;
+          var moves = learningTemp[i].moves;
+          scope.learningStates.push({board: board, moves: moves});
         }
       }
 

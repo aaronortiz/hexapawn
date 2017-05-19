@@ -9,7 +9,8 @@ board.directive('hxpBoard', function () {
       'game': '=gamedata',
       'doMove': '&onMove',
       'aiMove': '&onAiMove',
-      'repeatGame': '&onRepeat',
+      'newGame': '&onNewGame',
+      'exportJson': '&onExportJson',
       'returnToMainMenu': '&onReturnToMainMenu'
     },
     transclude: true,

@@ -13,11 +13,12 @@ huvshu.controller('humanVsHumanCtlr', [
 
       // initialize game
       var game = {};
+      game.number = 1;
       game.victory = ' ';
       game.boardState = $scope.logic.newGame;
-      game.moves = GameLogic.boardMoves(game.boardState, 'W',
+      game.boardMoves = GameLogic.boardMoves(game.boardState, 'W',
               $scope.logic);
-      game.moveCount = 0;
+      game.playerMoves = [];
 
       game.currentPlayer = 'W';
       game.players = {
@@ -78,15 +79,15 @@ huvshu.controller('humanVsHumanCtlr', [
 
       $scope.checkPersistence();
 
-      game.moveCount++;
+      game.playerMoves.push(move);
       game.boardState = GameLogic.doMove(game.boardState, move, $scope.logic);
 
       game.victory = GameLogic.checkVictory(game.boardState);
       if (game.victory !== ' ') {
-        game.moves = [];
+        game.boardMoves = [];
       } else {
         game.currentPlayer = (game.currentPlayer === 'W') ? 'B' : 'W'; // Toggle player
-        game.moves = GameLogic.boardMoves(game.boardState, game.currentPlayer,
+        game.boardMoves = GameLogic.boardMoves(game.boardState, game.currentPlayer,
                 $scope.logic);
       }
 
@@ -95,6 +96,14 @@ huvshu.controller('humanVsHumanCtlr', [
 
     };
 
+    /*------------------------------------------------------------------------*/
+    $scope.newGame = function () {
+      var currentGameNumber = $scope.game.number;
+      $scope.initializeData();
+      $scope.game.number = currentGameNumber + 1;
+    };
+
+    /*------------------------------------------------------------------------*/
     $scope.returnToMainMenu = function () {
       $location.path('/');
     };

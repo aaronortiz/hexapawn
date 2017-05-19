@@ -3,15 +3,13 @@
 
   <h1>{{i18n.APP_TITLE}}</h1>
 
-  <hxp-board gametype="huvshu" 
-             gamedata="game" 
-             i18n="i18n" 
-             on-move="doMove(move)" 
-             on-repeat="initializeData()"
+  <hxp-board gametype="gameType"
+             gamedata="game"
+             i18n="i18n"
+             on-move="doMove(move)"
+             on-repeat="newGame()"
              on-return-to-main-menu="returnToMainMenu()">
 
   </hxp-board>
 
 </div>
-
-<a href="/hexapawn/hexapawn/#/"><i class="material-icons">arrow_back</i>{{i18n.RETURN_TO_MAIN_MENU}}</a>

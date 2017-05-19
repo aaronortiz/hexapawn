@@ -6,18 +6,21 @@
   "AI_2_NAME": "Nombre de IA 2",
   "AI_VS_AI": "IA vs. IA",
   "APP_TITLE": "Hexapeón",
+  "EXPORT_JSON": "Exportar JSON",
+  "GAME": "Juego",
   "HUMAN_VS_AI": "Humano vs. IA",
   "HUMAN_VS_HUMAN": "Humano vs. Humano",
+  "MOVE": "Movida",
+  "NEW_GAME": "Nuevo Juego",
   "NO_MOVE_FOR": "No hay movidas para",
   "PLAYER_1": "Jugador 1",
   "PLAYER_1_NAME": "Nombre de Jugador 1",
   "PLAYER_2": "Jugador 2",
   "PLAYER_2_NAME": "Nombre de Jugador 2",
-  "REPEAT_GAME": "Repetir juego",
   "RANDOM_MOVE": "Movida 'aleatoria'",
   "RETURN_TO_MAIN_MENU": "Return to main menu",
   "SETUP_GAME": "Parámetros de Juego",
   "START_GAME": "Iniciar Juego",
   "TIE": "Empate",
-  "VICTORY": "¡Victoria!"
+  "VICTORY": "Victorioso"
 }

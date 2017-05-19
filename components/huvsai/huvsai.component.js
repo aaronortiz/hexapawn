@@ -13,12 +13,16 @@ huvsai.controller('humanVsAiCtlr', [
 
       // initialize game
       var game = {};
+      var boards = GameLogic.createBoardsJSON($scope.logic);
+
+      game.number = 1;
       game.victory = ' ';
       game.boardState = $scope.logic.newGame;
-      game.moves = GameLogic.boardMoves(game.boardState, 'W',
+      game.boardMoves = GameLogic.boardMoves(game.boardState, 'W',
               $scope.logic);
 
-      game.moveCount = 0;
+      game.playerMoves = [];
+      game.boardHistory = [];
       game.currentPlayer = 'W';
       game.players = {
         W: {
@@ -27,15 +31,13 @@ huvsai.controller('humanVsAiCtlr', [
         },
         B: {
           name: $window.sessionStorage.player2Name,
-          type: 'ai'
+          type: 'ai',
+          currentBoards: boards.black,
+          learningStates: [JSON.stringify(boards.black)]
         }
       };
 
-      $scope.showBrain = false;
-      $scope.toggleBrain()
-      :
-
-              $window.sessionStorage.game = JSON.stringify(game);
+      $window.sessionStorage.game = JSON.stringify(game);
       $scope.game = game;
 
     };
@@ -82,15 +84,18 @@ huvsai.controller('humanVsAiCtlr', [
 
       $scope.checkPersistence();
 
-      game.moveCount++;
+      game.playerMoves.push(move);
+      game.boardHistory.push(game.boardState);
+
       game.boardState = GameLogic.doMove(game.boardState, move, $scope.logic);
 
       game.victory = GameLogic.checkVictory(game.boardState);
       if (game.victory !== ' ') {
-        game.moves = [];
+        game.boardMoves = [];
+        $scope.teachAI();
       } else {
         game.currentPlayer = (game.currentPlayer === 'W') ? 'B' : 'W'; // Toggle player
-        game.moves = GameLogic.boardMoves(game.boardState, game.currentPlayer,
+        game.boardMoves = GameLogic.boardMoves(game.boardState, game.currentPlayer,
                 $scope.logic);
       }
 
@@ -103,12 +108,52 @@ huvsai.controller('humanVsAiCtlr', [
     $scope.aiMove = function () {
 
       var game = $scope.game;
+      var aiBoards = $scope.game.players['B'].currentBoards;
 
-      if (game.moves.length > 0) {
-        var move = Math.floor((Math.random() * game.moves.length));
-        $scope.doMove(game.moves[move]);
+      if (aiBoards[game.boardState]) {
+
+        var moves = GameLogic.boardMoves(game.boardState, game.currentPlayer,
+                $scope.logic);
+
+        if (moves.length > 0) {
+          var move = Math.floor((Math.random() * moves.length));
+          $scope.doMove(moves[move]);
+        }
       }
 
+      if (move === '') { //resign
+        $scope.game.victory = 'W';
+        $game.boardMoves = [];
+        $scope.teachAI;
+      }
+    };
+
+    /*------------------------------------------------------------------------*/
+    $scope.teachAI = function () {
+
+      var history = $scope.game.boardHistory;
+
+      if (history.length > 1) {
+
+        var lastGoodBoard = history[history.length - 2];
+        var badMove = $scope.game.playerMoves[history.length - 2];
+
+        console.log(lastGoodBoard);
+        console.log(badMove);
+      }
+    };
+
+    /*------------------------------------------------------------------------*/
+    $scope.newGame = function () {
+
+      var currentGameNumber = $scope.game.number;
+      var currentAIBoards = $scope.game.players['B'].currentBoards;
+
+      $scope.initializeData();
+
+      // Reset persistent data
+      $scope.game.number = currentGameNumber + 1;
+      $scope.game.players['B'].currentBoards = currentAIBoards;
     };
 
     /*------------------------------------------------------------------------*/
@@ -124,25 +169,6 @@ huvsai.controller('humanVsAiCtlr', [
       if ($scope.showTools) {
         $scope.boards = JSON.stringify(GameLogic.createBoardsJSON(
                 $scope.logic));
-      }
-
-    };
-
-    /*------------------------------------------------------------------------*/
-    $scope.toggleBrain = function () {
-
-      $scope.showBrain = !$scope.showBrain;
-
-      if ($scope.showBrain) {
-        var boards = GameLogic.createBoardsJSON(
-                $scope.logic);
-
-        if ($scope.game.currentPlayer === 'W') {
-          $scope.boards = JSON.stringify(boards.white);
-        } else {
-          $scope.boards = JSON.stringify(boards.black);
-        }
-
       }
 
     };
