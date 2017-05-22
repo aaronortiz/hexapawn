@@ -389,4 +389,42 @@ GameLogic.service('GameLogic', function ($resource) {
 
   };
 
+  /*--------------------------------------------------------------------------*/
+  this.removeMoveFromBoard = function (boardObject, boardState, move) {
+
+    var currentBoardState = boardState;
+    var currentMove = move;
+
+    // flip board and move if they don't exist
+    if (!boardObject[boardState]) {
+      currentBoardState = this.flipBoard(boardState);
+      if (!boardObject[boardState]) {
+        console.log('Board [' + boardState + '] not found.');
+        console.log(boardObject);
+        return;
+      } else {
+        currentMove = this.flipMove(move);
+      }
+    }
+
+    var len = boardObject[currentBoardState].moves.length;
+    var i = 0;
+    var success = false;
+
+    while (success === false) {
+      if (boardObject[currentBoardState].moves[i] === currentMove) {
+        boardObject[currentBoardState].moves.splice(i, 1);
+        console.log('Move [' + currentMove + '] removed from board [' + currentBoardState + '].');
+        success = true;
+        return;
+      } else {
+        i++;
+        success = (i >= len);
+      }
+    }
+
+    console.log('Move [' + currentMove + '] not found in board [' + boardState + '].');
+
+  };
+
 });

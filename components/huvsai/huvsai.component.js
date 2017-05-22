@@ -92,11 +92,17 @@ huvsai.controller('humanVsAiCtlr', [
       game.victory = GameLogic.checkVictory(game.boardState);
       if (game.victory !== ' ') {
         game.boardMoves = [];
-        $scope.teachAI();
+        if ($scope.game.currentPlayer === 'W') {
+          $scope.teachAI();
+        }
       } else {
         game.currentPlayer = (game.currentPlayer === 'W') ? 'B' : 'W'; // Toggle player
         game.boardMoves = GameLogic.boardMoves(game.boardState, game.currentPlayer,
                 $scope.logic);
+        if (game.boardMoves.length === 0) {
+          game.currentPlayer = (game.currentPlayer === 'W') ? 'B' : 'W'; // Toggle player
+          game.victory = game.currentPlayer;
+        }
       }
 
       $window.sessionStorage.game = JSON.stringify(game);
@@ -108,22 +114,25 @@ huvsai.controller('humanVsAiCtlr', [
     $scope.aiMove = function () {
 
       var game = $scope.game;
+      var boardState = game.boardState;
       var aiBoards = $scope.game.players['B'].currentBoards;
 
-      if (aiBoards[game.boardState]) {
-
-        var moves = GameLogic.boardMoves(game.boardState, game.currentPlayer,
-                $scope.logic);
-
-        if (moves.length > 0) {
-          var move = Math.floor((Math.random() * moves.length));
-          $scope.doMove(moves[move]);
+      if (!aiBoards[boardState]) {
+        boardState = GameLogic.flipBoard(boardState);
+        if (!aiBoards[boardState]) {
+          console.log('Board ' + $scope.game.boardState + ' not found.');
+          return;
         }
       }
 
-      if (move === '') { //resign
-        $scope.game.victory = 'W';
-        $game.boardMoves = [];
+      var moves = aiBoards[boardState].moves;
+
+      if (moves.length > 0) {
+        var move = Math.floor((Math.random() * moves.length));
+        $scope.doMove(moves[move]);
+      } else { //resign
+        $scope.game.victory = 'R';
+        game.boardMoves = [];
         $scope.teachAI;
       }
     };
@@ -131,15 +140,26 @@ huvsai.controller('humanVsAiCtlr', [
     /*------------------------------------------------------------------------*/
     $scope.teachAI = function () {
 
+      var aiBoards = $scope.game.players['B'].currentBoards;
       var history = $scope.game.boardHistory;
+      var offset = 2;
 
-      if (history.length > 1) {
+      if ($scope.game.victory === 'R') {
+        offset++;
+      }
 
-        var lastGoodBoard = history[history.length - 2];
-        var badMove = $scope.game.playerMoves[history.length - 2];
+      if (history.length - offset >= 0) {
+        var lastGoodBoard = history[history.length - offset];
+        var badMove = $scope.game.playerMoves[history.length - offset];
 
         console.log(lastGoodBoard);
         console.log(badMove);
+        GameLogic.removeMoveFromBoard(aiBoards, lastGoodBoard, badMove);
+        $scope.game.players['B'].learningStates.push(JSON.stringify(aiBoards));
+        $scope.game.players['B'].currentBoards = aiBoards;
+      } else {
+        console.log($scope.game.players['B'].playerName + ' has failed to learn because of a history offset error.');
+        console.log(history);
       }
     };
 
@@ -147,13 +167,13 @@ huvsai.controller('humanVsAiCtlr', [
     $scope.newGame = function () {
 
       var currentGameNumber = $scope.game.number;
-      var currentAIBoards = $scope.game.players['B'].currentBoards;
+      var currentAIPlayer = $scope.game.players['B'];
 
       $scope.initializeData();
 
       // Reset persistent data
       $scope.game.number = currentGameNumber + 1;
-      $scope.game.players['B'].currentBoards = currentAIBoards;
+      $scope.game.players['B'] = currentAIPlayer;
     };
 
     /*------------------------------------------------------------------------*/

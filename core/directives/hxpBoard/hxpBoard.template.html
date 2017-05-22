@@ -4,12 +4,16 @@
   {{game.players[game.currentPlayer].name}}
 </h3>
 
-<h3 ng-if="game.victory != ' '">
+<h3 ng-if="game.victory != ' ' && game.victory != 'R'">
   {{game.players[game.currentPlayer].name + ' ' + i18n.VICTORY}}
 </h3>
 
+<h3 ng-if="game.victory == 'R'">
+  {{game.players[game.currentPlayer].name + ' ' + i18n.RESIGNS}}
+</h3>
+
 <h3 ng-if="game.victory == ' ' && game.boardMoves.length == 0">
-  {{i18n.NO_MOVE_FOR}}<br>{{game.players[game.currentPlayer].name}}
+  {{game.players[game.currentPlayer].name}} {{i18n.NO_MOVE_FOR}}
 </h3>
 
 
