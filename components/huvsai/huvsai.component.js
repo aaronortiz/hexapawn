@@ -87,6 +87,8 @@ huvsai.controller('humanVsAiCtlr', [
       game.playerMoves.push(move);
       game.boardHistory.push(game.boardState);
 
+      console.log('[' + game.boardState + ']' + ' G' + game.number + game.currentPlayer + ':' + move);
+
       game.boardState = GameLogic.doMove(game.boardState, move, $scope.logic);
 
       game.victory = GameLogic.checkVictory(game.boardState);
@@ -116,9 +118,11 @@ huvsai.controller('humanVsAiCtlr', [
       var game = $scope.game;
       var boardState = game.boardState;
       var aiBoards = $scope.game.players['B'].currentBoards;
+      var boardFlipped = false;
 
       if (!aiBoards[boardState]) {
         boardState = GameLogic.flipBoard(boardState);
+        boardFlipped = true;
         if (!aiBoards[boardState]) {
           console.log('Board ' + $scope.game.boardState + ' not found.');
           return;
@@ -129,7 +133,11 @@ huvsai.controller('humanVsAiCtlr', [
 
       if (moves.length > 0) {
         var move = Math.floor((Math.random() * moves.length));
-        $scope.doMove(moves[move]);
+        if (!boardFlipped) {
+          $scope.doMove(moves[move]);
+        } else {
+          $scope.doMove(GameLogic.flipMove(moves[move]));
+        }
       } else { //resign
         $scope.game.victory = 'R';
         game.boardMoves = [];
@@ -152,8 +160,6 @@ huvsai.controller('humanVsAiCtlr', [
         var lastGoodBoard = history[history.length - offset];
         var badMove = $scope.game.playerMoves[history.length - offset];
 
-        console.log(lastGoodBoard);
-        console.log(badMove);
         GameLogic.removeMoveFromBoard(aiBoards, lastGoodBoard, badMove);
         $scope.game.players['B'].learningStates.push(JSON.stringify(aiBoards));
         $scope.game.players['B'].currentBoards = aiBoards;

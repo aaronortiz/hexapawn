@@ -398,8 +398,9 @@ GameLogic.service('GameLogic', function ($resource) {
     // flip board and move if they don't exist
     if (!boardObject[boardState]) {
       currentBoardState = this.flipBoard(boardState);
-      if (!boardObject[boardState]) {
-        console.log('Board [' + boardState + '] not found.');
+      console.log('Board [' + boardState + '] not found.');
+      if (!boardObject[currentBoardState]) {
+        console.log('Board [' + currentBoardState + '] not found.');
         console.log(boardObject);
         return;
       } else {
@@ -423,7 +424,7 @@ GameLogic.service('GameLogic', function ($resource) {
       }
     }
 
-    console.log('Move [' + currentMove + '] not found in board [' + boardState + '].');
+    console.log('Move [' + currentMove + '] not found in board [' + currentBoardState + '].');
 
   };
 
