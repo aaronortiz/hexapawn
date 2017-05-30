@@ -94,9 +94,6 @@ huvsai.controller('humanVsAiCtlr', [
       game.victory = GameLogic.checkVictory(game.boardState);
       if (game.victory !== ' ') {
         game.boardMoves = [];
-        if ($scope.game.currentPlayer === 'W') {
-          $scope.teachAI();
-        }
       } else {
         game.currentPlayer = (game.currentPlayer === 'W') ? 'B' : 'W'; // Toggle player
         game.boardMoves = GameLogic.boardMoves(game.boardState, game.currentPlayer,
@@ -105,6 +102,10 @@ huvsai.controller('humanVsAiCtlr', [
           game.currentPlayer = (game.currentPlayer === 'W') ? 'B' : 'W'; // Toggle player
           game.victory = game.currentPlayer;
         }
+      }
+
+      if ($scope.game.victory === 'W') {
+        $scope.teachAI();
       }
 
       $window.sessionStorage.game = JSON.stringify(game);
