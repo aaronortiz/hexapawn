@@ -2,96 +2,216 @@ var aivsai = angular.module('aiVsAi');
 
 aivsai.controller('aiVsAiCtlr', [
   '$scope',
+  '$location',
+  '$window',
   'i18n',
-  function ($scope, i18n) {
+  'GameLogic',
+  function ($scope, $location, $window, i18n, GameLogic) {
 
+    /*------------------------------------------------------------------------*/
+    $scope.initializeData = function () {
+
+      // initialize game
+      var game = {};
+      var boards = GameLogic.createBoardsJSON($scope.logic);
+
+      game.number = 1;
+      game.victory = ' ';
+      game.boardState = $scope.logic.newGame;
+      game.boardMoves = GameLogic.boardMoves(game.boardState, 'W',
+              $scope.logic);
+
+      game.playerMoves = [];
+      game.boardHistory = [];
+      game.currentPlayer = 'W';
+      game.players = {
+        W: {
+          name: $window.sessionStorage.player1Name,
+          type: 'ai',
+          currentBoards: boards.white,
+          learningStates: [boards.white]
+        },
+        B: {
+          name: $window.sessionStorage.player2Name,
+          type: 'ai',
+          currentBoards: boards.black,
+          learningStates: [boards.black]
+        }
+      };
+
+      $window.sessionStorage.game = JSON.stringify(game);
+      $scope.game = game;
+
+    };
+
+    /*------------------------------------------------------------------------*/
+    $scope.checkGamePersistence = function () {
+
+      if (!$scope.game) {
+        if (!$window.sessionStorage.game) {
+          $scope.initializeData();
+        } else {
+          $scope.game = JSON.parse($window.sessionStorage.game);
+        }
+      }
+
+    };
+
+    /*------------------------------------------------------------------------*/
+    $scope.checkPersistence = function () {
+
+      if (!$scope.logic) {
+        if (!$window.sessionStorage.logic) {
+          GameLogic.readLogic(function (data) {
+
+            $scope.logic = data;
+            $window.sessionStorage.logic = JSON.stringify(data);
+            $scope.initializeData();
+
+          });
+        } else {
+          $scope.logic = JSON.parse($window.sessionStorage.logic);
+          $scope.checkGamePersistence();
+        }
+      } else {
+        $scope.checkGamePersistence();
+      }
+
+    };
+
+    /*------------------------------------------------------------------------*/
+    $scope.doMove = function (move) {
+
+      var game = $scope.game;
+
+      $scope.checkPersistence();
+
+      game.playerMoves.push(move);
+      game.boardHistory.push(game.boardState);
+
+      console.log('[' + game.boardState + ']' + ' G' + game.number + game.currentPlayer + ':' + move);
+
+      game.boardState = GameLogic.doMove(game.boardState, move, $scope.logic);
+
+      game.victory = GameLogic.checkVictory(game.boardState);
+      if (game.victory !== ' ') {
+        game.boardMoves = [];
+      } else {
+        game.currentPlayer = (game.currentPlayer === 'W') ? 'B' : 'W'; // Toggle player
+        game.boardMoves = GameLogic.boardMoves(game.boardState, game.currentPlayer,
+                $scope.logic);
+        if (game.boardMoves.length === 0) {
+          game.currentPlayer = (game.currentPlayer === 'W') ? 'B' : 'W'; // Toggle player
+          game.victory = game.currentPlayer;
+        }
+      }
+
+      if ($scope.game.victory !== ' ') {
+        $scope.teachAI();
+      }
+
+      $window.sessionStorage.game = JSON.stringify(game);
+      $scope.game = game;
+
+    };
+
+    /*------------------------------------------------------------------------*/
+    $scope.aiMove = function () {
+
+      var game = $scope.game;
+      var boardState = game.boardState;
+      var aiBoards = $scope.game.players[$scope.game.currentPlayer].currentBoards;
+      var boardFlipped = false;
+
+      if (!aiBoards[boardState]) {
+        boardState = GameLogic.flipBoard(boardState);
+        boardFlipped = true;
+        if (!aiBoards[boardState]) {
+          console.log('Board ' + $scope.game.boardState + ' not found.');
+          return;
+        }
+      }
+
+      var moves = aiBoards[boardState].moves;
+
+      if (moves.length > 0) {
+        var move = Math.floor((Math.random() * moves.length));
+        if (!boardFlipped) {
+          $scope.doMove(moves[move]);
+        } else {
+          $scope.doMove(GameLogic.flipMove(moves[move]));
+        }
+      } else { //resign
+        $scope.game.victory = 'R';
+        game.boardMoves = [];
+        $scope.teachAI;
+      }
+    };
+
+    /*------------------------------------------------------------------------*/
+    $scope.teachAI = function () {
+
+      var currentPlayer = $scope.game.currentPlayer;
+      var aiBoards = $scope.game.players[currentPlayer].currentBoards;
+      var history = $scope.game.boardHistory;
+      var offset = 2;
+
+      if ($scope.game.victory === 'R') {
+        offset++;
+      }
+
+      if (history.length - offset >= 0) {
+        var lastGoodBoard = history[history.length - offset];
+        var badMove = $scope.game.playerMoves[history.length - offset];
+
+        GameLogic.removeMoveFromBoard(aiBoards, lastGoodBoard, badMove);
+        $scope.game.players[currentPlayer].learningStates.push(aiBoards);
+        $scope.game.players[currentPlayer].currentBoards = aiBoards;
+      } else {
+        console.log($scope.game.players[currentPlayer].playerName + ' has failed to learn because of a history offset error.');
+        console.log(history);
+      }
+    };
+
+    /*------------------------------------------------------------------------*/
+    $scope.newGame = function () {
+
+      var currentPlayer = $scope.game.currentPlayer;
+      var currentGameNumber = $scope.game.number;
+      var currentAIPlayer = $scope.game.players[currentPlayer];
+
+      $scope.initializeData();
+
+      // Reset persistent data
+      $scope.game.number = currentGameNumber + 1;
+      $scope.game.players[currentPlayer] = currentAIPlayer;
+    };
+
+    /*------------------------------------------------------------------------*/
+    $scope.returnToMainMenu = function () {
+      $location.path('/');
+    };
+
+    /*------------------------------------------------------------------------*/
+    $scope.toggleTools = function () {
+
+      $scope.showTools = !$scope.showTools;
+
+      if ($scope.showTools) {
+        $scope.boards = JSON.stringify(GameLogic.createBoardsJSON(
+                $scope.logic));
+      }
+
+    };
+
+    /*------------------------------------------------------------------------*/
     i18n.getI18nStrings('EN', function (data) {
       $scope.i18n = data;
     });
 
-    $scope.showBoxes = true;
-
-    $scope.boxes = [];
-
-    for (var i = 0; i < 24; i++) {
-      $scope.boxes[i] = {};
-    }
-
-    $scope.boxes[0].turn = 2;
-    $scope.boxes[0].moves = ["green", "red", "blue"];
-
-    $scope.boxes[1].turn = 2;
-    $scope.boxes[1].moves = ["green", "red"];
-
-    $scope.boxes[2].turn = 4;
-    $scope.boxes[2].moves = ["green", "red", "blue", "yellow"];
-
-    $scope.boxes[3].turn = 4;
-    $scope.boxes[3].moves = ["green", "red", "blue"];
-
-    $scope.boxes[4].turn = 4;
-    $scope.boxes[4].moves = ["green", "red", "blue"];
-
-    $scope.boxes[5].turn = 4;
-    $scope.boxes[5].moves = ["green", "red", "blue"];
-
-    $scope.boxes[6].turn = 4;
-    $scope.boxes[6].moves = ["green", "red", "blue"];
-
-    $scope.boxes[7].turn = 4;
-    $scope.boxes[7].moves = ["green", "red"];
-
-    $scope.boxes[8].turn = 4;
-    $scope.boxes[8].moves = ["green", "red"];
-
-    $scope.boxes[9].turn = 4;
-    $scope.boxes[9].moves = ["green", "red"];
-
-    $scope.boxes[10].turn = 4;
-    $scope.boxes[10].moves = ["green", "red"];
-
-    $scope.boxes[11].turn = 4;
-    $scope.boxes[11].moves = ["green", "red"];
-
-    $scope.boxes[12].turn = 4;
-    $scope.boxes[12].moves = ["green"];
-
-    $scope.boxes[13].turn = 6;
-    $scope.boxes[13].moves = ["green", "red"];
-
-    $scope.boxes[14].turn = 6;
-    $scope.boxes[14].moves = ["green"];
-
-    $scope.boxes[15].turn = 6;
-    $scope.boxes[15].moves = ["green", "red"];
-
-    $scope.boxes[16].turn = 6;
-    $scope.boxes[16].moves = ["green", "red"];
-
-    $scope.boxes[17].turn = 6;
-    $scope.boxes[17].moves = ["green", "red"];
-
-    $scope.boxes[18].turn = 6;
-    $scope.boxes[18].moves = ["green", "red"];
-
-    $scope.boxes[19].turn = 6;
-    $scope.boxes[19].moves = ["green", "red", "blue"];
-
-    $scope.boxes[20].turn = 6;
-    $scope.boxes[20].moves = ["green", "red"];
-
-    $scope.boxes[21].turn = 6;
-    $scope.boxes[21].moves = ["green", "red"];
-
-    $scope.boxes[22].turn = 6;
-    $scope.boxes[22].moves = ["green", "red"];
-
-    $scope.boxes[23].turn = 6;
-    $scope.boxes[23].moves = ["green", "red"];
-
-    $scope.range = function (n) {
-      return new Array(n);
-    };
+    /*------------------------------------------------------------------------*/
+    $scope.showTools = false;
+    $scope.checkPersistence();
 
   }
 ]);

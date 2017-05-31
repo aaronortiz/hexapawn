@@ -1,49 +1,15 @@
-<div>
-
-  <hxp-board></hxp-board>
-  
-  <table>
-
-    <tr>
-      <td colspan="8">
-        <label>
-          <input type="checkbox" ng-model="showBoxes">Show box contents
-        </label>
-      </td>
-    </tr>
-
-    <tr ng-show="showBoxes">
-      <td colspan="8">
-        <h3>Box contents</h3>
-      </td>
-    </tr>
-
-    <tr ng-show="showBoxes" ng-repeat="row in range(6) track by $index">
-
-      <td colspan="2" class="box">
-        {{boxes[0 + (4 * $index)].turn}}
-        <span ng-repeat="move in boxes[0 + (4 * $index)].moves" class="{{move}}"><i class="material-icons">attach_file</i></span>
-      </td>
-      <td colspan="2" class="box">
-        {{boxes[1 + (4 * $index)].turn}}
-        <span ng-repeat="move in boxes[1 + (4 * $index)].moves" class="{{move}}"><i class="material-icons">attach_file</i></span>
-      </td>
-      <td colspan="2" class="box">
-        {{boxes[2 + (4 * $index)].turn}}
-        <span ng-repeat="move in boxes[2 + (4 * $index)].moves" class="{{move}}"><i class="material-icons">attach_file</i></span>
-      </td>
-      <td colspan="2" class="box">
-        {{boxes[3 + (4 * $index)].turn}}
-        <span ng-repeat="move in boxes[3 + (4 * $index)].moves" class="{{move}}"><i class="material-icons">attach_file</i></span>
-      </td>
-
-    </tr>
+<div id="game-screen">
 
 
+  <h1>{{i18n.APP_TITLE}}</h1>
 
+  <hxp-board gametype="gameType"
+             gamedata="game"
+             i18n="i18n"
+             on-move="doMove(move)"
+             on-repeat="newGame()"
+             on-return-to-main-menu="returnToMainMenu()">
 
-
-
-  </table>
+  </hxp-board>
 
 </div>

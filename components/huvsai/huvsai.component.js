@@ -33,7 +33,7 @@ huvsai.controller('humanVsAiCtlr', [
           name: $window.sessionStorage.player2Name,
           type: 'ai',
           currentBoards: boards.black,
-          learningStates: [JSON.stringify(boards.black)]
+          learningStates: [boards.black]
         }
       };
 
@@ -162,7 +162,7 @@ huvsai.controller('humanVsAiCtlr', [
         var badMove = $scope.game.playerMoves[history.length - offset];
 
         GameLogic.removeMoveFromBoard(aiBoards, lastGoodBoard, badMove);
-        $scope.game.players['B'].learningStates.push(JSON.stringify(aiBoards));
+        $scope.game.players['B'].learningStates.push(aiBoards);
         $scope.game.players['B'].currentBoards = aiBoards;
       } else {
         console.log($scope.game.players['B'].playerName + ' has failed to learn because of a history offset error.');

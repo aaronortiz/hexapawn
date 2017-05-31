@@ -1,19 +1,20 @@
-<div class="hxp-brain-{{player}}">
+<table class="hxp-brain-{{player}}">
 
-  <span class="hxp-brain-board-moves" ng-repeat="b in learningStates">
+  <tr ng-repeat="(ks, s) in learningStates track by ks">
+  <div class="hxp-brain-board-moves" ng-repeat="(kb, b) in s track by kb">
 
-    <span class="move-1-on" ng-if="b.moves.length > 0">&bullet;</span>
-    <span class="move-1-off" ng-if="b.moves.length < 1">&bullet;</span>
+    <td class="move-1-on" ng-if="b.moves.length > 0">&bullet;</td>
+    <td class="move-1-off" ng-if="b.moves.length < 1">&bullet;</td>
 
-    <span class="move-2-on" ng-if="b.moves.length > 1">&bullet;</span>
-    <span class="move-2-off" ng-if="b.moves.length < 2">&bullet;</span>
+    <td class="move-2-on" ng-if="b.moves.length > 1">&bullet;</td>
+    <td class="move-2-off" ng-if="b.moves.length < 2">&bullet;</td>
 
-    <span class="move-3-on" ng-if="b.moves.length > 2">&bullet;</span>
-    <span class="move-3-off" ng-if="b.moves.length < 3">&bullet;</span>
+    <td class="move-3-on" ng-if="b.moves.length > 2">&bullet;</td>
+    <td class="move-3-off" ng-if="b.moves.length < 3">&bullet;</td>
 
-    <span class="move-4-on" ng-if="b.moves.length > 3">&bullet;</span>
-    <span class="move-4-off" ng-if="b.moves.length < 4">&bullet;</span>
+    <td class="move-4-on" ng-if="b.moves.length > 3">&bullet;</td>
+    <td class="move-4-off" ng-if="b.moves.length < 4">&bullet;</td>
 
-  </span>
-
-</div>
+  </div>
+</tr>
+</table>
