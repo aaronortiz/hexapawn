@@ -10,6 +10,8 @@ board.directive('hxpBoard', function () {
       'doMove': '&onMove',
       'aiMove': '&onAiMove',
       'newGame': '&onNewGame',
+      'showBlackLogic': '&onShowBlackLogic',
+      'showWhiteLogic': '&onShowWhiteLogic',
       'exportJson': '&onExportJson',
       'returnToMainMenu': '&onReturnToMainMenu'
     },

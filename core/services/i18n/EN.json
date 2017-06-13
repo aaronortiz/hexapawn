@@ -6,7 +6,6 @@
   "AI_2_NAME": "AI 2 Name",
   "AI_VS_AI": "AI vs. AI",
   "APP_TITLE": "Hexapawn",
-  "EXPORT_JSON": "Export JSON",
   "GAME": "Game",
   "HUMAN_VS_AI": "Human vs. AI",
   "HUMAN_VS_HUMAN": "Human vs. Human",
@@ -21,6 +20,7 @@
   "RESIGNS": "Resigns",
   "RETURN_TO_MAIN_MENU": "Exit to menu",
   "SETUP_GAME": "Setup Game",
+  "SHOW_LOGIC": "Show Logic",
   "START_GAME": "Start Game",
   "TIE": "Tie",
   "VICTORY": "Victory!"

@@ -2,11 +2,14 @@ var aivsai = angular.module('aiVsAi');
 
 aivsai.controller('aiVsAiCtlr', [
   '$scope',
+  '$interval',
   '$location',
+  '$timeout',
   '$window',
+  'ngAudio',
   'i18n',
   'GameLogic',
-  function ($scope, $location, $window, i18n, GameLogic) {
+  function ($scope, $interval, $location, $timeout, $window, ngAudio, i18n, GameLogic) {
 
     /*------------------------------------------------------------------------*/
     $scope.initializeData = function () {
@@ -14,6 +17,7 @@ aivsai.controller('aiVsAiCtlr', [
       // initialize game
       var game = {};
       var boards = GameLogic.createBoardsJSON($scope.logic);
+      var intervalPromise;
 
       game.number = 1;
       game.victory = ' ';
@@ -42,6 +46,20 @@ aivsai.controller('aiVsAiCtlr', [
       $window.sessionStorage.game = JSON.stringify(game);
       $scope.game = game;
 
+      intervalPromise = $interval(function () {
+        if ($scope.game.victory !== ' ') {
+          $interval.cancel(intervalPromise);
+        } else {
+          $scope.aiMove();
+        }
+      }, 250);
+
+    };
+
+    $scope.stopInterval = function () {
+      if (angular.isDefined(intervalPromise)) {
+        $interval.cancel(intervalPromise);
+      }
     };
 
     /*------------------------------------------------------------------------*/
@@ -85,6 +103,7 @@ aivsai.controller('aiVsAiCtlr', [
       var game = $scope.game;
 
       $scope.checkPersistence();
+      $scope.soundMove();
 
       game.playerMoves.push(move);
       game.boardHistory.push(game.boardState);
@@ -107,12 +126,31 @@ aivsai.controller('aiVsAiCtlr', [
       }
 
       if ($scope.game.victory !== ' ') {
+        $scope.celebrateVictory();
         $scope.teachAI();
       }
 
       $window.sessionStorage.game = JSON.stringify(game);
       $scope.game = game;
 
+    };
+
+    /*------------------------------------------------------------------------*/
+    $scope.soundMove = function () {
+
+      $timeout(function () {
+        var sound = ngAudio.load('assets/audio/351518__mh2o__chess-move-on-alabaster.wav');
+        sound.play();
+      }, 10);
+    };
+
+    /*------------------------------------------------------------------------*/
+    $scope.celebrateVictory = function () {
+
+      $timeout(function () {
+        var sound = ngAudio.load('assets/audio/126421__cabeeno-rossley__level-complete.wav');
+        sound.play();
+      }, 250);
     };
 
     /*------------------------------------------------------------------------*/
@@ -151,8 +189,8 @@ aivsai.controller('aiVsAiCtlr', [
     /*------------------------------------------------------------------------*/
     $scope.teachAI = function () {
 
-      var currentPlayer = $scope.game.currentPlayer;
-      var aiBoards = $scope.game.players[currentPlayer].currentBoards;
+      var currentLoser = ($scope.game.currentPlayer == 'W') ? 'B' : 'W';
+      var aiBoards = $scope.game.players[currentLoser].currentBoards;
       var history = $scope.game.boardHistory;
       var offset = 2;
 
@@ -165,10 +203,10 @@ aivsai.controller('aiVsAiCtlr', [
         var badMove = $scope.game.playerMoves[history.length - offset];
 
         GameLogic.removeMoveFromBoard(aiBoards, lastGoodBoard, badMove);
-        $scope.game.players[currentPlayer].learningStates.push(aiBoards);
-        $scope.game.players[currentPlayer].currentBoards = aiBoards;
+        $scope.game.players[currentLoser].learningStates.push(aiBoards);
+        $scope.game.players[currentLoser].currentBoards = aiBoards;
       } else {
-        console.log($scope.game.players[currentPlayer].playerName + ' has failed to learn because of a history offset error.');
+        console.log($scope.game.players[currentLoser].playerName + ' has failed to learn because of a history offset error.');
         console.log(history);
       }
     };

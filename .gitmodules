@@ -1,3 +1,6 @@
 [submodule "vendor/willsoto"]
 	path = vendor/willsoto
 	url = https://github.com/willsoto/angular-chartist.js.git
+[submodule "vendor/danielstern/ngAudio"]
+	path = vendor/danielstern/ngAudio
+	url = https://github.com/danielstern/ngAudio.git

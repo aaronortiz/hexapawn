@@ -3,10 +3,12 @@ var huvsai = angular.module('humanVsAi');
 huvsai.controller('humanVsAiCtlr', [
   '$scope',
   '$location',
+  '$timeout',
   '$window',
+  'ngAudio',
   'i18n',
   'GameLogic',
-  function ($scope, $location, $window, i18n, GameLogic) {
+  function ($scope, $location, $timeout, $window, ngAudio, i18n, GameLogic) {
 
     /*------------------------------------------------------------------------*/
     $scope.initializeData = function () {
@@ -82,6 +84,7 @@ huvsai.controller('humanVsAiCtlr', [
 
       var game = $scope.game;
 
+      $scope.soundMove();
       $scope.checkPersistence();
 
       game.playerMoves.push(move);
@@ -106,6 +109,9 @@ huvsai.controller('humanVsAiCtlr', [
 
       if ($scope.game.victory === 'W') {
         $scope.teachAI();
+        $scope.celebratePlayerVictory();
+      } else if ($scope.game.victory === 'B') {
+        $scope.celebrateAIVictory();
       }
 
       $window.sessionStorage.game = JSON.stringify(game);
@@ -113,6 +119,32 @@ huvsai.controller('humanVsAiCtlr', [
 
     };
 
+    /*------------------------------------------------------------------------*/
+    $scope.soundMove = function () {
+
+      $timeout(function () {
+        var sound = ngAudio.load('assets/audio/351518__mh2o__chess-move-on-alabaster.wav');
+        sound.play();
+      }, 10);
+    };
+
+    /*------------------------------------------------------------------------*/
+    $scope.celebratePlayerVictory = function () {
+
+      $timeout(function () {
+        var sound = ngAudio.load('assets/audio/5_Sec_Crowd_Cheer-Mike_Koenig-1562033255.mp3');
+        sound.play();
+      }, 250);
+    };
+
+    /*------------------------------------------------------------------------*/
+    $scope.celebrateAIVictory = function () {
+
+      $timeout(function () {
+        var sound = ngAudio.load('assets/audio/Buzzer-SoundBible.com-188422102.mp3');
+        sound.play();
+      }, 250);
+    };
     /*------------------------------------------------------------------------*/
     $scope.aiMove = function () {
 

@@ -6,7 +6,6 @@
   "AI_2_NAME": "Nombre de IA 2",
   "AI_VS_AI": "IA vs. IA",
   "APP_TITLE": "Hexapeón",
-  "EXPORT_JSON": "Exportar JSON",
   "GAME": "Juego",
   "HUMAN_VS_AI": "Humano vs. IA",
   "HUMAN_VS_HUMAN": "Humano vs. Humano",
@@ -21,6 +20,7 @@
   "RESIGNS": "se Rinde",
   "RETURN_TO_MAIN_MENU": "Return to main menu",
   "SETUP_GAME": "Parámetros de Juego",
+  "SHOW_LOGIC": "Mostrar Lógica",
   "START_GAME": "Iniciar Juego",
   "TIE": "Empate",
   "VICTORY": "Victorioso"

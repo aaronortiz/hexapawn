@@ -3,10 +3,12 @@ var huvshu = angular.module('humanVsHuman');
 huvshu.controller('humanVsHumanCtlr', [
   '$scope',
   '$location',
+  '$timeout',
   '$window',
+  'ngAudio',
   'i18n',
   'GameLogic',
-  function ($scope, $location, $window, i18n, GameLogic) {
+  function ($scope, $location, $timeout, $window, ngAudio, i18n, GameLogic) {
 
     /*------------------------------------------------------------------------*/
     $scope.initializeData = function () {
@@ -78,6 +80,7 @@ huvshu.controller('humanVsHumanCtlr', [
       var game = $scope.game;
 
       $scope.checkPersistence();
+      $scope.soundMove();
 
       game.playerMoves.push(move);
       game.boardState = GameLogic.doMove(game.boardState, move, $scope.logic);
@@ -91,9 +94,31 @@ huvshu.controller('humanVsHumanCtlr', [
                 $scope.logic);
       }
 
+      if ($scope.game.victory !== ' ') {
+        $scope.celebrateVictory();
+      }
+
       $window.sessionStorage.game = JSON.stringify(game);
       $scope.game = game;
 
+    };
+
+    /*------------------------------------------------------------------------*/
+    $scope.soundMove = function () {
+
+      $timeout(function () {
+        var sound = ngAudio.load('assets/audio/351518__mh2o__chess-move-on-alabaster.wav');
+        sound.play();
+      }, 10);
+    };
+
+    /*------------------------------------------------------------------------*/
+    $scope.celebrateVictory = function () {
+
+      $timeout(function () {
+        var sound = ngAudio.load('assets/audio/5_Sec_Crowd_Cheer-Mike_Koenig-1562033255.mp3');
+        sound.play();
+      }, 250);
     };
 
     /*------------------------------------------------------------------------*/
