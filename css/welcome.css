@@ -42,20 +42,32 @@ ul.welcome_menu {
 }
 
 /* Responsive media breaks */
-@media (min-width: 21em) and (min-height:10em) {
+@media (max-width: 20em) and (min-height:10em) {
+  #welcome_screen {
+    font-size: 80%;
+  }
+}
+
+@media (min-width: 20em) and (max-width: 30em) and (min-height:10em) {
+  #welcome_screen {
+    font-size: 100%;
+  }
+}
+
+
+@media (min-width: 30em) and (min-height:10em) {
   #welcome_screen {
     font-size: 150%;
   }
 }
 
-@media (min-width: 34em) and (min-height:24em) {
+@media (min-width: 40em) and (min-height:30em) {
   #welcome_screen {
     font-size: 200%;
   }
 }
 
-
-@media (min-width: 49em) and (min-height:26em) {
+@media (min-width: 78em) and (min-height:26em) {
   #welcome_screen {
     font-size: 400%;
   }

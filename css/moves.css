@@ -1,6 +1,6 @@
 #moves {
   width: 9em;
-  margin: auto;  
+  margin: auto;
 }
 
 #moves button {
@@ -16,23 +16,23 @@
   height: 1.5em;
 }
 
-/*#moves button.move-0 {
-  background-color: #00ad00;  
-}*/
+#moves button.move-0 {
+  background-color: #00ad00;
+}
 
 #moves button:hover {
   border-color: yellow;
 }
 
-/*#moves button.move-1 {
-  background-color: #ff3a3a;  
+#moves button.move-1 {
+  background-color: #ff3a3a;
 }
 
 #moves button.move-2 {
-  background-color: #3a3aff;  
+  background-color: #3a3aff;
 }
 
 #moves button.move-3 {
-  background-color: #ffff3a;  
+  background-color: #ffff3a;
   background-color: #d4c900;
-}*/
+}

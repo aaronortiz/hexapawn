@@ -19,8 +19,10 @@
   {{game.players[game.currentPlayer].name}} {{i18n.NO_MOVE_FOR}}
 </h3>
 
-
 <div id="board-container">
+  <svg width="9em" height="9em">
+  <line ng-repeat="a in game.arrows" x1="{{a.x1}}" y1="{{a.y1}}" x2="{{a.x2}}" y2="{{a.y2}}" style="{{a.style}}" />
+  </svg>
   <table id="board">
 
     <tr> <!--(Row 3)-->
@@ -28,6 +30,7 @@
         <div class="white pawn" ng-if="game.boardState.substr(6, 1) === 'W'">&#9823;</div>
         <div class="black pawn" ng-if="game.boardState.substr(6, 1) === 'B'">&#9823;</div>
         <div class="cell-label">a3</div>
+
       </td> <!-- cell a3 -->
       <td class="tile top-center">
         <div class="white pawn" ng-if="game.boardState.substr(7, 1) === 'W'">&#9823;</div>

@@ -18,6 +18,17 @@
   padding: 0em;
 }
 
+#game-screen svg {
+  /* height: 9em; */
+  /* width: 9em; */
+  overflow: visible;
+  position: relative;
+  top: 0;
+  left: 0;
+  float: left;
+  z-index: 1;
+}
+
 .green {
   color: #3ab93a;
 }
@@ -52,13 +63,17 @@
 #board-container {
   background-color: green;
   width: 9em;
+  height: 9em;
   margin: 1em auto;
   padding: .3em;
   background: url(../assets/textures/seamless-wood1.jpg) bottom right repeat;
 }
 
-table {
+#game-screen table {
   border-collapse: collapse;
+  top:  -9em;
+  float: clear;
+  position: relative;
 }
 
 .tile {
@@ -127,16 +142,15 @@ table {
 }
 
 /* Responsive media breaks */
-
 @media (max-width: 20em) and (max-height: 36em) {
   #game-screen {
     font-size: 80%
   }
 }
 
-@media (min-width: 26em) and (min-height:30em) {
+@media (min-height: 30em) and (min-width: 26em) {
   #game-screen {
-    font-size: 150%
+    font-size: 150%;
   }
 }
 
@@ -197,13 +211,19 @@ table {
 
   #game-screen {
     font-size: 200%;
-    width: 60%
+    width: 50%;
+    padding: 2em 6em;
   }
 
   #board-container {
     float:left;
-    width: 12em;
+    font-size:130%;
   }
+
+  .tile{
+    font-size:75%;
+  }
+
   #moves, #game-over {
     float:right
   }
