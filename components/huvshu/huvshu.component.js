@@ -6,9 +6,10 @@ huvshu.controller('humanVsHumanCtlr', [
   '$timeout',
   '$window',
   'ngAudio',
+  'Arrows',
   'i18n',
   'GameLogic',
-  function ($scope, $location, $timeout, $window, ngAudio, i18n, GameLogic) {
+  function ($scope, $location, $timeout, $window, ngAudio, Arrows, i18n, GameLogic) {
 
     /*------------------------------------------------------------------------*/
     $scope.initializeData = function () {
@@ -20,7 +21,7 @@ huvshu.controller('humanVsHumanCtlr', [
       game.boardState = $scope.logic.newGame;
       game.boardMoves = GameLogic.boardMoves(game.boardState, 'W',
               $scope.logic);
-      game.arrows = GameLogic.createMoveArrows(game.boardMoves);
+      game.arrows = Arrows.createMoveArrows(game.boardMoves);
       game.playerMoves = [];
 
       game.currentPlayer = 'W';
@@ -93,7 +94,7 @@ huvshu.controller('humanVsHumanCtlr', [
         game.currentPlayer = (game.currentPlayer === 'W') ? 'B' : 'W'; // Toggle player
         game.boardMoves = GameLogic.boardMoves(game.boardState, game.currentPlayer,
                 $scope.logic);
-        game.arrows = GameLogic.createMoveArrows(game.boardMoves);
+        game.arrows = Arrows.createMoveArrows(game.boardMoves);
       }
 
       if ($scope.game.victory !== ' ') {

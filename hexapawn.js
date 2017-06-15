@@ -1,6 +1,7 @@
 var hexapawn = angular.module('hexapawnApp', [
   'ngAudio',
   'ngRoute',
+  'Arrows',
   'i18n',
   'AIBrain',
   'GameLogic',
