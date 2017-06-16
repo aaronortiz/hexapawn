@@ -36,7 +36,7 @@ Arrows.service('Arrows', function () {
         y = '6.5';
         break;
       case '2':
-        if (endNumber = '3') {
+        if (endNumber === '3') {
           y = '3.5';
         } else {
           y = '5.5';
@@ -136,22 +136,23 @@ Arrows.service('Arrows', function () {
     var style = '';
     switch (moveNumber) {
       case '0':
-        style = 'stroke:rgb(0,255,0);stroke-width:6;stroke-linecap:round';
+        style = 'stroke:rgb(0,255,0)';
         break;
       case '1':
-        style = 'stroke:rgb(255,0,0);stroke-width:6;stroke-linecap:round';
+        style = 'stroke:rgb(255,0,0)';
         break;
       case '2':
-        style = 'stroke:rgb(0,0,255);stroke-width:6;stroke-linecap:round';
+        style = 'stroke:rgb(0,0,255)';
         break;
       case '3':
-        style = 'stroke:rgb(255,255,0);stroke-width:6;stroke-linecap:round';
+        style = 'stroke:rgb(255,255,0)';
         break;
       case '4':
-        style = 'stroke:rgb(0,255,255);stroke-width:6;stroke-linecap:round';
+        style = 'stroke:rgb(0,255,255)';
         break;
     }
-    return style;
+
+    return style + ';stroke-width:0.1;stroke-linecap=round';
   };
 
   /*--------------------------------------------------------------------------*/
@@ -160,37 +161,45 @@ Arrows.service('Arrows', function () {
   };
 
   /*--------------------------------------------------------------------------*/
-  this.addArrowhead = function (arrow) {
+  this.addArrowhead = function (arrow, startLetter, startNumber, endLetter, endNumber) {
+
+    const arrowDepth = parseFloat('0.3');
+    const arrowWidth = parseFloat('0.1');
+    const diagonalDepth = parseFloat('0.24');
+    const diagonalWidth = parseFloat('0.03');
 
     var direction = this.findDirection(startLetter, startNumber, endLetter, endNumber);
 
     // Create arrowhead
     switch (direction) {
       case 'N':
-        this.addPoint(arrow.points, arrow.x2 - offset, arrow.y2 - offset);
-        this.addPoint(arrow.points, arrow.x2 + offset, arrow.y2 - offset);
+        this.addPoint(arrow.points, arrow.x2 - arrowWidth, arrow.y2 + arrowDepth);
+        this.addPoint(arrow.points, arrow.x2 + arrowWidth, arrow.y2 + arrowDepth);
         break;
       case 'S':
-        this.addPoint(arrow.points, arrow.x2 - offset, arrow.y2 + offset);
-        this.addPoint(arrow.points, arrow.x2 + offset, arrow.y2 + offset);
-        break;
-      case 'E':
-        this.addPoint(arrow.points, arrow.x2 - offset, arrow.y2 - offset);
-        this.addPoint(arrow.points, arrow.x2 - offset, arrow.y2 + offset);
-        break;
-      case 'W':
-        this.addPoint(arrow.points, arrow.x2 + offset, arrow.y2 - offset);
-        this.addPoint(arrow.points, arrow.x2 + offset, arrow.y2 + offset);
+        this.addPoint(arrow.points, arrow.x2 - arrowWidth, arrow.y2 - arrowDepth);
+        this.addPoint(arrow.points, arrow.x2 + arrowWidth, arrow.y2 - arrowDepth);
         break;
       case 'NE':
+        this.addPoint(arrow.points, arrow.x2 - diagonalDepth, arrow.y2 + diagonalWidth);
+        this.addPoint(arrow.points, arrow.x2 - diagonalWidth, arrow.y2 + diagonalDepth);
         break;
       case 'SE':
+        this.addPoint(arrow.points, arrow.x2 - diagonalDepth, arrow.y2 - diagonalWidth);
+        this.addPoint(arrow.points, arrow.x2 - diagonalWidth, arrow.y2 - diagonalDepth);
         break;
       case 'SW':
+        this.addPoint(arrow.points, arrow.x2 + diagonalDepth, arrow.y2 - diagonalWidth);
+        this.addPoint(arrow.points, arrow.x2 + diagonalWidth, arrow.y2 - diagonalDepth);
         break;
       case 'NW':
+        this.addPoint(arrow.points, arrow.x2 + diagonalDepth, arrow.y2 + diagonalWidth);
+        this.addPoint(arrow.points, arrow.x2 + diagonalWidth, arrow.y2 + diagonalDepth);
         break;
     }
+
+    this.addPoint(arrow.points, arrow.x2, arrow.y2);
+    this.addPoint(arrow.points, arrow.x1, arrow.y1);
 
   };
 
@@ -200,17 +209,16 @@ Arrows.service('Arrows', function () {
     var pointArray = [];
 
     for (point in points) {
-      pointArray.push(String(points(point).x) + ',' + String(points(point).y));
+      pointArray.push(String(points[point].x) + ',' + String(points[point].y));
     }
 
-    return pointArray.join();
+    return pointArray.join(' ');
 
   };
 
   /*--------------------------------------------------------------------------*/
   this.createArrow = function (move, moveNumber) {
 
-    const offset = parseFloat('0.7051');
 
     var arrow = {points: [], pointString: '', x1: '', y1: '', x2: '', y2: '', style: ''};
     var startLetter = move.substr(0, 1);
@@ -226,7 +234,7 @@ Arrows.service('Arrows', function () {
     this.addPoint(arrow.points, arrow.x1, arrow.y1);
     this.addPoint(arrow.points, arrow.x2, arrow.y2);
 
-    this.addArrowhead(arrow);
+    this.addArrowhead(arrow, startLetter, startNumber, endLetter, endNumber);
     arrow.pointString = this.createPointString(arrow.points);
 
     arrow.style = this.getStyle(moveNumber);

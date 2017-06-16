@@ -10,7 +10,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translateY(-50%) translateX(-50%);  
+  transform: translateY(-50%) translateX(-50%);
 }
 
 #setup-screen h1, #setup-screen h2, #setup-screen h3, #setup-screen h4 {
@@ -18,8 +18,13 @@
   padding: 0em;
 }
 
-#setup-screen input[type=text] {
+#setup-screen input, #setup-screen select {
   width: 80%;
+  font-size: 150%;
+  background: #336633;
+  color: white;
+  opacity: 0.75;
+  border: .1em solid #669966;
 }
 
 #setup-screen button {
@@ -34,15 +39,15 @@
   font-size: 1.8em;
 }
 
-@media (min-width: 46em) {
+@media (min-width: 78em) {
 
   #setup-screen {
     font-size: 150%;
   }
 
-  #setup-screen input, #setup-screen select {
-    font-size: 100%;
-    margin: 0.4em 0em 1em;
-  }
+  /*  #setup-screen input, #setup-screen select {
+      font-size: 150%;
+      margin: 0.4em 0em 1em;
+    }*/
 
 }

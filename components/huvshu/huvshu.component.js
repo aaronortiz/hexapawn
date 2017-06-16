@@ -16,6 +16,8 @@ huvshu.controller('humanVsHumanCtlr', [
 
       // initialize game
       var game = {};
+
+      $scope.gameType = 'huvshu';
       game.number = 1;
       game.victory = ' ';
       game.boardState = $scope.logic.newGame;
@@ -89,7 +91,7 @@ huvshu.controller('humanVsHumanCtlr', [
 
       game.victory = GameLogic.checkVictory(game.boardState);
       if (game.victory !== ' ') {
-        game.boardMoves = [];
+        $scope.doVictory();
       } else {
         game.currentPlayer = (game.currentPlayer === 'W') ? 'B' : 'W'; // Toggle player
         game.boardMoves = GameLogic.boardMoves(game.boardState, game.currentPlayer,
@@ -97,13 +99,8 @@ huvshu.controller('humanVsHumanCtlr', [
         game.arrows = Arrows.createMoveArrows(game.boardMoves);
       }
 
-      if ($scope.game.victory !== ' ') {
-        $scope.celebrateVictory();
-      }
-
       $window.sessionStorage.game = JSON.stringify(game);
       $scope.game = game;
-      //$scope.drawArrows();
 
     };
 
@@ -117,7 +114,10 @@ huvshu.controller('humanVsHumanCtlr', [
     };
 
     /*------------------------------------------------------------------------*/
-    $scope.celebrateVictory = function () {
+    $scope.doVictory = function () {
+
+      $scope.game.boardMoves = [];
+      $scope.game.arrows = [];
 
       $timeout(function () {
         var sound = ngAudio.load('assets/audio/5_Sec_Crowd_Cheer-Mike_Koenig-1562033255.mp3');

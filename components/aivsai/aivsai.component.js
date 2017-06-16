@@ -7,9 +7,10 @@ aivsai.controller('aiVsAiCtlr', [
   '$timeout',
   '$window',
   'ngAudio',
+  'Arrows',
   'i18n',
   'GameLogic',
-  function ($scope, $interval, $location, $timeout, $window, ngAudio, i18n, GameLogic) {
+  function ($scope, $interval, $location, $timeout, $window, ngAudio, Arrows, i18n, GameLogic) {
 
     /*------------------------------------------------------------------------*/
     $scope.initializeData = function () {
@@ -19,12 +20,13 @@ aivsai.controller('aiVsAiCtlr', [
       var boards = GameLogic.createBoardsJSON($scope.logic);
       var intervalPromise;
 
+      $scope.gameType = 'aivsai';
       game.number = 1;
       game.victory = ' ';
       game.boardState = $scope.logic.newGame;
       game.boardMoves = GameLogic.boardMoves(game.boardState, 'W',
               $scope.logic);
-
+      game.arrows = Arrows.createMoveArrows(game.boardMoves);
       game.playerMoves = [];
       game.boardHistory = [];
       game.currentPlayer = 'W';
@@ -114,24 +116,32 @@ aivsai.controller('aiVsAiCtlr', [
 
       game.victory = GameLogic.checkVictory(game.boardState);
       if (game.victory !== ' ') {
-        game.boardMoves = [];
+        $scope.doVictory();
       } else {
         game.currentPlayer = (game.currentPlayer === 'W') ? 'B' : 'W'; // Toggle player
         game.boardMoves = GameLogic.boardMoves(game.boardState, game.currentPlayer,
                 $scope.logic);
+        game.arrows = Arrows.createMoveArrows(game.boardMoves);
         if (game.boardMoves.length === 0) {
           game.currentPlayer = (game.currentPlayer === 'W') ? 'B' : 'W'; // Toggle player
           game.victory = game.currentPlayer;
+          $scope.doVictory();
         }
-      }
-
-      if ($scope.game.victory !== ' ') {
-        $scope.celebrateVictory();
-        $scope.teachAI();
       }
 
       $window.sessionStorage.game = JSON.stringify(game);
       $scope.game = game;
+
+    };
+
+    /*------------------------------------------------------------------------*/
+    $scope.doVictory = function () {
+
+      $scope.game.boardMoves = [];
+      $scope.game.arrows = [];
+
+      $scope.celebrateVictory();
+      $scope.teachAI();
 
     };
 
