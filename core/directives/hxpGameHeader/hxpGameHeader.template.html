@@ -1,0 +1,20 @@
+<h3 ng-if="game.victory == ' ' && game.boardMoves.length > 0">
+  {{i18n.GAME + ' ' + game.number}},
+  {{i18n.MOVE + ' ' + (game.playerMoves.length + 1)}}:
+  {{game.players[game.currentPlayer].name}}
+</h3>
+
+<h3 ng-if="game.victory != ' ' && game.victory != 'R'">
+  {{i18n.GAME + ' ' + game.number}},
+  {{game.players[game.currentPlayer].name + ' ' + i18n.VICTORY}}
+</h3>
+
+<h3 ng-if="game.victory == 'R'">
+  {{i18n.GAME + ' ' + game.number}},
+  {{game.players[game.currentPlayer].name + ' ' + i18n.RESIGNS}}
+</h3>
+
+<h3 ng-if="game.victory == ' ' && game.boardMoves.length == 0">
+  {{i18n.GAME + ' ' + game.number}},
+  {{game.players[game.currentPlayer].name}} {{i18n.NO_MOVE_FOR}}
+</h3>

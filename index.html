@@ -3,7 +3,7 @@
   <head>
     <title>Hexapawn</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" content="minimal-ui">
 
     <!-- Icon Library -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -29,11 +29,17 @@
     <script src="core/services/ReadJSON/ReadJSON.js"               type="text/javascript"></script>
 
     <!-- DIRECTIVES -->
-    <script src="core/directives/hxpBoard/hxpBoard.module.js"      type="text/javascript"></script>
-    <script src="core/directives/hxpBoard/hxpBoard.directive.js"   type="text/javascript"></script>
+    <script src="core/directives/hxpBoard/hxpBoard.module.js"              type="text/javascript"></script>
+    <script src="core/directives/hxpBoard/hxpBoard.directive.js"           type="text/javascript"></script>
 
-    <script src="core/directives/hxpBrain/hxpBrain.module.js"      type="text/javascript"></script>
-    <script src="core/directives/hxpBrain/hxpBrain.directive.js"   type="text/javascript"></script>
+    <script src="core/directives/hxpGameHeader/hxpGameHeader.module.js"    type="text/javascript"></script>
+    <script src="core/directives/hxpGameHeader/hxpGameHeader.directive.js" type="text/javascript"></script>
+
+    <script src="core/directives/hxpMoves/hxpMoves.module.js"              type="text/javascript"></script>
+    <script src="core/directives/hxpMoves/hxpMoves.directive.js"           type="text/javascript"></script>
+
+    <script src="core/directives/hxpShowLogic/hxpShowLogic.module.js"      type="text/javascript"></script>
+    <script src="core/directives/hxpShowLogic/hxpShowLogic.directive.js"   type="text/javascript"></script>
 
     <!-- COMPONENTS -->
     <script src="components/welcome/welcome.module.js"             type="text/javascript"></script>
@@ -57,7 +63,7 @@
 
   </head>
 
-  <body ng-app="hexapawnApp" onload="document.body.requestFullscreen()">
+  <body ng-app="hexapawnApp">
 
     <div ng-view id="app_screen"></div>
 

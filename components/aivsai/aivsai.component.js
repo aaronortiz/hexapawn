@@ -21,6 +21,8 @@ aivsai.controller('aiVsAiCtlr', [
       var intervalPromise;
 
       $scope.gameType = 'aivsai';
+      $scope.showLogicPlayer = '';
+
       game.number = 1;
       game.victory = ' ';
       game.boardState = $scope.logic.newGame;
@@ -250,6 +252,11 @@ aivsai.controller('aiVsAiCtlr', [
                 $scope.logic));
       }
 
+    };
+
+    /*------------------------------------------------------------------------*/
+    $scope.showLogic = function (player) {
+      $scope.showLogicPlayer = player;
     };
 
     /*------------------------------------------------------------------------*/

@@ -1,0 +1,15 @@
+<table>
+  <tr ng-repeat="b in game.players[player].currentBoards">
+    <td>{{b.board}}
+    </td>
+    <td>
+      <ul>
+        <li ng-repeat="m in b.moves">{{m}}</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+<div id="moves">
+  <button ng-click="hideLogic()">{{i18n.HIDE_LOGIC}}</button>
+</div>

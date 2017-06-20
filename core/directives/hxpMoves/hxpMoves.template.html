@@ -1,0 +1,30 @@
+<div id="moves">
+
+  <span  ng-if="game.players[game.currentPlayer].type === 'human'"
+         ng-repeat="(id, m) in game.boardMoves">
+    <button class="{{'move-' + id}}"
+            ng-click="doMove({move: m})">{{m}}</button>
+  </span>
+
+  <span  ng-if="game.victory == ' ' && game.players[game.currentPlayer].type === 'ai' && gameType == 'huvsai'">
+    <button class="{{'move-' + id}}"
+            ng-click="aiMove()">{{i18n.RANDOM_MOVE}}</button>
+  </span>
+
+  <span id="game-over"
+        ng-if="game.boardMoves.length === 0">
+    <button ng-click="newGame()">{{i18n.NEW_GAME}}</button>
+    <button ng-click="showBlackLogic()"
+            ng-if="gameType !== 'huvshu'"
+            class="black_button">{{i18n.SHOW_LOGIC}}</button>
+    <button ng-click="showWhiteLogic()"
+            ng-if="gameType == 'aivsai'"
+            class="white_button">{{i18n.SHOW_LOGIC}}</button>
+    <button ng-click ="returnToMainMenu()"
+            ng-if="gameType == 'aivsai'">{{i18n.RETURN_TO_MAIN_MENU}}</button>
+  </span>
+
+  <button ng-click ="returnToMainMenu()"
+          ng-if="gameType !== 'aivsai'">{{i18n.RETURN_TO_MAIN_MENU}}</button>
+
+</div>

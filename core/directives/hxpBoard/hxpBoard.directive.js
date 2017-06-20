@@ -4,16 +4,8 @@ board.directive('hxpBoard', function () {
 
   return {
     scope: {
-      'i18n': '=i18n',
-      'gameType': '=gametype',
-      'game': '=gamedata',
-      'doMove': '&onMove',
-      'aiMove': '&onAiMove',
-      'newGame': '&onNewGame',
-      'showBlackLogic': '&onShowBlackLogic',
-      'showWhiteLogic': '&onShowWhiteLogic',
-      'exportJson': '&onExportJson',
-      'returnToMainMenu': '&onReturnToMainMenu'
+      'boardState': '=boardstate',
+      'arrows': '=arrows'
     },
     transclude: true,
     templateUrl: 'core/directives/hxpBoard/hxpBoard.template.html'

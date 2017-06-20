@@ -19,6 +19,8 @@ huvsai.controller('humanVsAiCtlr', [
       var boards = GameLogic.createBoardsJSON($scope.logic);
 
       $scope.gameType = 'huvsai';
+      $scope.showLogicPlayer = '';
+
       game.number = 1;
       game.victory = ' ';
       game.boardState = $scope.logic.newGame;
@@ -242,6 +244,11 @@ huvsai.controller('humanVsAiCtlr', [
                 $scope.logic));
       }
 
+    };
+
+    /*------------------------------------------------------------------------*/
+    $scope.showLogic = function (player) {
+      $scope.showLogicPlayer = player;
     };
 
     /*------------------------------------------------------------------------*/

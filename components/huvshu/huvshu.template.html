@@ -3,13 +3,17 @@
 
   <h1>{{i18n.APP_TITLE}}</h1>
 
-  <hxp-board gametype="gameType"
+  <hxp-game-header gamedata="game"
+                   i18n="i18n"/>
+
+  <hxp-board boardstate="game.boardState"
+             arrows="game.arrows" />
+
+  <hxp-moves gametype="gameType"
              gamedata="game"
              i18n="i18n"
              on-move="doMove(move)"
              on-new-game="newGame()"
-             on-return-to-main-menu="returnToMainMenu()">
-
-  </hxp-board>
+             on-return-to-main-menu="returnToMainMenu()" />
 
 </div>
