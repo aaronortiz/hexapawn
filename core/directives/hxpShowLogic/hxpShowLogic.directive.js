@@ -5,7 +5,8 @@ showLogicModule.directive('hxpShowLogic', function () {
   return {
     scope: {
       'i18n': '=i18n',
-      'game': '=game',
+      'playerName': '=playerName',
+      'boards': '=boards',
       'player': '=player',
       'hideLogic': '&onHideLogic'
     },

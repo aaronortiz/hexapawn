@@ -256,7 +256,16 @@ aivsai.controller('aiVsAiCtlr', [
 
     /*------------------------------------------------------------------------*/
     $scope.showLogic = function (player) {
+
+      var boards = $scope.game.players[player].currentBoards;
+
+      for (var board in boards) {
+        boards[board].arrows = Arrows.createMoveArrows(boards[board].moves);
+      }
+
       $scope.showLogicPlayer = player;
+      $scope.showLogicBoards = boards;
+
     };
 
     /*------------------------------------------------------------------------*/
