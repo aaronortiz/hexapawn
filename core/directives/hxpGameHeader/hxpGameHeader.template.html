@@ -6,7 +6,7 @@
 
 <h3 ng-if="game.victory != ' ' && game.victory != 'R'">
   {{i18n.GAME + ' ' + game.number}},
-  {{game.players[game.currentPlayer].name + ' ' + i18n.VICTORY}}
+  {{game.players[game.currentPlayer].name + ' (' + game.victory + ') ' + i18n.VICTORY}}
 </h3>
 
 <h3 ng-if="game.victory == 'R'">

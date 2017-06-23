@@ -38,8 +38,7 @@ huvsai.controller('humanVsAiCtlr', [
         B: {
           name: $window.sessionStorage.player2Name,
           type: 'ai',
-          currentBoards: boards.black,
-          learningStates: [boards.black]
+          currentBoards: boards.black
         }
       };
 
@@ -195,7 +194,6 @@ huvsai.controller('humanVsAiCtlr', [
     /*------------------------------------------------------------------------*/
     $scope.teachAI = function () {
 
-      var aiBoards = $scope.game.players['B'].currentBoards;
       var history = $scope.game.boardHistory;
       var offset = 2;
 
@@ -207,9 +205,17 @@ huvsai.controller('humanVsAiCtlr', [
         var lastGoodBoard = history[history.length - offset];
         var badMove = $scope.game.playerMoves[history.length - offset];
 
-        GameLogic.removeMoveFromBoard(aiBoards, lastGoodBoard, badMove);
-        $scope.game.players['B'].learningStates.push(aiBoards);
-        $scope.game.players['B'].currentBoards = aiBoards;
+        GameLogic.removeMoveFromBoard(
+                $scope.game.players['B'].currentBoards,
+                lastGoodBoard,
+                badMove
+                );
+        GameLogic.removeMoveFromBoard(// remove mirror image of move as well
+                $scope.game.players['B'].currentBoards,
+                GameLogic.flipBoard(lastGoodBoard),
+                GameLogic.flipMove(badMove)
+                );
+
       } else {
         console.log($scope.game.players['B'].playerName + ' has failed to learn because of a history offset error.');
         console.log(history);
@@ -220,7 +226,7 @@ huvsai.controller('humanVsAiCtlr', [
     $scope.newGame = function () {
 
       var currentGameNumber = $scope.game.number;
-      var currentAIPlayer = $scope.game.players['B'];
+      var currentAIPlayer = JSON.parse(JSON.stringify($scope.game.players['B']));
 
       $scope.initializeData();
 
@@ -249,13 +255,16 @@ huvsai.controller('humanVsAiCtlr', [
     /*------------------------------------------------------------------------*/
     $scope.showLogic = function (player) {
 
-      var boards = $scope.game.players[player].currentBoards;
-
-      for (var board in boards) {
-        boards[board].arrows = Arrows.createMoveArrows(boards[board].moves);
-      }
-
       $scope.showLogicPlayer = player;
+
+      var boards = [];
+      if ($scope.game.players[player].currentBoards) {
+        boards = $scope.game.players[player].currentBoards;
+
+        for (var board in boards) {
+          boards[board].arrows = Arrows.createMoveArrows(boards[board].moves);
+        }
+      }
       $scope.showLogicBoards = boards;
 
     };

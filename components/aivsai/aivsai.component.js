@@ -37,13 +37,13 @@ aivsai.controller('aiVsAiCtlr', [
           name: $window.sessionStorage.player1Name,
           type: 'ai',
           currentBoards: boards.white,
-          learningStates: [boards.white]
+          unusedMoves: JSON.parse(JSON.stringify(boards.white))
         },
         B: {
           name: $window.sessionStorage.player2Name,
           type: 'ai',
           currentBoards: boards.black,
-          learningStates: [boards.black]
+          unusedMoves: JSON.parse(JSON.stringify(boards.black))
         }
       };
 
@@ -102,17 +102,33 @@ aivsai.controller('aiVsAiCtlr', [
     };
 
     /*------------------------------------------------------------------------*/
+    $scope.updateHistory = function (move) {
+
+      var game = $scope.game;
+
+      game.playerMoves.push(move);
+      game.boardHistory.push(game.boardState);
+      // Keep track of moves that have already been used, to learn faster
+      GameLogic.removeMoveFromBoard(
+              game.players[game.currentPlayer].unusedMoves,
+              game.boardState,
+              move);
+      GameLogic.removeMoveFromBoard(
+              game.players[game.currentPlayer].unusedMoves,
+              GameLogic.flipBoard(game.boardState),
+              GameLogic.flipMove(move));
+
+      console.log('[' + game.boardState + ']' + ' G' + game.number + game.currentPlayer + ':' + move);
+
+    }
+    /*------------------------------------------------------------------------*/
     $scope.doMove = function (move) {
 
       var game = $scope.game;
 
       $scope.checkPersistence();
       $scope.soundMove();
-
-      game.playerMoves.push(move);
-      game.boardHistory.push(game.boardState);
-
-      console.log('[' + game.boardState + ']' + ' G' + game.number + game.currentPlayer + ':' + move);
+      $scope.updateHistory(move);
 
       game.boardState = GameLogic.doMove(game.boardState, move, $scope.logic);
 
@@ -171,18 +187,24 @@ aivsai.controller('aiVsAiCtlr', [
       var game = $scope.game;
       var boardState = game.boardState;
       var aiBoards = $scope.game.players[$scope.game.currentPlayer].currentBoards;
+      var aiUnusedMoves = $scope.game.players[$scope.game.currentPlayer].unusedMoves;
       var boardFlipped = false;
+      var moves = [];
 
       if (!aiBoards[boardState]) {
         boardState = GameLogic.flipBoard(boardState);
         boardFlipped = true;
         if (!aiBoards[boardState]) {
-          console.log('Board ' + $scope.game.boardState + ' not found.');
+          console.log('AiMove: Board ' + $scope.game.boardState + ' not found.');
           return;
         }
       }
 
-      var moves = aiBoards[boardState].moves;
+      if (aiUnusedMoves[boardState].moves.length > 0) {
+        moves = aiUnusedMoves[boardState].moves;
+      } else {
+        moves = aiBoards[boardState].moves;
+      }
 
       if (moves.length > 0) {
         var move = Math.floor((Math.random() * moves.length));
@@ -201,8 +223,7 @@ aivsai.controller('aiVsAiCtlr', [
     /*------------------------------------------------------------------------*/
     $scope.teachAI = function () {
 
-      var currentLoser = ($scope.game.currentPlayer == 'W') ? 'B' : 'W';
-      var aiBoards = $scope.game.players[currentLoser].currentBoards;
+      var currentLoser = ($scope.game.currentPlayer === 'W') ? 'B' : 'W';
       var history = $scope.game.boardHistory;
       var offset = 2;
 
@@ -214,9 +235,19 @@ aivsai.controller('aiVsAiCtlr', [
         var lastGoodBoard = history[history.length - offset];
         var badMove = $scope.game.playerMoves[history.length - offset];
 
-        GameLogic.removeMoveFromBoard(aiBoards, lastGoodBoard, badMove);
-        $scope.game.players[currentLoser].learningStates.push(aiBoards);
-        $scope.game.players[currentLoser].currentBoards = aiBoards;
+        GameLogic.removeMoveFromBoard(
+                $scope.game.players[currentLoser].currentBoards,
+                lastGoodBoard,
+                badMove
+                );
+        console.log('Move [' + badMove + '] in board [' + lastGoodBoard + '] leads to defeat.');
+        GameLogic.removeMoveFromBoard(// remove mirror image of move as well
+                $scope.game.players[currentLoser].currentBoards,
+                GameLogic.flipBoard(lastGoodBoard),
+                GameLogic.flipMove(badMove)
+                );
+        console.log('Flipped move [' + GameLogic.flipMove(badMove) + '], in board [' + GameLogic.flipBoard(lastGoodBoard) + '] leads to defeat.');
+
       } else {
         console.log($scope.game.players[currentLoser].playerName + ' has failed to learn because of a history offset error.');
         console.log(history);
@@ -228,13 +259,15 @@ aivsai.controller('aiVsAiCtlr', [
 
       var currentPlayer = $scope.game.currentPlayer;
       var currentGameNumber = $scope.game.number;
-      var currentAIPlayer = $scope.game.players[currentPlayer];
+      var whiteAIPlayer = JSON.parse(JSON.stringify($scope.game.players['W']));
+      var blackAIPlayer = JSON.parse(JSON.stringify($scope.game.players['B']));
 
       $scope.initializeData();
 
       // Reset persistent data
       $scope.game.number = currentGameNumber + 1;
-      $scope.game.players[currentPlayer] = currentAIPlayer;
+      $scope.game.players['W'] = whiteAIPlayer;
+      $scope.game.players['B'] = blackAIPlayer;
     };
 
     /*------------------------------------------------------------------------*/
@@ -257,13 +290,16 @@ aivsai.controller('aiVsAiCtlr', [
     /*------------------------------------------------------------------------*/
     $scope.showLogic = function (player) {
 
-      var boards = $scope.game.players[player].currentBoards;
-
-      for (var board in boards) {
-        boards[board].arrows = Arrows.createMoveArrows(boards[board].moves);
-      }
-
       $scope.showLogicPlayer = player;
+
+      var boards = [];
+      if ($scope.game.players[player].currentBoards) {
+        boards = $scope.game.players[player].currentBoards;
+
+        for (var board in boards) {
+          boards[board].arrows = Arrows.createMoveArrows(boards[board].moves);
+        }
+      }
       $scope.showLogicBoards = boards;
 
     };

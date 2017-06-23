@@ -392,39 +392,30 @@ GameLogic.service('GameLogic', function ($resource) {
   /*--------------------------------------------------------------------------*/
   this.removeMoveFromBoard = function (boardObject, boardState, move) {
 
-    var currentBoardState = boardState;
-    var currentMove = move;
+    if (boardObject[boardState]) {
 
-    // flip board and move if they don't exist
-    if (!boardObject[boardState]) {
-      currentBoardState = this.flipBoard(boardState);
-      console.log('Board [' + boardState + '] not found.');
-      if (!boardObject[currentBoardState]) {
-        console.log('Board [' + currentBoardState + '] not found.');
-        console.log(boardObject);
-        return;
-      } else {
-        currentMove = this.flipMove(move);
+      var len = boardObject[boardState].moves.length;
+      var i = 0;
+      var success = false;
+
+      while (success === false) {
+
+        if (boardObject[boardState].moves[i] === move) {
+          boardObject[boardState].moves.splice(i, 1);
+          //console.log('Move [' + move + '] removed from board [' + boardState + '].');
+          success = true;
+          return;
+        } else {
+          i++;
+          success = (i >= len);
+        }
       }
+    } else {
+      console.log('GameLogic: Board [' + boardState + '] not found.');
+      return;
     }
 
-    var len = boardObject[currentBoardState].moves.length;
-    var i = 0;
-    var success = false;
-
-    while (success === false) {
-      if (boardObject[currentBoardState].moves[i] === currentMove) {
-        boardObject[currentBoardState].moves.splice(i, 1);
-        console.log('Move [' + currentMove + '] removed from board [' + currentBoardState + '].');
-        success = true;
-        return;
-      } else {
-        i++;
-        success = (i >= len);
-      }
-    }
-
-    console.log('Move [' + currentMove + '] not found in board [' + currentBoardState + '].');
+    console.log('Move [' + move + '] not found in board [' + boardState + '].');
 
   };
 

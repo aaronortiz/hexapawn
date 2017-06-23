@@ -3,6 +3,7 @@
 @import "moves.css";
 @import "gameboard.css";
 @import "brain.css";
+@import "showLogic.css";
 
 html {
   min-height: 100%;
@@ -72,7 +73,7 @@ label {
 }
 
 fieldset {
-  background: url(../assets/bg2.jpg) bottom center no-repeat; 
+  background: url(../assets/bg2.jpg) bottom center no-repeat;
   border: .1em solid #336633;
   border-radius: .5em;
   margin: 1em auto;

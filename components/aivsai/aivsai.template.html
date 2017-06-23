@@ -3,15 +3,15 @@
 
   <h1>{{i18n.APP_TITLE}}</h1>
 
-  <hxp-game-header ng-show="showLogicPlayer == ''"
+  <hxp-game-header ng-show="!showLogicPlayer || showLogicPlayer == ''"
                    gamedata="game"
                    i18n="i18n"/>
 
-  <hxp-board ng-show="showLogicPlayer == ''"
+  <hxp-board ng-show="!showLogicPlayer || showLogicPlayer == ''"
              boardstate="game.boardState"
              arrows="game.arrows" />
 
-  <hxp-moves ng-show="showLogicPlayer == ''"
+  <hxp-moves ng-show="!showLogicPlayer || showLogicPlayer == ''"
              gametype="gameType"
              gamedata="game"
              i18n="i18n"
@@ -22,7 +22,7 @@
              on-show-white-logic="showLogic('W')"
              on-return-to-main-menu="returnToMainMenu()" />
 
-  <hxp-show-logic ng-hide="showLogicPlayer == ''"
+  <hxp-show-logic ng-show="showLogicPlayer && showLogicPlayer !== ''"
                   i18n="i18n"
                   player-name="game.players[showLogicPlayer].name"
                   boards="showLogicBoards"

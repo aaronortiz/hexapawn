@@ -14,12 +14,12 @@
   <span id="game-over"
         ng-if="game.boardMoves.length === 0">
     <button ng-click="newGame()">{{i18n.NEW_GAME}}</button>
-    <button ng-click="showBlackLogic()"
-            ng-if="gameType !== 'huvshu'"
-            class="black_button">{{i18n.SHOW_LOGIC}}</button>
     <button ng-click="showWhiteLogic()"
-            ng-if="gameType == 'aivsai'"
+            ng-if="gameType && gameType !== 'huvshu' && gameType !== 'huvsai'"
             class="white_button">{{i18n.SHOW_LOGIC}}</button>
+    <button ng-click="showBlackLogic()"
+            ng-if="gameType && gameType !== 'huvshu'"
+            class="black_button">{{i18n.SHOW_LOGIC}}</button>
     <button ng-click ="returnToMainMenu()"
             ng-if="gameType == 'aivsai'">{{i18n.RETURN_TO_MAIN_MENU}}</button>
   </span>

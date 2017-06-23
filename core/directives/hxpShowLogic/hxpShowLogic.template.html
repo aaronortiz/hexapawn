@@ -1,17 +1,18 @@
 <h3>{{i18n.LOGIC_FOR + ' ' + playerName}}</h3>
 
-<table  >
-  <tr ng-repeat="b in boards"    >
-    <td  >
-  <hxp-board boardstate="b.board             "
-             arrows="b.arrows" />
-</td>
-<td class="moves"  >
-  <span  ng-repeat="(id, m) in b.moves"      >
-    <button class="{{'move-' + id}}" disabled>{{m}}</button    >
-  </span  >
-</td>
-</tr>
+<table class="show-logic">
+
+  <tr ng-repeat="b in boards">
+
+    <td><hxp-board boardstate="b.board"
+                 arrows="b.arrows"/><br><br></td>
+
+  <td class="moves"><h4>Board: [{{b.board}}]</h4>
+    <span  ng-repeat="(id, m) in b.moves">
+      <button class="{{'move-' + id}}" disabled>{{m}}</button>
+    </span>
+  </td>
+</tr >
 </table>
 
 <div class="moves">
