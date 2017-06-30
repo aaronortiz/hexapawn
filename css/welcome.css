@@ -5,12 +5,16 @@
   background-color: #004c00;
   background: url(../assets/bg2.jpg) bottom center no-repeat;
 
-  padding: 0em 2em 2em;
+  padding: 0em 2em .8em;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translateY(-50%) translateX(-50%);
 
+}
+
+#welcome_screen h1 {
+  margin: .5em 0em;
 }
 
 #welcome_screen ul {

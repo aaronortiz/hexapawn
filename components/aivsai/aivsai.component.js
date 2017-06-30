@@ -2,6 +2,7 @@ var aivsai = angular.module('aiVsAi');
 
 aivsai.controller('aiVsAiCtlr', [
   '$scope',
+  '$rootScope',
   '$interval',
   '$location',
   '$timeout',
@@ -10,14 +11,13 @@ aivsai.controller('aiVsAiCtlr', [
   'Arrows',
   'i18n',
   'GameLogic',
-  function ($scope, $interval, $location, $timeout, $window, ngAudio, Arrows, i18n, GameLogic) {
+  function ($scope, $rootScope, $interval, $location, $timeout, $window, ngAudio, Arrows, i18n, GameLogic) {
 
     /*------------------------------------------------------------------------*/
     $scope.initializeData = function () {
 
       // initialize game
       var game = {};
-      var boards = GameLogic.createBoardsJSON($scope.logic);
       var intervalPromise;
 
       $scope.gameType = 'aivsai';
@@ -36,14 +36,14 @@ aivsai.controller('aiVsAiCtlr', [
         W: {
           name: $window.sessionStorage.player1Name,
           type: 'ai',
-          currentBoards: boards.white,
-          unusedMoves: JSON.parse(JSON.stringify(boards.white))
+          currentBoards: $scope.getCurrentBoards('W'),
+          unusedMoves: $scope.getCurrentBoards('W')
         },
         B: {
           name: $window.sessionStorage.player2Name,
           type: 'ai',
-          currentBoards: boards.black,
-          unusedMoves: JSON.parse(JSON.stringify(boards.black))
+          currentBoards: $scope.getCurrentBoards('B'),
+          unusedMoves: $scope.getCurrentBoards('B')
         }
       };
 
@@ -60,6 +60,34 @@ aivsai.controller('aiVsAiCtlr', [
 
     };
 
+    /*------------------------------------------------------------------------*/
+    $scope.getCurrentBoards = function (player) {
+
+      var playerName = '';
+      var boards = GameLogic.createBoardsJSON($scope.logic);
+      var tempBoards = {};
+
+      switch (player) {
+        case 'W':
+          playerName = $window.sessionStorage.player1Name;
+          tempBoards = boards.white;
+          break;
+
+        case 'B':
+          playerName = $window.sessionStorage.player2Name;
+          tempBoards = boards.black;
+          break
+      }
+
+      if ($rootScope.AiBoards[playerName]) {
+        return JSON.parse(JSON.stringify($rootScope.AiBoards[playerName]))
+      } else {
+        return JSON.parse(JSON.stringify(tempBoards));
+      }
+
+    }
+
+    /*------------------------------------------------------------------------*/
     $scope.stopInterval = function () {
       if (angular.isDefined(intervalPromise)) {
         $interval.cancel(intervalPromise);
@@ -216,7 +244,7 @@ aivsai.controller('aiVsAiCtlr', [
       } else { //resign
         $scope.game.victory = 'R';
         game.boardMoves = [];
-        $scope.teachAI;
+        $scope.teachAI();
       }
     };
 
@@ -249,15 +277,18 @@ aivsai.controller('aiVsAiCtlr', [
         console.log('Flipped move [' + GameLogic.flipMove(badMove) + '], in board [' + GameLogic.flipBoard(lastGoodBoard) + '] leads to defeat.');
 
       } else {
-        console.log($scope.game.players[currentLoser].playerName + ' has failed to learn because of a history offset error.');
+        console.log($scope.game.players[currentLoser].name + ' has failed to learn because of a history offset error.');
         console.log(history);
       }
+
+      $rootScope.AiBoards[$scope.game.players[currentLoser].name] = JSON.parse(JSON.stringify($scope.game.players[currentLoser].currentBoards));
+
     };
 
     /*------------------------------------------------------------------------*/
     $scope.newGame = function () {
 
-      var currentPlayer = $scope.game.currentPlayer;
+      //var currentPlayer = $scope.game.currentPlayer;
       var currentGameNumber = $scope.game.number;
       var whiteAIPlayer = JSON.parse(JSON.stringify($scope.game.players['W']));
       var blackAIPlayer = JSON.parse(JSON.stringify($scope.game.players['B']));
@@ -293,6 +324,7 @@ aivsai.controller('aiVsAiCtlr', [
       $scope.showLogicPlayer = player;
 
       var boards = [];
+
       if ($scope.game.players[player].currentBoards) {
         boards = $scope.game.players[player].currentBoards;
 

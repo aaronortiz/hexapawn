@@ -2,6 +2,7 @@ var huvsai = angular.module('humanVsAi');
 
 huvsai.controller('humanVsAiCtlr', [
   '$scope',
+  '$rootScope',
   '$location',
   '$timeout',
   '$window',
@@ -9,14 +10,13 @@ huvsai.controller('humanVsAiCtlr', [
   'Arrows',
   'i18n',
   'GameLogic',
-  function ($scope, $location, $timeout, $window, ngAudio, Arrows, i18n, GameLogic) {
+  function ($scope, $rootScope, $location, $timeout, $window, ngAudio, Arrows, i18n, GameLogic) {
 
     /*------------------------------------------------------------------------*/
     $scope.initializeData = function () {
 
       // initialize game
       var game = {};
-      var boards = GameLogic.createBoardsJSON($scope.logic);
 
       $scope.gameType = 'huvsai';
       $scope.showLogicPlayer = '';
@@ -30,6 +30,7 @@ huvsai.controller('humanVsAiCtlr', [
       game.playerMoves = [];
       game.boardHistory = [];
       game.currentPlayer = 'W';
+
       game.players = {
         W: {
           name: $window.sessionStorage.player1Name,
@@ -38,7 +39,7 @@ huvsai.controller('humanVsAiCtlr', [
         B: {
           name: $window.sessionStorage.player2Name,
           type: 'ai',
-          currentBoards: boards.black
+          currentBoards: $scope.getCurrentBoards()
         }
       };
 
@@ -46,6 +47,22 @@ huvsai.controller('humanVsAiCtlr', [
       $scope.game = game;
 
     };
+
+    /*------------------------------------------------------------------------*/
+    $scope.getCurrentBoards = function () {
+
+      var playerName = '';
+      var boards = GameLogic.createBoardsJSON($scope.logic);
+
+      playerName = $window.sessionStorage.player2Name;
+
+      if ($rootScope.AiBoards[playerName]) {
+        return JSON.parse(JSON.stringify($rootScope.AiBoards[playerName]))
+      } else {
+        return JSON.parse(JSON.stringify(boards.black));
+      }
+
+    }
 
     /*------------------------------------------------------------------------*/
     $scope.checkGamePersistence = function () {
@@ -215,6 +232,8 @@ huvsai.controller('humanVsAiCtlr', [
                 GameLogic.flipBoard(lastGoodBoard),
                 GameLogic.flipMove(badMove)
                 );
+
+        $rootScope.AiBoards[$scope.game.players['B'].playerName] = $scope.game.players['B'].currentBoards;
 
       } else {
         console.log($scope.game.players['B'].playerName + ' has failed to learn because of a history offset error.');
