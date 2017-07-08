@@ -14,7 +14,10 @@ welcome.controller('welcomeCtlr', [
           ) {
 
     if (!$rootScope.AiBoards) {
-      $rootScope.AiBoards = {};
+      $rootScope.AiBoards = {
+        'W': {},
+        'B': {}
+      };
     }
 
     i18n.getI18nStrings('EN', function (data) {
@@ -30,7 +33,10 @@ welcome.controller('welcomeCtlr', [
     };
 
     $scope.resetAi = function () {
-      $rootScope.AiBoards = {};
+      $rootScope.AiBoards = {
+        'W': {},
+        'B': {}
+      };
     };
   }
 ]);

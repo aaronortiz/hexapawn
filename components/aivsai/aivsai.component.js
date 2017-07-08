@@ -79,13 +79,13 @@ aivsai.controller('aiVsAiCtlr', [
           break
       }
 
-      if ($rootScope.AiBoards[playerName]) {
-        return JSON.parse(JSON.stringify($rootScope.AiBoards[playerName]))
+      if ($rootScope.AiBoards[player][playerName]) {
+        return JSON.parse(JSON.stringify($rootScope.AiBoards[player][playerName]));
       } else {
         return JSON.parse(JSON.stringify(tempBoards));
       }
 
-    }
+    };
 
     /*------------------------------------------------------------------------*/
     $scope.stopInterval = function () {
@@ -148,7 +148,7 @@ aivsai.controller('aiVsAiCtlr', [
 
       console.log('[' + game.boardState + ']' + ' G' + game.number + game.currentPlayer + ':' + move);
 
-    }
+    };
     /*------------------------------------------------------------------------*/
     $scope.doMove = function (move) {
 
@@ -251,9 +251,17 @@ aivsai.controller('aiVsAiCtlr', [
     /*------------------------------------------------------------------------*/
     $scope.teachAI = function () {
 
-      var currentLoser = ($scope.game.currentPlayer === 'W') ? 'B' : 'W';
+      var currentLoser = '';
+      var currentLoserName = '';
       var history = $scope.game.boardHistory;
       var offset = 2;
+
+      if ($scope.game.currentPlayer === 'W') {
+        currentLoser = 'B';
+      } else {
+        currentLoser = 'W';
+      }
+      currentLoserName = $scope.game.players[currentLoser].name;
 
       if ($scope.game.victory === 'R') {
         offset++;
@@ -281,7 +289,7 @@ aivsai.controller('aiVsAiCtlr', [
         console.log(history);
       }
 
-      $rootScope.AiBoards[$scope.game.players[currentLoser].name] = JSON.parse(JSON.stringify($scope.game.players[currentLoser].currentBoards));
+      $rootScope.AiBoards[currentLoser][currentLoserName] = JSON.parse(JSON.stringify($scope.game.players[currentLoser].currentBoards));
 
     };
 
@@ -303,6 +311,7 @@ aivsai.controller('aiVsAiCtlr', [
 
     /*------------------------------------------------------------------------*/
     $scope.returnToMainMenu = function () {
+      console.log($rootScope.AiBoards);
       $location.path('/');
     };
 
