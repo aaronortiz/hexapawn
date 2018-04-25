@@ -110,7 +110,8 @@ huvsai.controller('humanVsAiCtlr', [
       game.playerMoves.push(move);
       game.boardHistory.push(game.boardState);
 
-      console.log('[' + game.boardState + ']' + ' G' + game.number + game.currentPlayer + ':' + move);
+      console.log(
+              '[' + game.boardState + ']' + ' G' + game.number + game.currentPlayer + ':' + move);
 
       game.boardState = GameLogic.doMove(game.boardState, move, $scope.logic);
 
@@ -119,13 +120,14 @@ huvsai.controller('humanVsAiCtlr', [
         $scope.doVictory();
       } else {
         game.currentPlayer = (game.currentPlayer === 'W') ? 'B' : 'W'; // Toggle player
-        game.boardMoves = GameLogic.boardMoves(game.boardState, game.currentPlayer,
+        game.boardMoves = GameLogic.boardMoves(game.boardState,
+                game.currentPlayer,
                 $scope.logic);
         game.arrows = Arrows.createMoveArrows(game.boardMoves);
         if (game.boardMoves.length === 0) {
           game.currentPlayer = (game.currentPlayer === 'W') ? 'B' : 'W'; // Toggle player
-          game.victory = game.currentPlayer;
-          $scope.doVictory();
+          game.victory = 'T'; //game.currentPlayer;
+          $scope.doTie();
         }
       }
 
@@ -150,10 +152,19 @@ huvsai.controller('humanVsAiCtlr', [
     };
 
     /*------------------------------------------------------------------------*/
+    $scope.doTie = function () {
+
+      $scope.game.boardMoves = [];
+      $scope.game.arrows = [];
+
+    };
+
+    /*------------------------------------------------------------------------*/
     $scope.soundMove = function () {
 
       $timeout(function () {
-        var sound = ngAudio.load('assets/audio/351518__mh2o__chess-move-on-alabaster.wav');
+        var sound = ngAudio.load(
+                'assets/audio/351518__mh2o__chess-move-on-alabaster.wav');
         sound.play();
       }, 10);
     };
@@ -162,7 +173,8 @@ huvsai.controller('humanVsAiCtlr', [
     $scope.celebratePlayerVictory = function () {
 
       $timeout(function () {
-        var sound = ngAudio.load('assets/audio/5_Sec_Crowd_Cheer-Mike_Koenig-1562033255.mp3');
+        var sound = ngAudio.load(
+                'assets/audio/5_Sec_Crowd_Cheer-Mike_Koenig-1562033255.mp3');
         sound.play();
       }, 250);
     };
@@ -171,7 +183,8 @@ huvsai.controller('humanVsAiCtlr', [
     $scope.celebrateAIVictory = function () {
 
       $timeout(function () {
-        var sound = ngAudio.load('assets/audio/Buzzer-SoundBible.com-188422102.mp3');
+        var sound = ngAudio.load(
+                'assets/audio/Buzzer-SoundBible.com-188422102.mp3');
         sound.play();
       }, 250);
     };
@@ -236,7 +249,8 @@ huvsai.controller('humanVsAiCtlr', [
         $rootScope.AiBoards['B'][$scope.game.players['B'].name] = $scope.game.players['B'].currentBoards;
 
       } else {
-        console.log($scope.game.players['B'].name + ' has failed to learn because of a history offset error.');
+        console.log(
+                $scope.game.players['B'].name + ' has failed to learn because of a history offset error.');
         console.log(history);
       }
     };
@@ -245,7 +259,8 @@ huvsai.controller('humanVsAiCtlr', [
     $scope.newGame = function () {
 
       var currentGameNumber = $scope.game.number;
-      var currentAIPlayer = JSON.parse(JSON.stringify($scope.game.players['B']));
+      var currentAIPlayer = JSON.parse(JSON.stringify(
+              $scope.game.players['B']));
 
       $scope.initializeData();
 

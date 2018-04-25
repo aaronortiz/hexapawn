@@ -16,6 +16,12 @@
   height: 1.5em;
 }
 
+moves p.player_label {
+  font-size: 70%;
+  margin: 0;
+  padding: 0;
+}
+
 #game-screen .moves button.move-0 {
   background-color: #00ad00;
 }

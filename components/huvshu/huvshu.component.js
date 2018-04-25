@@ -94,9 +94,13 @@ huvshu.controller('humanVsHumanCtlr', [
         $scope.doVictory();
       } else {
         game.currentPlayer = (game.currentPlayer === 'W') ? 'B' : 'W'; // Toggle player
-        game.boardMoves = GameLogic.boardMoves(game.boardState, game.currentPlayer,
+        game.boardMoves = GameLogic.boardMoves(game.boardState,
+                game.currentPlayer,
                 $scope.logic);
         game.arrows = Arrows.createMoveArrows(game.boardMoves);
+        if (game.boardMoves.length === 0) {
+          game.victory = 'T';
+        }
       }
 
       $window.sessionStorage.game = JSON.stringify(game);
@@ -108,7 +112,8 @@ huvshu.controller('humanVsHumanCtlr', [
     $scope.soundMove = function () {
 
       $timeout(function () {
-        var sound = ngAudio.load('assets/audio/351518__mh2o__chess-move-on-alabaster.wav');
+        var sound = ngAudio.load(
+                'assets/audio/351518__mh2o__chess-move-on-alabaster.wav');
         sound.play();
       }, 10);
     };
@@ -120,7 +125,8 @@ huvshu.controller('humanVsHumanCtlr', [
       $scope.game.arrows = [];
 
       $timeout(function () {
-        var sound = ngAudio.load('assets/audio/5_Sec_Crowd_Cheer-Mike_Koenig-1562033255.mp3');
+        var sound = ngAudio.load(
+                'assets/audio/5_Sec_Crowd_Cheer-Mike_Koenig-1562033255.mp3');
         sound.play();
       }, 250);
     };

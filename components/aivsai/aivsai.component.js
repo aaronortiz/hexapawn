@@ -80,7 +80,8 @@ aivsai.controller('aiVsAiCtlr', [
       }
 
       if ($rootScope.AiBoards[player][playerName]) {
-        return JSON.parse(JSON.stringify($rootScope.AiBoards[player][playerName]));
+        return JSON.parse(JSON.stringify(
+                $rootScope.AiBoards[player][playerName]));
       } else {
         return JSON.parse(JSON.stringify(tempBoards));
       }
@@ -146,7 +147,8 @@ aivsai.controller('aiVsAiCtlr', [
               GameLogic.flipBoard(game.boardState),
               GameLogic.flipMove(move));
 
-      console.log('[' + game.boardState + ']' + ' G' + game.number + game.currentPlayer + ':' + move);
+      console.log(
+              '[' + game.boardState + ']' + ' G' + game.number + game.currentPlayer + ':' + move);
 
     };
     /*------------------------------------------------------------------------*/
@@ -165,13 +167,14 @@ aivsai.controller('aiVsAiCtlr', [
         $scope.doVictory();
       } else {
         game.currentPlayer = (game.currentPlayer === 'W') ? 'B' : 'W'; // Toggle player
-        game.boardMoves = GameLogic.boardMoves(game.boardState, game.currentPlayer,
+        game.boardMoves = GameLogic.boardMoves(game.boardState,
+                game.currentPlayer,
                 $scope.logic);
         game.arrows = Arrows.createMoveArrows(game.boardMoves);
         if (game.boardMoves.length === 0) {
           game.currentPlayer = (game.currentPlayer === 'W') ? 'B' : 'W'; // Toggle player
-          game.victory = game.currentPlayer;
-          $scope.doVictory();
+          game.victory = 'T'; //game.currentPlayer;
+          $scope.doTie();
         }
       }
 
@@ -192,10 +195,19 @@ aivsai.controller('aiVsAiCtlr', [
     };
 
     /*------------------------------------------------------------------------*/
+    $scope.doTie = function () {
+
+      $scope.game.boardMoves = [];
+      $scope.game.arrows = [];
+
+    };
+
+    /*------------------------------------------------------------------------*/
     $scope.soundMove = function () {
 
       $timeout(function () {
-        var sound = ngAudio.load('assets/audio/351518__mh2o__chess-move-on-alabaster.wav');
+        var sound = ngAudio.load(
+                'assets/audio/351518__mh2o__chess-move-on-alabaster.wav');
         sound.play();
       }, 10);
     };
@@ -204,7 +216,8 @@ aivsai.controller('aiVsAiCtlr', [
     $scope.celebrateVictory = function () {
 
       $timeout(function () {
-        var sound = ngAudio.load('assets/audio/126421__cabeeno-rossley__level-complete.wav');
+        var sound = ngAudio.load(
+                'assets/audio/126421__cabeeno-rossley__level-complete.wav');
         sound.play();
       }, 250);
     };
@@ -223,7 +236,8 @@ aivsai.controller('aiVsAiCtlr', [
         boardState = GameLogic.flipBoard(boardState);
         boardFlipped = true;
         if (!aiBoards[boardState]) {
-          console.log('AiMove: Board ' + $scope.game.boardState + ' not found.');
+          console.log(
+                  'AiMove: Board ' + $scope.game.boardState + ' not found.');
           return;
         }
       }
@@ -241,10 +255,10 @@ aivsai.controller('aiVsAiCtlr', [
         } else {
           $scope.doMove(GameLogic.flipMove(moves[move]));
         }
-      } else { //resign
+      } else { //resign if the board has no more good moves left
         $scope.game.victory = 'R';
         game.boardMoves = [];
-        $scope.teachAI();
+        //$scope.teachAI(); Commented this out as it was making the AI resign too early
       }
     };
 
@@ -276,20 +290,25 @@ aivsai.controller('aiVsAiCtlr', [
                 lastGoodBoard,
                 badMove
                 );
-        console.log('Move [' + badMove + '] in board [' + lastGoodBoard + '] leads to defeat.');
+        console.log(
+                'Move [' + badMove + '] in board [' + lastGoodBoard + '] leads to defeat.');
         GameLogic.removeMoveFromBoard(// remove mirror image of move as well
                 $scope.game.players[currentLoser].currentBoards,
                 GameLogic.flipBoard(lastGoodBoard),
                 GameLogic.flipMove(badMove)
                 );
-        console.log('Flipped move [' + GameLogic.flipMove(badMove) + '], in board [' + GameLogic.flipBoard(lastGoodBoard) + '] leads to defeat.');
+        console.log('Flipped move [' + GameLogic.flipMove(
+                badMove) + '], in board [' + GameLogic.flipBoard(
+                lastGoodBoard) + '] leads to defeat.');
 
       } else {
-        console.log($scope.game.players[currentLoser].name + ' has failed to learn because of a history offset error.');
+        console.log(
+                $scope.game.players[currentLoser].name + ' has failed to learn because of a history offset error.');
         console.log(history);
       }
 
-      $rootScope.AiBoards[currentLoser][currentLoserName] = JSON.parse(JSON.stringify($scope.game.players[currentLoser].currentBoards));
+      $rootScope.AiBoards[currentLoser][currentLoserName] = JSON.parse(
+              JSON.stringify($scope.game.players[currentLoser].currentBoards));
 
     };
 

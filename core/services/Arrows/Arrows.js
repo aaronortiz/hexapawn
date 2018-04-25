@@ -97,7 +97,7 @@ Arrows.service('Arrows', function () {
     }
 
     return parseFloat(y);
-  }
+  };
 
   /*--------------------------------------------------------------------------*/
   this.findDirection = function (startLetter, startNumber, endLetter, endNumber) {
@@ -164,37 +164,49 @@ Arrows.service('Arrows', function () {
   this.addArrowhead = function (arrow, startLetter, startNumber, endLetter, endNumber) {
 
     const arrowDepth = parseFloat('0.3');
-    const arrowWidth = parseFloat('0.1');
-    const diagonalDepth = parseFloat('0.24');
-    const diagonalWidth = parseFloat('0.03');
-
-    var direction = this.findDirection(startLetter, startNumber, endLetter, endNumber);
+            const arrowWidth = parseFloat('0.1');
+            const diagonalDepth = parseFloat('0.24');
+            const diagonalWidth = parseFloat('0.03');
+            var direction = this.findDirection(startLetter, startNumber,
+                    endLetter, endNumber);
 
     // Create arrowhead
     switch (direction) {
       case 'N':
-        this.addPoint(arrow.points, arrow.x2 - arrowWidth, arrow.y2 + arrowDepth);
-        this.addPoint(arrow.points, arrow.x2 + arrowWidth, arrow.y2 + arrowDepth);
+        this.addPoint(arrow.points, arrow.x2 - arrowWidth,
+                arrow.y2 + arrowDepth);
+        this.addPoint(arrow.points, arrow.x2 + arrowWidth,
+                arrow.y2 + arrowDepth);
         break;
       case 'S':
-        this.addPoint(arrow.points, arrow.x2 - arrowWidth, arrow.y2 - arrowDepth);
-        this.addPoint(arrow.points, arrow.x2 + arrowWidth, arrow.y2 - arrowDepth);
+        this.addPoint(arrow.points, arrow.x2 - arrowWidth,
+                arrow.y2 - arrowDepth);
+        this.addPoint(arrow.points, arrow.x2 + arrowWidth,
+                arrow.y2 - arrowDepth);
         break;
       case 'NE':
-        this.addPoint(arrow.points, arrow.x2 - diagonalDepth, arrow.y2 + diagonalWidth);
-        this.addPoint(arrow.points, arrow.x2 - diagonalWidth, arrow.y2 + diagonalDepth);
+        this.addPoint(arrow.points, arrow.x2 - diagonalDepth,
+                arrow.y2 + diagonalWidth);
+        this.addPoint(arrow.points, arrow.x2 - diagonalWidth,
+                arrow.y2 + diagonalDepth);
         break;
       case 'SE':
-        this.addPoint(arrow.points, arrow.x2 - diagonalDepth, arrow.y2 - diagonalWidth);
-        this.addPoint(arrow.points, arrow.x2 - diagonalWidth, arrow.y2 - diagonalDepth);
+        this.addPoint(arrow.points, arrow.x2 - diagonalDepth,
+                arrow.y2 - diagonalWidth);
+        this.addPoint(arrow.points, arrow.x2 - diagonalWidth,
+                arrow.y2 - diagonalDepth);
         break;
       case 'SW':
-        this.addPoint(arrow.points, arrow.x2 + diagonalDepth, arrow.y2 - diagonalWidth);
-        this.addPoint(arrow.points, arrow.x2 + diagonalWidth, arrow.y2 - diagonalDepth);
+        this.addPoint(arrow.points, arrow.x2 + diagonalDepth,
+                arrow.y2 - diagonalWidth);
+        this.addPoint(arrow.points, arrow.x2 + diagonalWidth,
+                arrow.y2 - diagonalDepth);
         break;
       case 'NW':
-        this.addPoint(arrow.points, arrow.x2 + diagonalDepth, arrow.y2 + diagonalWidth);
-        this.addPoint(arrow.points, arrow.x2 + diagonalWidth, arrow.y2 + diagonalDepth);
+        this.addPoint(arrow.points, arrow.x2 + diagonalDepth,
+                arrow.y2 + diagonalWidth);
+        this.addPoint(arrow.points, arrow.x2 + diagonalWidth,
+                arrow.y2 + diagonalDepth);
         break;
     }
 

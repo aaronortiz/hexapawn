@@ -1,4 +1,10 @@
+
 <div class="moves">
+
+  <p class="player_label"><span class="white pawn">&#9823;</span> = {{ game.players['W'].name}}</p>
+  <p class="player_label"><span class="black pawn">&#9823;</span> = {{ game.players['B'].name}}</p>
+
+  <hr>
 
   <span  ng-if="game.players[game.currentPlayer].type === 'human'"
          ng-repeat="(id, m) in game.boardMoves">
@@ -26,5 +32,6 @@
 
   <button ng-click ="returnToMainMenu()"
           ng-if="gameType !== 'aivsai'">{{i18n.RETURN_TO_MAIN_MENU}}</button>
+
 
 </div>
