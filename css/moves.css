@@ -16,7 +16,7 @@
   height: 1.5em;
 }
 
-moves p.player_label {
+.moves p.player_label {
   font-size: 70%;
   margin: 0;
   padding: 0;
